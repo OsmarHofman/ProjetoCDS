@@ -41,7 +41,10 @@ public class Exercicio implements AlteracaoDados {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		Exercicio novoExercicio = (Exercicio) classe;
+		this.nome= novoExercicio.getNome();
+		this.intensidade = novoExercicio.getIntensidade();
+		this.met = novoExercicio.getMet();
 		
 	}
 

@@ -38,7 +38,9 @@ public class Refeicao extends Horario implements AlteracaoDados {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		Refeicao novaRefeicao = (Refeicao) classe;
+		this.titulo= novaRefeicao.getTitulo();
+		this.listaAlimentos = novaRefeicao.getAlimentos();
 		
 	}
 

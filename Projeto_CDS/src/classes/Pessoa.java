@@ -41,7 +41,10 @@ public class Pessoa extends Usuario {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		Pessoa novaPessoa = (Pessoa) classe;
+		this.nome= novaPessoa.getNome();
+		this.peso_inicial = novaPessoa.getPeso_inicial();
+		this.altura = novaPessoa.getAltura();
 		
 	}
 

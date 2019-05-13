@@ -17,9 +17,36 @@ public class AtividadeFisica extends Horario implements AlteracaoDados {
 		this.gastoCaloria = gastoCaloria;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public List<Exercicio> getListaExercicio() {
+		return listaExercicio;
+	}
+
+	public void setListaExercicio(List<Exercicio> listaExercicio) {
+		this.listaExercicio = listaExercicio;
+	}
+
+	public float getGastoCaloria() {
+		return gastoCaloria;
+	}
+
+	public void setGastoCaloria(float gastoCaloria) {
+		this.gastoCaloria = gastoCaloria;
+	}
+
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		AtividadeFisica novaAtividade = (AtividadeFisica) classe;
+		this.titulo = novaAtividade.getTitulo();
+		this.listaExercicio = novaAtividade.getListaExercicio();
+		this.gastoCaloria = novaAtividade.getGastoCaloria();
 		
 	}
 	

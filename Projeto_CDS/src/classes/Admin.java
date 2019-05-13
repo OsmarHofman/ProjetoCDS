@@ -42,8 +42,11 @@ public class Admin extends Usuario {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
-		
+		Admin novoAdmin = (Admin) classe;
+		this.cpf = novoAdmin.getCpf();
+		this.endereco = novoAdmin.getEndereco();
+		this.telefone = novoAdmin.getTelefone();
+
 	}
 
 	@Override

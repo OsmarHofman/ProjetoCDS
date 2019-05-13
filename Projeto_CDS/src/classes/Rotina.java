@@ -54,7 +54,11 @@ public class Rotina implements AlteracaoDados {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		Rotina novoRotina = (Rotina) classe;
+		this.titulo = novoRotina.getTitulo();
+		this.listaDias = novoRotina.getListaDias();
+		this.listaRefeicao = novoRotina.getListaRefeicao();
+		this.listaAtividade = novoRotina.getListaAtividade();
 		
 	}
 

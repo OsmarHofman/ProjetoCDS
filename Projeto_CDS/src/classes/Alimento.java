@@ -56,8 +56,11 @@ public class Alimento implements AlteracaoDados {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
-		
+		Alimento novoAlimento = (Alimento) classe;
+		this.info_nutri = novoAlimento.getInfo_nutri();
+		this.nome= novoAlimento.getNome();
+		this.quantidade = novoAlimento.getQuantidade();
+		this.unidade_medida = novoAlimento.getUnidade_medida();
 	}
 
 	@Override

@@ -101,7 +101,16 @@ public class InfoNutricional implements AlteracaoDados {
 
 	@Override
 	public <T> void editarInfo(T classe) {
-		// TODO Auto-generated method stub
+		InfoNutricional novoInfo = (InfoNutricional) classe;
+		this.caloria= novoInfo.getCaloria();
+		this.carboidrato= novoInfo.getCarboidrato();
+		this.proteinas = novoInfo.getProteinas();
+		this.gorduras_totais = novoInfo.getGorduras_totais();
+		this.gorduras_saturadas = novoInfo.getGorduras_saturadas();
+		this.gorduras_trans = novoInfo.getGorduras_trans();
+		this.fibras = novoInfo.getFibras();	
+		this.sodio = novoInfo.getSodio();
+		this.totalCalorias = novoInfo.getTotalCalorias();
 		
 	}
 
