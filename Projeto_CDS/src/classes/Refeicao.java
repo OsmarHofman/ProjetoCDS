@@ -37,9 +37,9 @@ public class Refeicao extends Horario implements AlteracaoDados {
 	}
 
 	@Override
-	public void editarInfo() {
+	public <T> void editarInfo(T classe) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override

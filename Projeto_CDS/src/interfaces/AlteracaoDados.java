@@ -2,7 +2,7 @@ package interfaces;
 
 public interface AlteracaoDados {
 	
-	void editarInfo();
+	<T> void editarInfo(T classe);
 
 	void excluirInfo();
 }

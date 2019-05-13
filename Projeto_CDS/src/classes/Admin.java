@@ -41,14 +41,17 @@ public class Admin extends Usuario {
 	}
 
 	@Override
-	public void editarInfo() {
+	public <T> void editarInfo(T classe) {
 		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void excluirInfo() {
 		// TODO Auto-generated method stub
 	}
+
+	
 	
 
 }
