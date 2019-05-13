@@ -1,0 +1,54 @@
+package classes;
+
+import interfaces.AlteracaoDados;
+
+public class Exercicio implements AlteracaoDados {
+
+	public Exercicio(String nome, String intensidade, float met) {
+		super();
+		this.nome = nome;
+		this.intensidade = intensidade;
+		this.met = met;
+	}
+
+	String nome;
+	String intensidade;
+	float met;
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getIntensidade() {
+		return intensidade;
+	}
+
+	public void setIntensidade(String intensidade) {
+		this.intensidade = intensidade;
+	}
+
+	public float getMet() {
+		return met;
+	}
+
+	public void setMet(float met) {
+		this.met = met;
+	}
+
+	@Override
+	public void editarInfo() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void excluirInfo() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
