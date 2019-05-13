@@ -17,7 +17,7 @@ public class Admin extends Usuario {
 
 	@Override
 	public void editarInfo() {
-		// TODO Auto-generated method stub
+		// TODO
 
 	}
 
