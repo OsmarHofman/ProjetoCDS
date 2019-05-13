@@ -11,9 +11,9 @@ public class Exercicio implements AlteracaoDados {
 		this.met = met;
 	}
 
-	String nome;
-	String intensidade;
-	float met;
+	private String nome;
+	private String intensidade;
+	private float met;
 
 	public String getNome() {
 		return nome;

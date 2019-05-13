@@ -6,9 +6,9 @@ import abstratas.Horario;
 import interfaces.AlteracaoDados;
 
 public class AtividadeFisica extends Horario implements AlteracaoDados {
-	String titulo;
-	List<Exercicio> listaExercicio;
-	float gastoCaloria;
+	private String titulo;
+	private List<Exercicio> listaExercicio;
+	private float gastoCaloria;
 
 	public AtividadeFisica(String titulo, List<Exercicio> listaExercicio, float gastoCaloria) {
 		super();
@@ -20,9 +20,8 @@ public class AtividadeFisica extends Horario implements AlteracaoDados {
 	@Override
 	public void editarInfo() {
 		// TODO Auto-generated method stub
-
 	}
-
+	
 	@Override
 	public void excluirInfo() {
 		// TODO Auto-generated method stub

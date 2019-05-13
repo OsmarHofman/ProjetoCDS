@@ -53,10 +53,11 @@ public class Alimento implements AlteracaoDados {
 		// TODO
 	}
 
+
 	@Override
 	public void editarInfo() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -64,6 +65,8 @@ public class Alimento implements AlteracaoDados {
 		// TODO Auto-generated method stub
 
 	}
+
+	
 
 
 

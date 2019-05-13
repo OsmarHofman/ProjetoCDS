@@ -5,10 +5,10 @@ import java.util.List;
 import interfaces.AlteracaoDados;
 
 public class Rotina implements AlteracaoDados {
-	String titulo;
-	List<String> listaDias;
-	List<Refeicao> listaRefeicao;
-	List<AtividadeFisica> listaAtividade;
+	private String titulo;
+	private List<String> listaDias;
+	private List<Refeicao> listaRefeicao;
+	private List<AtividadeFisica> listaAtividade;
 
 	public Rotina(String titulo, List<String> listaDias, List<Refeicao> listaRefeicao,
 			List<AtividadeFisica> listaAtividade) {
