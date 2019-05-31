@@ -6,15 +6,29 @@ import abstratas.Horario;
 import interfaces.AlteracaoDados;
 
 public class AtividadeFisica extends Horario implements AlteracaoDados {
+
+	private int id;
 	private String titulo;
 	private List<Exercicio> listaExercicio;
 	private float gastoCaloria;
 
-	public AtividadeFisica(String titulo, List<Exercicio> listaExercicio, float gastoCaloria) {
+	public AtividadeFisica() {
+	}
+
+	public AtividadeFisica(int id, String titulo, List<Exercicio> listaExercicio, float gastoCaloria) {
 		super();
+		this.id = id;
 		this.titulo = titulo;
 		this.listaExercicio = listaExercicio;
 		this.gastoCaloria = gastoCaloria;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -47,9 +61,9 @@ public class AtividadeFisica extends Horario implements AlteracaoDados {
 		this.titulo = novaAtividade.getTitulo();
 		this.listaExercicio = novaAtividade.getListaExercicio();
 		this.gastoCaloria = novaAtividade.getGastoCaloria();
-		
+
 	}
-	
+
 	@Override
 	public void excluirInfo() {
 		// TODO Auto-generated method stub

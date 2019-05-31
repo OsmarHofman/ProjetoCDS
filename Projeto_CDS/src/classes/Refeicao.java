@@ -8,8 +8,35 @@ import interfaces.AlteracaoDados;
 
 public class Refeicao extends Horario implements AlteracaoDados {
 
+	private int id;
 	private String titulo;
 	private List<Alimento> listaAlimentos = new ArrayList<Alimento>();
+
+	public Refeicao() {
+	}
+
+	public Refeicao(int id, String titulo, List<Alimento> listaAlimentos) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.listaAlimentos = listaAlimentos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<Alimento> getListaAlimentos() {
+		return listaAlimentos;
+	}
+
+	public void setListaAlimentos(List<Alimento> listaAlimentos) {
+		this.listaAlimentos = listaAlimentos;
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -39,9 +66,9 @@ public class Refeicao extends Horario implements AlteracaoDados {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Refeicao novaRefeicao = (Refeicao) classe;
-		this.titulo= novaRefeicao.getTitulo();
+		this.titulo = novaRefeicao.getTitulo();
 		this.listaAlimentos = novaRefeicao.getAlimentos();
-		
+
 	}
 
 	@Override

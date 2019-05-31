@@ -4,16 +4,25 @@ import interfaces.AlteracaoDados;
 
 public class Exercicio implements AlteracaoDados {
 
-	public Exercicio(String nome, String intensidade, float met) {
-		super();
+	private int id;
+	private String nome;
+	private String intensidade;
+	private float met;
+
+	public Exercicio(int id, String nome, String intensidade, float met) {
+		this.id = id;
 		this.nome = nome;
 		this.intensidade = intensidade;
 		this.met = met;
 	}
 
-	private String nome;
-	private String intensidade;
-	private float met;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
@@ -42,10 +51,10 @@ public class Exercicio implements AlteracaoDados {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Exercicio novoExercicio = (Exercicio) classe;
-		this.nome= novoExercicio.getNome();
+		this.nome = novoExercicio.getNome();
 		this.intensidade = novoExercicio.getIntensidade();
 		this.met = novoExercicio.getMet();
-		
+
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import interfaces.AlteracaoDados;
 
 public class InfoNutricional implements AlteracaoDados {
 
+	private int id;
 	private float caloria;
 	private float carboidrato;
 	private float proteinas;
@@ -14,9 +15,12 @@ public class InfoNutricional implements AlteracaoDados {
 	private float sodio;
 	private float totalCalorias;
 
-	public InfoNutricional(float caloria, float carboidrato, float proteinas, float gorduras_totais,
-			float gorduras_saturadas, float gorduras_trans, float fibras, float sodio) {
-		super();
+	public InfoNutricional() {
+	}
+
+	public InfoNutricional(int id, float caloria, float carboidrato, float proteinas, float gorduras_totais,
+			float gorduras_saturadas, float gorduras_trans, float fibras, float sodio, float totalCalorias) {
+		this.id = id;
 		this.caloria = caloria;
 		this.carboidrato = carboidrato;
 		this.proteinas = proteinas;
@@ -25,6 +29,15 @@ public class InfoNutricional implements AlteracaoDados {
 		this.gorduras_trans = gorduras_trans;
 		this.fibras = fibras;
 		this.sodio = sodio;
+		this.totalCalorias = totalCalorias;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public float getCaloria() {
@@ -102,16 +115,16 @@ public class InfoNutricional implements AlteracaoDados {
 	@Override
 	public <T> void editarInfo(T classe) {
 		InfoNutricional novoInfo = (InfoNutricional) classe;
-		this.caloria= novoInfo.getCaloria();
-		this.carboidrato= novoInfo.getCarboidrato();
+		this.caloria = novoInfo.getCaloria();
+		this.carboidrato = novoInfo.getCarboidrato();
 		this.proteinas = novoInfo.getProteinas();
 		this.gorduras_totais = novoInfo.getGorduras_totais();
 		this.gorduras_saturadas = novoInfo.getGorduras_saturadas();
 		this.gorduras_trans = novoInfo.getGorduras_trans();
-		this.fibras = novoInfo.getFibras();	
+		this.fibras = novoInfo.getFibras();
 		this.sodio = novoInfo.getSodio();
 		this.totalCalorias = novoInfo.getTotalCalorias();
-		
+
 	}
 
 	@Override

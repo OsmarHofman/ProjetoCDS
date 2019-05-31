@@ -8,6 +8,9 @@ public class Admin extends Usuario {
 	private String endereco;
 	private String telefone;
 
+	public Admin() {
+	}
+
 	public Admin(String cpf, String endereco, String telefone) {
 		super();
 		this.cpf = cpf;
@@ -15,7 +18,7 @@ public class Admin extends Usuario {
 		this.telefone = telefone;
 		this.telefone = telefone;
 	}
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -53,8 +56,5 @@ public class Admin extends Usuario {
 	public void excluirInfo() {
 		// TODO Auto-generated method stub
 	}
-
-	
-	
 
 }

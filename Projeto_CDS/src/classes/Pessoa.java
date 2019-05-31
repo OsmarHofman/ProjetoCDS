@@ -8,6 +8,9 @@ public class Pessoa extends Usuario {
 	private float peso_inicial;
 	private float altura;
 
+	public Pessoa() {
+	}
+
 	public Pessoa(String nome, float peso_inicial, float altura) {
 		super();
 		this.nome = nome;
@@ -42,10 +45,10 @@ public class Pessoa extends Usuario {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Pessoa novaPessoa = (Pessoa) classe;
-		this.nome= novaPessoa.getNome();
+		this.nome = novaPessoa.getNome();
 		this.peso_inicial = novaPessoa.getPeso_inicial();
 		this.altura = novaPessoa.getAltura();
-		
+
 	}
 
 	@Override

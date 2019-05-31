@@ -5,19 +5,32 @@ import java.util.List;
 import interfaces.AlteracaoDados;
 
 public class Rotina implements AlteracaoDados {
+
+	private int id;
 	private String titulo;
 	private List<String> listaDias;
-	private List<Refeicao> listaRefeicao;
-	private List<AtividadeFisica> listaAtividade;
+	private Refeicao listaRefeicao;
+	private AtividadeFisica listaAtividade;
 
-	public Rotina(String titulo, List<String> listaDias, List<Refeicao> listaRefeicao,
-			List<AtividadeFisica> listaAtividade) {
+	public Rotina() {
+	}
 
+	public Rotina(int id, String titulo, List<String> listaDias, Refeicao listaRefeicao,
+			AtividadeFisica listaAtividade) {
 		super();
+		this.id = id;
 		this.titulo = titulo;
 		this.listaDias = listaDias;
 		this.listaRefeicao = listaRefeicao;
 		this.listaAtividade = listaAtividade;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -36,19 +49,19 @@ public class Rotina implements AlteracaoDados {
 		this.listaDias = listaDias;
 	}
 
-	public List<Refeicao> getListaRefeicao() {
+	public Refeicao getListaRefeicao() {
 		return listaRefeicao;
 	}
 
-	public void setListaRefeicao(List<Refeicao> listaRefeicao) {
+	public void setListaRefeicao(Refeicao listaRefeicao) {
 		this.listaRefeicao = listaRefeicao;
 	}
 
-	public List<AtividadeFisica> getListaAtividade() {
+	public AtividadeFisica getListaAtividade() {
 		return listaAtividade;
 	}
 
-	public void setListaAtividade(List<AtividadeFisica> listaAtividade) {
+	public void setListaAtividade(AtividadeFisica listaAtividade) {
 		this.listaAtividade = listaAtividade;
 	}
 
@@ -59,7 +72,7 @@ public class Rotina implements AlteracaoDados {
 		this.listaDias = novoRotina.getListaDias();
 		this.listaRefeicao = novoRotina.getListaRefeicao();
 		this.listaAtividade = novoRotina.getListaAtividade();
-		
+
 	}
 
 	@Override

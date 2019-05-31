@@ -4,17 +4,29 @@ import interfaces.AlteracaoDados;
 
 public class Alimento implements AlteracaoDados {
 
+	private int id;
 	private String nome;
 	private float quantidade;
 	private String unidade_medida;
 	private InfoNutricional info_nutri;
 
-	public Alimento(String nome, float quantidade, String unidade_medida, InfoNutricional info_nutri) {
-		super();
+	public Alimento() {
+	}
+
+	public Alimento(int id, String nome, float quantidade, String unidade_medida, InfoNutricional info_nutri) {
+		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
 		this.unidade_medida = unidade_medida;
 		this.info_nutri = info_nutri;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -53,12 +65,11 @@ public class Alimento implements AlteracaoDados {
 		// TODO
 	}
 
-
 	@Override
 	public <T> void editarInfo(T classe) {
 		Alimento novoAlimento = (Alimento) classe;
 		this.info_nutri = novoAlimento.getInfo_nutri();
-		this.nome= novoAlimento.getNome();
+		this.nome = novoAlimento.getNome();
 		this.quantidade = novoAlimento.getQuantidade();
 		this.unidade_medida = novoAlimento.getUnidade_medida();
 	}
@@ -68,9 +79,5 @@ public class Alimento implements AlteracaoDados {
 		// TODO Auto-generated method stub
 
 	}
-
-	
-
-
 
 }

@@ -2,15 +2,27 @@ package classes;
 
 public class DadosPessoa {
 
+	private int id;
 	private String nome;
 	private float peso_inicial;
 	private float altura;
 
-	public DadosPessoa(String nome, float peso_inicial, float altura) {
-		super();
+	public DadosPessoa() {
+	}
+
+	public DadosPessoa(int id, String nome, float peso_inicial, float altura) {
+		this.id = id;
 		this.nome = nome;
 		this.peso_inicial = peso_inicial;
 		this.altura = altura;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNome() {
