@@ -4,7 +4,7 @@ import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 public class InfoNutricional implements AlteracaoDados {
 
-	private int id;
+	private Integer id;
 	private float caloria;
 	private float carboidrato;
 	private float proteinas;
@@ -18,7 +18,7 @@ public class InfoNutricional implements AlteracaoDados {
 	public InfoNutricional() {
 	}
 
-	public InfoNutricional(int id, float caloria, float carboidrato, float proteinas, float gorduras_totais,
+	public InfoNutricional(Integer id, float caloria, float carboidrato, float proteinas, float gorduras_totais,
 			float gorduras_saturadas, float gorduras_trans, float fibras, float sodio, float totalCalorias) {
 		this.id = id;
 		this.caloria = caloria;
@@ -32,11 +32,11 @@ public class InfoNutricional implements AlteracaoDados {
 		this.totalCalorias = totalCalorias;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

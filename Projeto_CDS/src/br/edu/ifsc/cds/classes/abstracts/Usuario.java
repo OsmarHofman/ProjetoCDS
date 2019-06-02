@@ -3,16 +3,27 @@ package br.edu.ifsc.cds.classes.abstracts;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 public abstract class Usuario implements AlteracaoDados {
-	private int id;
+	private Integer id;
 	private String nome;
 	private String email;
 	private String senha;
 
-	public int getId() {
+	public Usuario() {
+	}
+
+	public Usuario(Integer id, String nome, String email, String senha) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

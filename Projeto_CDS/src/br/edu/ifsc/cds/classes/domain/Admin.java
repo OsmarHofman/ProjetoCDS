@@ -11,8 +11,8 @@ public class Admin extends Usuario {
 	public Admin() {
 	}
 
-	public Admin(String cpf, String endereco, String telefone) {
-		super();
+	public Admin(Integer id, String nome, String email, String senha, String cpf, String endereco, String telefone) {
+		super(id, nome, email, senha);
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.telefone = telefone;

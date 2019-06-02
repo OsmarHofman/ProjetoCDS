@@ -4,26 +4,16 @@ import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
 public class Pessoa extends Usuario {
 
-	private String nome;
 	private float peso_inicial;
 	private float altura;
 
 	public Pessoa() {
 	}
 
-	public Pessoa(String nome, float peso_inicial, float altura) {
-		super();
-		this.nome = nome;
+	public Pessoa(Integer id, String nome, String email, String senha, float peso_inicial, float altura) {
+		super(id, nome, email, senha);
 		this.peso_inicial = peso_inicial;
 		this.altura = altura;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public float getPeso_inicial() {
@@ -45,7 +35,6 @@ public class Pessoa extends Usuario {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Pessoa novaPessoa = (Pessoa) classe;
-		this.nome = novaPessoa.getNome();
 		this.peso_inicial = novaPessoa.getPeso_inicial();
 		this.altura = novaPessoa.getAltura();
 

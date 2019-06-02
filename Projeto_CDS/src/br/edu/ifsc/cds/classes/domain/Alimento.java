@@ -4,7 +4,7 @@ import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 public class Alimento implements AlteracaoDados {
 
-	private int id;
+	private Integer id;
 	private String nome;
 	private float quantidade;
 	private String unidade_medida;
@@ -13,7 +13,7 @@ public class Alimento implements AlteracaoDados {
 	public Alimento() {
 	}
 
-	public Alimento(int id, String nome, float quantidade, String unidade_medida, InfoNutricional info_nutri) {
+	public Alimento(Integer id, String nome, float quantidade, String unidade_medida, InfoNutricional info_nutri) {
 		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
@@ -21,11 +21,11 @@ public class Alimento implements AlteracaoDados {
 		this.info_nutri = info_nutri;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -1,6 +1,7 @@
 package br.edu.ifsc.cds.classes.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.ifsc.cds.classes.abstracts.Horario;
@@ -8,25 +9,26 @@ import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 public class Refeicao extends Horario implements AlteracaoDados {
 
-	private int id;
+	private Integer id;
 	private String titulo;
 	private List<Alimento> listaAlimentos = new ArrayList<Alimento>();
 
 	public Refeicao() {
 	}
 
-	public Refeicao(int id, String titulo, List<Alimento> listaAlimentos) {
-		super();
+	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo,
+			List<Alimento> listaAlimentos) {
+		super(periodoInicio, periodoFim, diaSemana);
 		this.id = id;
 		this.titulo = titulo;
 		this.listaAlimentos = listaAlimentos;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

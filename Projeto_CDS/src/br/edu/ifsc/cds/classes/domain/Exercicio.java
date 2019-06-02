@@ -1,26 +1,33 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.util.Date;
+
+import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
-public class Exercicio implements AlteracaoDados {
+public class Exercicio extends Horario implements AlteracaoDados {
 
-	private int id;
+	private Integer id;
 	private String nome;
 	private String intensidade;
 	private float met;
+	private float gastoCaloria;
 
-	public Exercicio(int id, String nome, String intensidade, float met) {
+	public Exercicio(Integer id, String nome, String intensidade, float met, float gastoCaloria, Date periodoInicio,
+			Date periodoFim, Date diaSemana) {
+		super(periodoInicio, periodoFim, diaSemana);
 		this.id = id;
 		this.nome = nome;
 		this.intensidade = intensidade;
 		this.met = met;
+		this.gastoCaloria = gastoCaloria;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -46,6 +53,14 @@ public class Exercicio implements AlteracaoDados {
 
 	public void setMet(float met) {
 		this.met = met;
+	}
+
+	public float getGastoCaloria() {
+		return gastoCaloria;
+	}
+
+	public void setGastoCaloria(float gastoCaloria) {
+		this.gastoCaloria = gastoCaloria;
 	}
 
 	@Override

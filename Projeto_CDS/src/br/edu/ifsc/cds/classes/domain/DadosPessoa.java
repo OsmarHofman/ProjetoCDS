@@ -2,7 +2,7 @@ package br.edu.ifsc.cds.classes.domain;
 
 public class DadosPessoa {
 
-	private int id;
+	private Integer id;
 	private String nome;
 	private float peso_inicial;
 	private float altura;
@@ -10,18 +10,18 @@ public class DadosPessoa {
 	public DadosPessoa() {
 	}
 
-	public DadosPessoa(int id, String nome, float peso_inicial, float altura) {
+	public DadosPessoa(Integer id, String nome, float peso_inicial, float altura) {
 		this.id = id;
 		this.nome = nome;
 		this.peso_inicial = peso_inicial;
 		this.altura = altura;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

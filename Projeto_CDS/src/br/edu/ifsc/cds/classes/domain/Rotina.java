@@ -6,30 +6,27 @@ import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 public class Rotina implements AlteracaoDados {
 
-	private int id;
+	private Integer id;
 	private String titulo;
 	private List<String> listaDias;
-	private Refeicao listaRefeicao;
-	private AtividadeFisica listaAtividade;
+	private List<Refeicao> listaRefeicao;
+	private List<Exercicio> listaExercicio;
 
 	public Rotina() {
 	}
 
-	public Rotina(int id, String titulo, List<String> listaDias, Refeicao listaRefeicao,
-			AtividadeFisica listaAtividade) {
+	public Rotina(Integer id, String titulo, List<String> listaDias) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.listaDias = listaDias;
-		this.listaRefeicao = listaRefeicao;
-		this.listaAtividade = listaAtividade;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -49,20 +46,20 @@ public class Rotina implements AlteracaoDados {
 		this.listaDias = listaDias;
 	}
 
-	public Refeicao getListaRefeicao() {
+	public List<Refeicao> getListaRefeicao() {
 		return listaRefeicao;
 	}
 
-	public void setListaRefeicao(Refeicao listaRefeicao) {
+	public void setListaRefeicao(List<Refeicao> listaRefeicao) {
 		this.listaRefeicao = listaRefeicao;
 	}
 
-	public AtividadeFisica getListaAtividade() {
-		return listaAtividade;
+	public List<Exercicio> getListaExercicio() {
+		return listaExercicio;
 	}
 
-	public void setListaAtividade(AtividadeFisica listaAtividade) {
-		this.listaAtividade = listaAtividade;
+	public void setListaExercicio(List<Exercicio> listaExercicio) {
+		this.listaExercicio = listaExercicio;
 	}
 
 	@Override
@@ -71,7 +68,7 @@ public class Rotina implements AlteracaoDados {
 		this.titulo = novoRotina.getTitulo();
 		this.listaDias = novoRotina.getListaDias();
 		this.listaRefeicao = novoRotina.getListaRefeicao();
-		this.listaAtividade = novoRotina.getListaAtividade();
+		this.listaExercicio = novoRotina.getListaExercicio();
 
 	}
 
