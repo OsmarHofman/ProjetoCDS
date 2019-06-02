@@ -4,23 +4,38 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
+@Entity
 public class Refeicao extends Horario implements AlteracaoDados {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private List<Alimento> listaAlimentos = new ArrayList<Alimento>();
 
+	@ManyToOne
+	@JoinColumn(name = "rotina_id")
+	private Rotina rotina;
+
 	public Refeicao() {
 	}
 
-	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo,
+	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo, Rotina rotina,
 			List<Alimento> listaAlimentos) {
 		super(periodoInicio, periodoFim, diaSemana);
 		this.id = id;
 		this.titulo = titulo;
+		this.setRotina(rotina);
 		this.listaAlimentos = listaAlimentos;
 	}
 
@@ -54,6 +69,14 @@ public class Refeicao extends Horario implements AlteracaoDados {
 
 	public void setAlimentos(List<Alimento> alimentos) {
 		this.listaAlimentos = alimentos;
+	}
+
+	public Rotina getRotina() {
+		return rotina;
+	}
+
+	public void setRotina(Rotina rotina) {
+		this.rotina = rotina;
 	}
 
 	// Métodos
