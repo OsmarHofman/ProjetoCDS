@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
@@ -21,6 +22,8 @@ public class Refeicao extends Horario implements AlteracaoDados {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
+
+	@OneToMany(mappedBy = "refeicao")
 	private List<Alimento> listaAlimentos = new ArrayList<Alimento>();
 
 	@ManyToOne

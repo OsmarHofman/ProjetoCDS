@@ -1,14 +1,28 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
+@Entity
 public class Alimento implements AlteracaoDados {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private float quantidade;
 	private String unidade_medida;
 	private InfoNutricional info_nutri;
+
+	@ManyToOne
+	@JoinColumn(name = "refeicao_id")
+	private Refeicao refeicao;
 
 	public Alimento() {
 	}
