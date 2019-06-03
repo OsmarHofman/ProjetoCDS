@@ -1,11 +1,20 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
+@Entity
 public class Pessoa extends Usuario {
 
 	private float peso_inicial;
 	private float altura;
+
+	@OneToMany(mappedBy = "pessoa")
+	private List<Rotina> listaRotinas;
 
 	public Pessoa() {
 	}
@@ -30,6 +39,14 @@ public class Pessoa extends Usuario {
 
 	public void setAltura(float altura) {
 		this.altura = altura;
+	}
+
+	public List<Rotina> getListaRotinas() {
+		return listaRotinas;
+	}
+
+	public void setListaRotinas(List<Rotina> listaRotinas) {
+		this.listaRotinas = listaRotinas;
 	}
 
 	@Override
