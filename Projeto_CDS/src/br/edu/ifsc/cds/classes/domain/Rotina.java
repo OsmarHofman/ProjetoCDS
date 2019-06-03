@@ -19,8 +19,10 @@ public class Rotina implements AlteracaoDados {
 	private String titulo;
 	private List<String> listaDias;
 
-	@OneToMany(mappedBy = "rotina")
+	@OneToMany(mappedBy = "rotina_refeicao")
 	private List<Refeicao> listaRefeicao;
+
+	@OneToMany(mappedBy = "rotina_exercicio")
 	private List<Exercicio> listaExercicio;
 
 	public Rotina() {

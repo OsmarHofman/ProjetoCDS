@@ -2,16 +2,30 @@ package br.edu.ifsc.cds.classes.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
+@Entity
 public class Exercicio extends Horario implements AlteracaoDados {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String intensidade;
 	private float met;
 	private float gastoCaloria;
+
+	@ManyToOne
+	@JoinColumn(name = "rotina_id")
+	private Rotina rotina_exercicio;
 
 	public Exercicio(Integer id, String nome, String intensidade, float met, float gastoCaloria, Date periodoInicio,
 			Date periodoFim, Date diaSemana) {

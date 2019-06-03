@@ -28,17 +28,16 @@ public class Refeicao extends Horario implements AlteracaoDados {
 
 	@ManyToOne
 	@JoinColumn(name = "rotina_id")
-	private Rotina rotina;
+	private Rotina rotina_refeicao;
 
 	public Refeicao() {
 	}
 
-	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo, Rotina rotina,
+	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo,
 			List<Alimento> listaAlimentos) {
 		super(periodoInicio, periodoFim, diaSemana);
 		this.id = id;
 		this.titulo = titulo;
-		this.setRotina(rotina);
 		this.listaAlimentos = listaAlimentos;
 	}
 
@@ -72,14 +71,6 @@ public class Refeicao extends Horario implements AlteracaoDados {
 
 	public void setAlimentos(List<Alimento> alimentos) {
 		this.listaAlimentos = alimentos;
-	}
-
-	public Rotina getRotina() {
-		return rotina;
-	}
-
-	public void setRotina(Rotina rotina) {
-		this.rotina = rotina;
 	}
 
 	// Métodos
