@@ -3,6 +3,8 @@ package br.edu.ifsc.cds.classes.abstracts;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -12,6 +14,7 @@ import javax.persistence.InheritanceType;
 public abstract class Horario {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Date periodoInicio;
 	private Date periodoFim;
