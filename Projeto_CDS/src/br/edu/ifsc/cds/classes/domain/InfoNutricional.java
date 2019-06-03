@@ -1,9 +1,20 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
+@Entity
 public class InfoNutricional implements AlteracaoDados {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private float caloria;
 	private float carboidrato;
@@ -14,6 +25,11 @@ public class InfoNutricional implements AlteracaoDados {
 	private float fibras;
 	private float sodio;
 	private float totalCalorias;
+
+	@JoinColumn(name = "pedido_id")
+	@OneToOne
+	@MapsId
+	private Alimento alimento;
 
 	public InfoNutricional() {
 	}

@@ -1,11 +1,13 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
@@ -18,6 +20,8 @@ public class Alimento implements AlteracaoDados {
 	private String nome;
 	private float quantidade;
 	private String unidade_medida;
+
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "alimento")
 	private InfoNutricional info_nutri;
 
 	@ManyToOne
