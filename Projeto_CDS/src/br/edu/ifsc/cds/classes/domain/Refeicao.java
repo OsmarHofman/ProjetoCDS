@@ -5,9 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -18,9 +15,6 @@ import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 @Entity
 public class Refeicao extends Horario implements AlteracaoDados {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 	private String titulo;
 
 	@OneToMany(mappedBy = "refeicao")
@@ -33,20 +27,11 @@ public class Refeicao extends Horario implements AlteracaoDados {
 	public Refeicao() {
 	}
 
-	public Refeicao(Date periodoInicio, Date periodoFim, Date diaSemana, Integer id, String titulo,
+	public Refeicao(Integer id, Date periodoInicio, Date periodoFim, Date diaSemana, String titulo,
 			List<Alimento> listaAlimentos) {
-		super(periodoInicio, periodoFim, diaSemana);
-		this.id = id;
+		super(id, periodoInicio, periodoFim, diaSemana);
 		this.titulo = titulo;
 		this.listaAlimentos = listaAlimentos;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public List<Alimento> getListaAlimentos() {

@@ -1,8 +1,20 @@
 package br.edu.ifsc.cds.classes.abstracts;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario implements AlteracaoDados {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String email;

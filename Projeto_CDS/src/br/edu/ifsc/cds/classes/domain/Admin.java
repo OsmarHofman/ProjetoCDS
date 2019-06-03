@@ -1,7 +1,10 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import javax.persistence.Entity;
+
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
+@Entity
 public class Admin extends Usuario {
 
 	private String cpf;
