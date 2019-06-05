@@ -1,5 +1,6 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -10,7 +11,8 @@ import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
-public class Exercicio extends Horario implements AlteracaoDados {
+public class Exercicio extends Horario implements AlteracaoDados, Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private String nome;
 	private String intensidade;

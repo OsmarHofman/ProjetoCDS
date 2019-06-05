@@ -1,5 +1,6 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,7 +9,8 @@ import javax.persistence.OneToMany;
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
 @Entity
-public class Pessoa extends Usuario {
+public class Pessoa extends Usuario implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private float peso_inicial;
 	private float altura;

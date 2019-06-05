@@ -1,5 +1,6 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +14,8 @@ import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
-public class Refeicao extends Horario implements AlteracaoDados {
+public class Refeicao extends Horario implements AlteracaoDados, Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private String titulo;
 
@@ -58,7 +60,7 @@ public class Refeicao extends Horario implements AlteracaoDados {
 		this.listaAlimentos = alimentos;
 	}
 
-	// Métodos
+	// Mï¿½todos
 	public float totalGanhoCalorico(ArrayList<Alimento> alimentos) {
 		float total = 0;
 		for (Alimento ali : alimentos) {

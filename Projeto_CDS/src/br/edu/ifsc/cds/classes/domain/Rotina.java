@@ -19,6 +19,7 @@ public class Rotina implements AlteracaoDados {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
+	private List<String> listaDias;
 
 	@OneToMany(mappedBy = "rotina_refeicao")
 	private List<Refeicao> listaRefeicao;
@@ -33,10 +34,11 @@ public class Rotina implements AlteracaoDados {
 	public Rotina() {
 	}
 
-	public Rotina(Integer id, String titulo) {
+	public Rotina(Integer id, String titulo, List<String> listaDias) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
+		this.listaDias = listaDias;
 	}
 
 	public Integer getId() {
@@ -53,6 +55,14 @@ public class Rotina implements AlteracaoDados {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public List<String> getListaDias() {
+		return listaDias;
+	}
+
+	public void setListaDias(List<String> listaDias) {
+		this.listaDias = listaDias;
 	}
 
 	public List<Refeicao> getListaRefeicao() {
@@ -75,6 +85,7 @@ public class Rotina implements AlteracaoDados {
 	public <T> void editarInfo(T classe) {
 		Rotina novoRotina = (Rotina) classe;
 		this.titulo = novoRotina.getTitulo();
+		this.listaDias = novoRotina.getListaDias();
 		this.listaRefeicao = novoRotina.getListaRefeicao();
 		this.listaExercicio = novoRotina.getListaExercicio();
 
