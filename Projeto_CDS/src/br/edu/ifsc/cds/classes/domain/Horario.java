@@ -1,16 +1,14 @@
-package br.edu.ifsc.cds.classes.abstracts;
+package br.edu.ifsc.cds.classes.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Horario implements Serializable {
+public class Horario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -18,6 +16,12 @@ public abstract class Horario implements Serializable {
 	private Date periodoInicio;
 	private Date periodoFim;
 	private Date diaSemana;
+
+	@OneToOne(mappedBy = "horario_ex")
+	private Exercicio exercicio;
+
+	@OneToOne(mappedBy = "horario_ref")
+	private Refeicao refeicao;
 
 	public Horario() {
 

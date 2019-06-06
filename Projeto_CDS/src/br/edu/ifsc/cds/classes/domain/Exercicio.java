@@ -6,8 +6,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
@@ -22,6 +22,10 @@ public class Exercicio extends Horario implements AlteracaoDados, Serializable {
 	@ManyToOne
 	@JoinColumn(name = "rotina_id")
 	private Rotina rotina_exercicio;
+
+	@JoinColumn(name = "horario_id")
+	@OneToOne
+	private Horario horario_ex;
 
 	public Exercicio(Integer id, String nome, String intensidade, float met, float gastoCaloria, Date periodoInicio,
 			Date periodoFim, Date diaSemana) {

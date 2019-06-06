@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.abstracts.Horario;
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
@@ -25,6 +25,10 @@ public class Refeicao extends Horario implements AlteracaoDados, Serializable {
 	@ManyToOne
 	@JoinColumn(name = "rotina_id")
 	private Rotina rotina_refeicao;
+
+	@JoinColumn(name = "horario_id")
+	@OneToOne
+	private Horario horario_ref;
 
 	public Refeicao() {
 	}
