@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
@@ -29,9 +27,7 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 	private float sodio;
 	private float totalCalorias;
 
-	@JoinColumn(name = "pedido_id")
-	@OneToOne
-	@MapsId
+	@OneToOne(mappedBy = "info_nutri")
 	private Alimento alimento;
 
 	public InfoNutricional() {

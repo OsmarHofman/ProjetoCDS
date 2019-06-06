@@ -24,7 +24,8 @@ public class Alimento implements AlteracaoDados, Serializable {
 	private float quantidade;
 	private String unidade_medida;
 
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "alimento")
+	@JoinColumn(name = "info_nutri_id")
+	@OneToOne(cascade = CascadeType.ALL)
 	private InfoNutricional info_nutri;
 
 	@ManyToOne
