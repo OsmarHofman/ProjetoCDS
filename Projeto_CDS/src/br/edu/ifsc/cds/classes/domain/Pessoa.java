@@ -12,7 +12,7 @@ import br.edu.ifsc.cds.classes.abstracts.Usuario;
 public class Pessoa extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private float peso_inicial;
+	private float pesoInicial;
 	private float altura;
 
 	@OneToMany(mappedBy = "pessoa")
@@ -23,16 +23,16 @@ public class Pessoa extends Usuario implements Serializable {
 
 	public Pessoa(Integer id, String nome, String email, String senha, float peso_inicial, float altura) {
 		super(id, nome, email, senha);
-		this.peso_inicial = peso_inicial;
+		this.pesoInicial = peso_inicial;
 		this.altura = altura;
 	}
 
 	public float getPeso_inicial() {
-		return peso_inicial;
+		return pesoInicial;
 	}
 
 	public void setPeso_inicial(float peso_inicial) {
-		this.peso_inicial = peso_inicial;
+		this.pesoInicial = peso_inicial;
 	}
 
 	public float getAltura() {
@@ -54,7 +54,7 @@ public class Pessoa extends Usuario implements Serializable {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Pessoa novaPessoa = (Pessoa) classe;
-		this.peso_inicial = novaPessoa.getPeso_inicial();
+		this.pesoInicial = novaPessoa.getPeso_inicial();
 		this.altura = novaPessoa.getAltura();
 
 	}

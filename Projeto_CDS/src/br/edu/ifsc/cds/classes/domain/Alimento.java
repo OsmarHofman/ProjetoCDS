@@ -1,6 +1,8 @@
 package br.edu.ifsc.cds.classes.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,7 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
@@ -22,25 +25,25 @@ public class Alimento implements AlteracaoDados, Serializable {
 	private Integer id;
 	private String nome;
 	private float quantidade;
-	private String unidade_medida;
+	private String unidadeMedida;
 
 	@JoinColumn(name = "info_nutri_id")
 	@OneToOne(cascade = CascadeType.ALL)
-	private InfoNutricional info_nutri;
+	private InfoNutricional infoNutri;
 
-	@ManyToOne
-	@JoinColumn(name = "refeicao_id")
-	private Refeicao refeicao;
+	@ManyToMany
+	@JoinTable(name = "Alimento_Refeicao", joinColumns = @JoinColumn(name = "alimento_id"), inverseJoinColumns = @JoinColumn(name = "refeicao_id"))
+	private List<Refeicao> listaRefeicao = new ArrayList<>();
 
 	public Alimento() {
 	}
 
-	public Alimento(Integer id, String nome, float quantidade, String unidade_medida, InfoNutricional info_nutri) {
+	public Alimento(Integer id, String nome, float quantidade, String unidade_medida, InfoNutricional infoNutri) {
 		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
-		this.unidade_medida = unidade_medida;
-		this.info_nutri = info_nutri;
+		this.unidadeMedida = unidade_medida;
+		this.infoNutri = infoNutri;
 	}
 
 	public Integer getId() {
@@ -67,20 +70,28 @@ public class Alimento implements AlteracaoDados, Serializable {
 		this.quantidade = quantidade;
 	}
 
-	public String getUnidade_medida() {
-		return unidade_medida;
+	public String getUnidadeMedida() {
+		return unidadeMedida;
 	}
 
-	public void setUnidade_medida(String unidade_medida) {
-		this.unidade_medida = unidade_medida;
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
 	}
 
-	public InfoNutricional getInfo_nutri() {
-		return info_nutri;
+	public InfoNutricional getInfoNutri() {
+		return infoNutri;
 	}
 
-	public void setInfo_nutri(InfoNutricional info_nutri) {
-		this.info_nutri = info_nutri;
+	public void setInfoNutri(InfoNutricional infoNutri) {
+		this.infoNutri = infoNutri;
+	}
+
+	public List<Refeicao> getListaRefeicao() {
+		return listaRefeicao;
+	}
+
+	public void setListaRefeicao(List<Refeicao> listaRefeicao) {
+		this.listaRefeicao = listaRefeicao;
 	}
 
 	public void addNovoAlimento(Alimento alimento, InfoNutricional info) {
@@ -90,10 +101,10 @@ public class Alimento implements AlteracaoDados, Serializable {
 	@Override
 	public <T> void editarInfo(T classe) {
 		Alimento novoAlimento = (Alimento) classe;
-		this.info_nutri = novoAlimento.getInfo_nutri();
+		this.infoNutri = novoAlimento.getInfoNutri();
 		this.nome = novoAlimento.getNome();
 		this.quantidade = novoAlimento.getQuantidade();
-		this.unidade_medida = novoAlimento.getUnidade_medida();
+		this.unidadeMedida = novoAlimento.getUnidadeMedida();
 	}
 
 	@Override

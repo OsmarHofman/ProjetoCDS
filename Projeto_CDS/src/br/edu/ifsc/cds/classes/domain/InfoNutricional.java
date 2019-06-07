@@ -20,14 +20,14 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 	private float caloria;
 	private float carboidrato;
 	private float proteinas;
-	private float gorduras_totais;
-	private float gorduras_saturadas;
-	private float gorduras_trans;
+	private float gordurasTotais;
+	private float gordurasSaturadas;
+	private float gordurasTrans;
 	private float fibras;
 	private float sodio;
 	private float totalCalorias;
 
-	@OneToOne(mappedBy = "info_nutri")
+	@OneToOne(mappedBy = "infoNutri")
 	private Alimento alimento;
 
 	public InfoNutricional() {
@@ -39,9 +39,9 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 		this.caloria = caloria;
 		this.carboidrato = carboidrato;
 		this.proteinas = proteinas;
-		this.gorduras_totais = gorduras_totais;
-		this.gorduras_saturadas = gorduras_saturadas;
-		this.gorduras_trans = gorduras_trans;
+		this.gordurasTotais = gorduras_totais;
+		this.gordurasSaturadas = gorduras_saturadas;
+		this.gordurasTrans = gorduras_trans;
 		this.fibras = fibras;
 		this.sodio = sodio;
 		this.totalCalorias = totalCalorias;
@@ -80,27 +80,27 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 	}
 
 	public float getGorduras_totais() {
-		return gorduras_totais;
+		return gordurasTotais;
 	}
 
 	public void setGorduras_totais(float gorduras_totais) {
-		this.gorduras_totais = gorduras_totais;
+		this.gordurasTotais = gorduras_totais;
 	}
 
 	public float getGorduras_saturadas() {
-		return gorduras_saturadas;
+		return gordurasSaturadas;
 	}
 
 	public void setGorduras_saturadas(float gorduras_saturadas) {
-		this.gorduras_saturadas = gorduras_saturadas;
+		this.gordurasSaturadas = gorduras_saturadas;
 	}
 
 	public float getGorduras_trans() {
-		return gorduras_trans;
+		return gordurasTrans;
 	}
 
 	public void setGorduras_trans(float gorduras_trans) {
-		this.gorduras_trans = gorduras_trans;
+		this.gordurasTrans = gorduras_trans;
 	}
 
 	public float getFibras() {
@@ -133,9 +133,9 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 		this.caloria = novoInfo.getCaloria();
 		this.carboidrato = novoInfo.getCarboidrato();
 		this.proteinas = novoInfo.getProteinas();
-		this.gorduras_totais = novoInfo.getGorduras_totais();
-		this.gorduras_saturadas = novoInfo.getGorduras_saturadas();
-		this.gorduras_trans = novoInfo.getGorduras_trans();
+		this.gordurasTotais = novoInfo.getGorduras_totais();
+		this.gordurasSaturadas = novoInfo.getGorduras_saturadas();
+		this.gordurasTrans = novoInfo.getGorduras_trans();
 		this.fibras = novoInfo.getFibras();
 		this.sodio = novoInfo.getSodio();
 		this.totalCalorias = novoInfo.getTotalCalorias();

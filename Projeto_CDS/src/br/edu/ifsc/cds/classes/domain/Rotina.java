@@ -1,5 +1,6 @@
 package br.edu.ifsc.cds.classes.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -7,23 +8,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
-public class Rotina implements AlteracaoDados {
+public class Rotina implements AlteracaoDados, Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 
-	@OneToMany(mappedBy = "rotina_refeicao")
+	@ManyToMany(mappedBy = "listaRefRotina")
 	private List<Refeicao> listaRefeicao;
 
-	@OneToMany(mappedBy = "rotina_exercicio")
+	@ManyToMany(mappedBy = "listaExRotina")
 	private List<Exercicio> listaExercicio;
 
 	@ManyToOne

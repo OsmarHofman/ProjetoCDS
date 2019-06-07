@@ -15,19 +15,19 @@ public class Horario implements Serializable {
 	private Integer id;
 	private Date periodoInicio;
 	private Date periodoFim;
-	private Date diaSemana;
+	private int diaSemana;
 
-	@OneToOne(mappedBy = "horario_ex")
+	@OneToOne(mappedBy = "horarioEx")
 	private Exercicio exercicio;
 
-	@OneToOne(mappedBy = "horario_ref")
+	@OneToOne(mappedBy = "horarioRef")
 	private Refeicao refeicao;
 
 	public Horario() {
 
 	}
 
-	public Horario(Integer id, Date periodoInicio, Date periodoFim, Date diaSemana) {
+	public Horario(Integer id, Date periodoInicio, Date periodoFim, int diaSemana) {
 		super();
 		this.id = id;
 		this.periodoInicio = periodoInicio;
@@ -59,12 +59,28 @@ public class Horario implements Serializable {
 		this.periodoFim = periodoFim;
 	}
 
-	public Date getDiaSemana() {
+	public int getDiaSemana() {
 		return diaSemana;
 	}
 
-	public void setDiaSemana(Date diaSemana) {
+	public void setDiaSemana(int diaSemana) {
 		this.diaSemana = diaSemana;
+	}
+
+	public Exercicio getExercicio() {
+		return exercicio;
+	}
+
+	public void setExercicio(Exercicio exercicio) {
+		this.exercicio = exercicio;
+	}
+
+	public Refeicao getRefeicao() {
+		return refeicao;
+	}
+
+	public void setRefeicao(Refeicao refeicao) {
+		this.refeicao = refeicao;
 	}
 
 	@Override

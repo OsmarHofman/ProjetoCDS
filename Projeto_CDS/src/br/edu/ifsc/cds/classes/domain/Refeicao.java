@@ -2,50 +2,55 @@ package br.edu.ifsc.cds.classes.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
 
 @Entity
-public class Refeicao extends Horario implements AlteracaoDados, Serializable {
+public class Refeicao implements AlteracaoDados, Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String titulo;
 
-	@OneToMany(mappedBy = "refeicao")
-	private List<Alimento> listaAlimentos = new ArrayList<Alimento>();
+	@ManyToMany
+	@JoinTable(name = "Refeicao_Rotina", joinColumns = @JoinColumn(name = "refeicao_id"), inverseJoinColumns = @JoinColumn(name = "rotina_id"))
+	private List<Rotina> listaRefRotina = new ArrayList<>();
 
-	@ManyToOne
-	@JoinColumn(name = "rotina_id")
-	private Rotina rotina_refeicao;
+	@ManyToMany(mappedBy = "listaRefeicao")
+	private List<Alimento> listaAlimento = new ArrayList<>();
 
-	@JoinColumn(name = "horario_id")
+	@JoinColumn(name = "horarioId")
 	@OneToOne
-	private Horario horario_ref;
+	private Horario horarioRef;
 
 	public Refeicao() {
 	}
 
-	public Refeicao(Integer id, Date periodoInicio, Date periodoFim, Date diaSemana, String titulo,
-			List<Alimento> listaAlimentos) {
-		super(id, periodoInicio, periodoFim, diaSemana);
+	public Refeicao(Integer id, String titulo, List<Alimento> listaAlimentos, Horario horario) {
+		this.id = id;
 		this.titulo = titulo;
-		this.listaAlimentos = listaAlimentos;
+		this.listaAlimento = listaAlimentos;
+		this.horarioRef = horario;
 	}
 
-	public List<Alimento> getListaAlimentos() {
-		return listaAlimentos;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setListaAlimentos(List<Alimento> listaAlimentos) {
-		this.listaAlimentos = listaAlimentos;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -56,19 +61,35 @@ public class Refeicao extends Horario implements AlteracaoDados, Serializable {
 		this.titulo = titulo;
 	}
 
-	public List<Alimento> getAlimentos() {
-		return listaAlimentos;
+	public List<Rotina> getListaRefRotina() {
+		return listaRefRotina;
 	}
 
-	public void setAlimentos(List<Alimento> alimentos) {
-		this.listaAlimentos = alimentos;
+	public void setListaRefRotina(List<Rotina> listaRefRotina) {
+		this.listaRefRotina = listaRefRotina;
 	}
 
-	// M�todos
+	public List<Alimento> getListaAlimento() {
+		return listaAlimento;
+	}
+
+	public void setListaAlimento(List<Alimento> listaAlimento) {
+		this.listaAlimento = listaAlimento;
+	}
+
+	public Horario getHorarioRef() {
+		return horarioRef;
+	}
+
+	public void setHorarioRef(Horario horarioRef) {
+		this.horarioRef = horarioRef;
+	}
+
+	// Metodos
 	public float totalGanhoCalorico(ArrayList<Alimento> alimentos) {
 		float total = 0;
 		for (Alimento ali : alimentos) {
-			total += ali.getInfo_nutri().getTotalCalorias();
+			total += ali.getInfoNutri().getTotalCalorias();
 		}
 		return total;
 	}
@@ -77,7 +98,7 @@ public class Refeicao extends Horario implements AlteracaoDados, Serializable {
 	public <T> void editarInfo(T classe) {
 		Refeicao novaRefeicao = (Refeicao) classe;
 		this.titulo = novaRefeicao.getTitulo();
-		this.listaAlimentos = novaRefeicao.getAlimentos();
+		this.listaAlimento = novaRefeicao.getListaAlimento();
 
 	}
 
@@ -85,6 +106,31 @@ public class Refeicao extends Horario implements AlteracaoDados, Serializable {
 	public void excluirInfo() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (!(obj instanceof Refeicao))
+			return false;
+		Refeicao other = (Refeicao) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }
