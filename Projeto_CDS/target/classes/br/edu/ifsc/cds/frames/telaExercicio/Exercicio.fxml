@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="751.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaExercicio.ExercicioController">
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="751.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <Label layoutX="33.0" layoutY="15.0" prefHeight="82.0" prefWidth="138.0" text="CDS" textFill="WHITE">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <VBox alignment="TOP_CENTER" layoutX="14.0" layoutY="112.0" prefHeight="392.0" prefWidth="138.0">
+         <children>
+            <JFXButton prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #2D75E8;" text="Rotinas" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="60.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #2D75E8;" text="Exercícios" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #2D75E8;" text="Voltar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </JFXButton>
+         </children>
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+      </VBox>
+      <Pane layoutX="248.0" layoutY="129.0" prefHeight="364.0" prefWidth="368.0" style="-fx-border-radius: 30px; -fx-border-color: blue; -fx-background-color: white;">
+         <children>
+            <Label layoutX="56.0" layoutY="36.0" prefHeight="38.0" prefWidth="251.0" text="Cadastro de Exercícios" textFill="#0f2fff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Separator layoutX="10.0" layoutY="74.0" prefHeight="3.0" prefWidth="347.0" style="-fx-background-color: black;" />
+            <VBox layoutX="12.0" layoutY="151.0" prefHeight="62.0" prefWidth="156.0">
+               <children>
+                  <Label text="Nome">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="31.0" prefWidth="138.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+               </children>
+            </VBox>
+            <VBox layoutX="219.0" layoutY="151.0" prefHeight="62.0" prefWidth="97.0">
+               <children>
+                  <Label text="Met">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="31.0" prefWidth="84.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+               </children>
+            </VBox>
+            <VBox layoutX="217.0" layoutY="95.0" prefHeight="62.0" prefWidth="100.0">
+               <children>
+                  <Label text="Gasto Calórico">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="31.0" prefWidth="84.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+               </children>
+            </VBox>
+            <VBox layoutX="219.0" layoutY="213.0" prefHeight="62.0" prefWidth="97.0">
+               <children>
+                  <Label text="Intensidade">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="31.0" prefWidth="84.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+               </children>
+            </VBox>
+            <Separator layoutX="183.0" layoutY="76.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="219.0" prefWidth="2.0" style="-fx-background-color: black;" />
+            <Separator layoutX="12.0" layoutY="295.0" prefHeight="3.0" prefWidth="347.0" style="-fx-background-color: black;" />
+            <Button layoutX="113.0" layoutY="312.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #2D75E8;" text="Adicionar " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
