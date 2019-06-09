@@ -10,11 +10,11 @@ public class Executora {
 
 	public static void main(String[] args) {
 		
-		Admin a1 = new Admin(null,"Adriel","adriel.g","popopopopo","1111111111", "Guatelama - São João udheu", "99191991");
+		//Admin a1 = new Admin(null,"Adriel","adriel.g","popopopopo","1111111111", "Guatelama - São João udheu", "99191991");
 		AdminDAO da = new AdminDAO();
-		da.create(a1);
+		//da.create(a1);
 		
-		//da.delete(6);
+		da.delete(7);
 		
 	}
 
