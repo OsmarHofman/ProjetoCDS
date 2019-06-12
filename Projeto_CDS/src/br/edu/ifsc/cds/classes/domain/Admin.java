@@ -22,7 +22,6 @@ public class Admin extends Usuario implements Serializable {
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.telefone = telefone;
-		this.telefone = telefone;
 	}
 
 	public String getCpf() {
