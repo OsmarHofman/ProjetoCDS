@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.edu.ifsc.cds.DAO.intefaces.IHorarioDAO;
+import br.edu.ifsc.cds.DAO.interfaces.IHorarioDAO;
 import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.Horario;
 

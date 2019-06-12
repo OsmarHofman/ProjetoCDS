@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.edu.ifsc.cds.DAO.intefaces.IAdminDAO;
+import br.edu.ifsc.cds.DAO.interfaces.IAdminDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Executora;
 
@@ -63,7 +63,7 @@ public class AdminDAO implements IAdminDAO {
 			em.getTransaction().commit();
 			em.close();
 			Executora.emf.close();
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();

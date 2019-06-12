@@ -1,4 +1,4 @@
-package br.edu.ifsc.cds.DAO.intefaces;
+package br.edu.ifsc.cds.DAO.interfaces;
 
 import java.util.List;
 import br.edu.ifsc.cds.classes.domain.Horario;

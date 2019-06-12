@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import br.edu.ifsc.cds.DAO.intefaces.IExercicioDAO;
+import br.edu.ifsc.cds.DAO.interfaces.IExercicioDAO;
 import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 
