@@ -47,7 +47,7 @@
       <AnchorPane fx:id="anchorSignUp" layoutX="484.0" prefHeight="440.0" prefWidth="400.0" style="-fx-background-color: #fff;">
          <children>
             <JFXTextField fx:id="txtNomeCad" layoutX="35.0" layoutY="74.0" prefHeight="43.0" prefWidth="335.0" promptText="Nome" />
-            <JFXPasswordField fx:id="txtxSenhaCad" layoutX="35.0" layoutY="298.0" prefHeight="43.0" prefWidth="335.0" promptText="Senha" />
+            <JFXPasswordField fx:id="txtxSenhaCad" layoutX="35.0" layoutY="298.0" prefHeight="43.0" prefWidth="335.0" promptText="Senha (Letras, números, etc.)" />
             <JFXButton fx:id="btnSignUp" layoutX="139.0" layoutY="378.0" onAction="#signUp" prefHeight="34.0" prefWidth="121.0" style="-fx-background-color: #3936ff;" text="Cadastrar" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -60,14 +60,14 @@
             </Label>
             <HBox alignment="TOP_CENTER" layoutX="35.0" layoutY="150.0" prefHeight="43.0" prefWidth="335.0" spacing="30.0">
                <children>
-                  <JFXTextField fx:id="txtPesoCad" prefHeight="43.0" prefWidth="180.0" promptText="Peso (Kg)" />
-                  <JFXTextField fx:id="txtAlturaCad" prefHeight="43.0" prefWidth="180.0" promptText="Altura (m)">
+                  <JFXTextField fx:id="txtPesoCad" prefHeight="43.0" prefWidth="180.0" promptText="Peso (Ex.: 64,70,100...)" />
+                  <JFXTextField fx:id="txtAlturaCad" prefHeight="43.0" prefWidth="180.0" promptText="Altura (Ex.:1.85 ,1.56 ..)">
                      <HBox.margin>
                      </HBox.margin>
                   </JFXTextField>
                </children>
             </HBox>
-            <JFXTextField fx:id="txtEmailCad" layoutX="35.0" layoutY="227.0" prefHeight="43.0" prefWidth="335.0" promptText="Email" />
+            <JFXTextField fx:id="txtEmailCad" layoutX="35.0" layoutY="227.0" prefHeight="43.0" prefWidth="335.0" promptText="Email (Ex.: exemplo@exemplo.com)" />
          </children>
       </AnchorPane>
       <JFXButton fx:id="btnMSignUp" layoutY="154.0" onAction="#mSignUp" prefHeight="43.0" prefWidth="121.0" text="Cadastro" />

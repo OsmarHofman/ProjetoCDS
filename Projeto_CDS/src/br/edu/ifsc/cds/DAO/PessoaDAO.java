@@ -54,6 +54,15 @@ public class PessoaDAO implements IPessoaDAO {
 	}
 
 	@Override
+	public Pessoa retrieveCount(String user, String password) {
+		em = Executora.emf.createEntityManager();
+		Query consulta = em.createQuery(
+				"SELECT p FROM Usuario u INNER JOIN Pessoa p ON u.id = p.id WHERE u.email = ?1 AND u.senha = ?2")
+				.setParameter(1, user).setParameter(2, password);
+		return (Pessoa) consulta.getSingleResult();
+	}
+
+	@Override
 	public void update(Pessoa pessoa) {
 		// TODO Auto-generated method stub
 		try {
@@ -84,4 +93,5 @@ public class PessoaDAO implements IPessoaDAO {
 			ex.printStackTrace();
 		}
 	}
+
 }

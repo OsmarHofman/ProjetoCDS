@@ -7,12 +7,14 @@ import br.edu.ifsc.cds.classes.domain.Pessoa;
 public interface IPessoaDAO {
 
 	public void create(Pessoa pessoa);
-	
-    public List<Pessoa> retrieveAll();
-		
+
+	public List<Pessoa> retrieveAll();
+
 	public Pessoa retrieve(Integer id);
-		
+
+	public Pessoa retrieveCount(String user, String password);
+
 	public void update(Pessoa pessoa);
-		
+
 	public void delete(Integer id);
 }

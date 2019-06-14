@@ -12,12 +12,14 @@ import com.jfoenix.validation.RequiredFieldValidator;
 
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.frames.telarotina.ExecutorRotina;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
@@ -75,12 +77,36 @@ public class LoginController implements Initializable {
 		if (verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(), txtAlturaCad.getText())) {
 			dao.create(pessoa);
 			JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
+			ExecutorRotina telaRotina = new ExecutorRotina();
+			Stage telaAtual = (Stage) btnSignUp.getScene().getWindow();
+			telaAtual.close();
+			Stage novaTela = new Stage();
+			telaRotina.start(novaTela);
 		}
 
 	}
 
 	@FXML
 	void signin(ActionEvent event) {
+		String user = txtUsuario.getText();
+		String password = txtSenha.getText();
+		if (verificaValidade(user, password)) {
+			PessoaDAO pessoaDao = new PessoaDAO();
+			Pessoa usuario = pessoaDao.retrieveCount(user, password);
+			if (!usuario.equals(null)) {
+				JOptionPane.showMessageDialog(null,
+						"Login Efetuado com Sucesso!\n\n BEM-VINDO " + usuario.getNome() + " !");
+
+				ExecutorRotina telaRotina = new ExecutorRotina();
+				Stage telaAtual = (Stage) txtSignin.getScene().getWindow();
+				telaAtual.close();
+				Stage novaTela = new Stage();
+				telaRotina.start(novaTela);
+
+			} else {
+				JOptionPane.showMessageDialog(null, "Usuário/Senha Incorreto(s)!");
+			}
+		}
 
 	}
 
