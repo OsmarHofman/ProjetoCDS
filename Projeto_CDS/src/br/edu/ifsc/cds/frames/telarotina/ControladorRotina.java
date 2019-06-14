@@ -17,6 +17,7 @@ public class ControladorRotina {
 		ExecutorExercicio exeExercicio = new ExecutorExercicio();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
 		exeExercicio.start(stage);
 	}
 
