@@ -8,13 +8,11 @@ import javax.swing.JOptionPane;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import com.jfoenix.validation.RequiredFieldValidator;
 
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.security.Validacao;
 import br.edu.ifsc.cds.frames.telarotina.ExecutorRotina;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -74,7 +72,8 @@ public class LoginController implements Initializable {
 		Float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
 		Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa);
 		PessoaDAO dao = new PessoaDAO();
-		if (verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(), txtAlturaCad.getText())) {
+		if (Validacao.verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(),
+				txtAlturaCad.getText())) {
 			dao.create(pessoa);
 			JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
 			ExecutorRotina telaRotina = new ExecutorRotina();
@@ -90,7 +89,7 @@ public class LoginController implements Initializable {
 	void signin(ActionEvent event) {
 		String user = txtUsuario.getText();
 		String password = txtSenha.getText();
-		if (verificaValidade(user, password)) {
+		if (Validacao.verificaValidade(user, password)) {
 			PessoaDAO pessoaDao = new PessoaDAO();
 			Pessoa usuario = pessoaDao.retrieveCount(user, password);
 			if (!usuario.equals(null)) {
@@ -131,53 +130,13 @@ public class LoginController implements Initializable {
 	}
 
 	private void validadoresTela() {
-		criaValidador(txtUsuario);
-		criaValidador(txtSenha);
-		criaValidador(txtNomeCad);
-		criaValidador(txtEmailCad);
-		criaValidador(txtPesoCad);
-		criaValidador(txtAlturaCad);
-		criaValidador(txtxSenhaCad);
-	}
-
-	public boolean criaValidador(JFXTextField campo) {
-		RequiredFieldValidator validador = new RequiredFieldValidator();
-		campo.getValidators().add(validador);
-		validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
-		campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if (!newValue) {
-					campo.validate();
-				}
-			}
-
-		});
-		return campo.focusedProperty().getValue();
-	}
-
-	public void criaValidador(JFXPasswordField campo) {
-		RequiredFieldValidator validador = new RequiredFieldValidator();
-		campo.getValidators().add(validador);
-		validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
-		campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if (!newValue) {
-					campo.validate();
-				}
-			}
-
-		});
-	}
-
-	public static boolean verificaValidade(String... listaCampos) {
-		for (String campos : listaCampos) {
-			if (campos.equals("") || campos.equals(null)) {
-				return false;
-			}
-		}
-		return true;
+		Validacao.criaValidador(txtUsuario);
+		Validacao.criaValidador(txtSenha);
+		Validacao.criaValidador(txtNomeCad);
+		Validacao.criaValidador(txtEmailCad);
+		Validacao.criaValidador(txtPesoCad);
+		Validacao.criaValidador(txtAlturaCad);
+		Validacao.criaValidador(txtxSenhaCad);
 	}
 
 }
