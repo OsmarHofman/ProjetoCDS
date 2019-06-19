@@ -1,5 +1,8 @@
 package br.edu.ifsc.cds.frames.telaRotina;
 
+import com.jfoenix.controls.JFXButton;
+
+import br.edu.ifsc.cds.frames.telaDados.ExecutorDados;
 import br.edu.ifsc.cds.frames.telaExercicio.ExecutorExercicio;
 import br.edu.ifsc.cds.frames.telaHistorico.ExecutorHistorico;
 import javafx.event.ActionEvent;
@@ -11,7 +14,19 @@ import javafx.stage.Stage;
 public class ControladorRotina {
 
 	@FXML
+	private JFXButton btnDados;
+
+	@FXML
 	private Button BtnNovoAlimento;
+
+	@FXML
+	void mostraDados(ActionEvent event) {
+		ExecutorDados exeDados = new ExecutorDados();
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		exeDados.start(stage);
+	}
 
 	@FXML
 	void mostraHistorico(ActionEvent event) {

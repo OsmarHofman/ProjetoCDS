@@ -8,10 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
-
 @Entity
-public class InfoNutricional implements AlteracaoDados, Serializable {
+public class InfoNutricional implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -125,27 +123,6 @@ public class InfoNutricional implements AlteracaoDados, Serializable {
 
 	public void setTotalCalorias(float totalCalorias) {
 		this.totalCalorias = totalCalorias;
-	}
-
-	@Override
-	public <T> void editarInfo(T classe) {
-		InfoNutricional novoInfo = (InfoNutricional) classe;
-		this.caloria = novoInfo.getCaloria();
-		this.carboidrato = novoInfo.getCarboidrato();
-		this.proteinas = novoInfo.getProteinas();
-		this.gordurasTotais = novoInfo.getGorduras_totais();
-		this.gordurasSaturadas = novoInfo.getGorduras_saturadas();
-		this.gordurasTrans = novoInfo.getGorduras_trans();
-		this.fibras = novoInfo.getFibras();
-		this.sodio = novoInfo.getSodio();
-		this.totalCalorias = novoInfo.getTotalCalorias();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

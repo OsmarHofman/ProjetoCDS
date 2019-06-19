@@ -414,7 +414,7 @@
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="218.0">
                            <children>
-                              <JFXButton layoutX="11.0" layoutY="14.0" prefHeight="34.0" prefWidth="196.0" text="Meus Dados">
+                              <JFXButton fx:id="btnDados" layoutX="11.0" layoutY="14.0" onAction="#mostraDados" prefHeight="34.0" prefWidth="196.0" text="Meus Dados">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>

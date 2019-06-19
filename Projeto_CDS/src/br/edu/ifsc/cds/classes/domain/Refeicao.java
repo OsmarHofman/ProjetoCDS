@@ -13,10 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
-
 @Entity
-public class Refeicao implements AlteracaoDados, Serializable {
+public class Refeicao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -92,20 +90,6 @@ public class Refeicao implements AlteracaoDados, Serializable {
 			total += ali.getInfoNutri().getTotalCalorias();
 		}
 		return total;
-	}
-
-	@Override
-	public <T> void editarInfo(T classe) {
-		Refeicao novaRefeicao = (Refeicao) classe;
-		this.titulo = novaRefeicao.getTitulo();
-		this.listaAlimento = novaRefeicao.getListaAlimento();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

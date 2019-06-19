@@ -48,18 +48,4 @@ public class Admin extends Usuario implements Serializable {
 		this.telefone = telefone;
 	}
 
-	@Override
-	public <T> void editarInfo(T classe) {
-		Admin novoAdmin = (Admin) classe;
-		this.cpf = novoAdmin.getCpf();
-		this.endereco = novoAdmin.getEndereco();
-		this.telefone = novoAdmin.getTelefone();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-	}
-
 }

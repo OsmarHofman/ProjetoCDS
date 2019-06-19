@@ -14,10 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
-
 @Entity
-public class Alimento implements AlteracaoDados, Serializable {
+public class Alimento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -96,21 +94,6 @@ public class Alimento implements AlteracaoDados, Serializable {
 
 	public void addNovoAlimento(Alimento alimento, InfoNutricional info) {
 		// TODO
-	}
-
-	@Override
-	public <T> void editarInfo(T classe) {
-		Alimento novoAlimento = (Alimento) classe;
-		this.infoNutri = novoAlimento.getInfoNutri();
-		this.nome = novoAlimento.getNome();
-		this.quantidade = novoAlimento.getQuantidade();
-		this.unidadeMedida = novoAlimento.getUnidadeMedida();
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

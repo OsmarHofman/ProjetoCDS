@@ -13,10 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
-
 @Entity
-public class Exercicio implements AlteracaoDados, Serializable {
+public class Exercicio implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -102,21 +100,6 @@ public class Exercicio implements AlteracaoDados, Serializable {
 
 	public void setHorarioEx(Horario horarioEx) {
 		this.horarioEx = horarioEx;
-	}
-
-	@Override
-	public <T> void editarInfo(T classe) {
-		Exercicio novoExercicio = (Exercicio) classe;
-		this.nome = novoExercicio.getNome();
-		this.intensidade = novoExercicio.getIntensidade();
-		this.met = novoExercicio.getMet();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

@@ -11,10 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import br.edu.ifsc.cds.classes.interfaces.AlteracaoDados;
-
 @Entity
-public class Rotina implements AlteracaoDados, Serializable {
+public class Rotina implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -71,20 +69,6 @@ public class Rotina implements AlteracaoDados, Serializable {
 
 	public void setListaExercicio(List<Exercicio> listaExercicio) {
 		this.listaExercicio = listaExercicio;
-	}
-
-	@Override
-	public <T> void editarInfo(T classe) {
-		Rotina novoRotina = (Rotina) classe;
-		this.titulo = novoRotina.getTitulo();
-		this.listaRefeicao = novoRotina.getListaRefeicao();
-		this.listaExercicio = novoRotina.getListaExercicio();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
 	}
 
 }

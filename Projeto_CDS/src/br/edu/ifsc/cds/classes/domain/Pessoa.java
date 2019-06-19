@@ -51,18 +51,4 @@ public class Pessoa extends Usuario implements Serializable {
 		this.listaRotinas = listaRotinas;
 	}
 
-	@Override
-	public <T> void editarInfo(T classe) {
-		Pessoa novaPessoa = (Pessoa) classe;
-		this.pesoInicial = novaPessoa.getPeso_inicial();
-		this.altura = novaPessoa.getAltura();
-
-	}
-
-	@Override
-	public void excluirInfo() {
-		// TODO Auto-generated method stub
-
-	}
-
 }
