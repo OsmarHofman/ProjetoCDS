@@ -1,4 +1,4 @@
-package br.edu.ifsc.cds.frames.telarotina;
+package br.edu.ifsc.cds.frames.telaRotina;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +15,7 @@ public class ExecutorRotina extends Application {
 			primaryStage.setMaximized(true);
 			primaryStage.setTitle("CDS - Controle de Dieta e Saúde");
 			Scene scene = new Scene(root, 1045, 500);
+			scene.getStylesheets().add(getClass().getResource("layoutRotina.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

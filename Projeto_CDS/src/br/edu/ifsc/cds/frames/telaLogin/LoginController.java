@@ -12,7 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
-import br.edu.ifsc.cds.frames.telarotina.ExecutorRotina;
+import br.edu.ifsc.cds.frames.telaRotina.ExecutorRotina;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

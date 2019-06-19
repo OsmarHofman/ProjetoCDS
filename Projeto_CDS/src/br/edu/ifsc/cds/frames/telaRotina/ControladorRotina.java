@@ -1,4 +1,4 @@
-package br.edu.ifsc.cds.frames.telarotina;
+package br.edu.ifsc.cds.frames.telaRotina;
 
 import br.edu.ifsc.cds.frames.telaExercicio.ExecutorExercicio;
 import javafx.event.ActionEvent;

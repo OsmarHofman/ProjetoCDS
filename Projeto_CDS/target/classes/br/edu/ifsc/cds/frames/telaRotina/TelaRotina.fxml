@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane id="paneFundo" prefHeight="471.0" prefWidth="1400.0" stylesheets="@layoutRotina.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telarotina.ControladorRotina">
+<BorderPane id="paneFundo" prefHeight="471.0" prefWidth="1400.0" stylesheets="@layoutRotina.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaRotina.ControladorRotina">
 	<center>
 		<TabPane prefHeight="478.0" prefWidth="775.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
 			<tabs>
@@ -361,57 +361,23 @@
 	<left>
 		<VBox prefHeight="436.0" prefWidth="220.0" BorderPane.alignment="CENTER">
 			<children>
-				<Accordion>
+				<Accordion prefHeight="276.0" prefWidth="220.0">
 					<panes>
-						<TitledPane text="Adicionar">
+						<TitledPane prefHeight="219.0" prefWidth="220.0" text="Rotina">
 							<content>
-								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="218.0">
 									<children>
 										<Button id="BtnNovaRotina" fx:id="BtnNovaRotina" alignment="CENTER" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Nova Rotina">
 											<font>
 												<Font name="Arial" size="14.0" />
 											</font>
 										</Button>
-										<Button fx:id="BtnNovoAlimento" alignment="CENTER" layoutY="70.0" mnemonicParsing="false" onAction="#novoAlimento" prefHeight="40.0" prefWidth="220.0" text="Novo Alimento">
+										<Button fx:id="BtnNovoAlimento" alignment="CENTER" layoutY="70.0" mnemonicParsing="false" onAction="#novoAlimento" prefHeight="40.0" prefWidth="220.0" text="Editar Rotina">
 											<font>
 												<Font name="Arial" size="14.0" />
 											</font>
 										</Button>
-										<Button alignment="CENTER" layoutY="120.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Novo Exercício">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-									</children>
-								</AnchorPane>
-							</content>
-							<font>
-								<Font name="Arial" size="16.0" />
-							</font>
-						</TitledPane>
-						<TitledPane prefHeight="164.0" prefWidth="220.0" text="Editar">
-							<content>
-								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="78.0" prefWidth="218.0" />
-							</content>
-							<font>
-								<Font name="Arial" size="16.0" />
-							</font>
-						</TitledPane>
-						<TitledPane text="Excluir">
-							<content>
-								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="164.0" prefWidth="218.0">
-									<children>
-										<Button alignment="CENTER" layoutY="11.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Excluir Rotina" textAlignment="CENTER">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-										<Button alignment="CENTER" layoutY="60.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Excluir Alimento" textAlignment="CENTER">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-										<Button alignment="CENTER" layoutY="112.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Excluir Exercício" textAlignment="CENTER">
+										<Button alignment="CENTER" layoutY="120.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Excluir Rotina">
 											<font>
 												<Font name="Arial" size="14.0" />
 											</font>
@@ -423,9 +389,21 @@
 								<Font name="Arial" size="16.0" />
 							</font>
 						</TitledPane>
-						<TitledPane prefHeight="395.0" prefWidth="220.0" text="Minhas Informações">
+						<TitledPane prefHeight="156.0" prefWidth="220.0" text="Exercicios e Alimentos">
 							<content>
-								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="148.0" prefWidth="218.0">
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="218.0">
+                           <children>
+                              <Button layoutX="8.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="198.0" text="Meus Exercicios" />
+                              <Button layoutX="8.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" text="Meus Alimentos" />
+                           </children></AnchorPane>
+							</content>
+							<font>
+								<Font name="Arial" size="16.0" />
+							</font>
+						</TitledPane>
+						<TitledPane prefHeight="243.0" prefWidth="220.0" text="Minhas Informações">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="218.0">
 									<children>
 										<Button alignment="CENTER" layoutY="13.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="220.0" text="Visualizar Histórico de Rotinas" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
 											<font>

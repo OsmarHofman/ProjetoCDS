@@ -3,14 +3,28 @@ package br.edu.ifsc.cds.frames.telaExercicio;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.Initializable;
+import com.jfoenix.controls.JFXButton;
 
-public class ExercicioController implements Initializable{
-	
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.stage.Stage;
+
+public class ExercicioController implements Initializable {
+
+	@FXML
+	private JFXButton btnVoltar;
+
+	@FXML
+	void cancelar(ActionEvent event) {
+		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
+		telaAtual.close();
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }

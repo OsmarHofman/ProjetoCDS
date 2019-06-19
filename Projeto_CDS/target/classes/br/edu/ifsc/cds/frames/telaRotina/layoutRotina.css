@@ -1,33 +1,37 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 /*tab */
 .tab {
-	-fx-background-color: #4682B4;
+	-fx-background-color:  #2D75E8;
 	-fx-font-size: 15px;
 	-fx-padding: 15px; 
 }
 
 .tab-pane{  
 	-fx-background-color: transparent;  
+	
 }
 
 .tab-pane .tab-header-area .tab-header-background {
 	-fx-background-color: transparent;
+	
 }
 
+
 .tab:selected {
-	-fx-font-weight: bold;
-	-fx-background-color: #4682B4;
+	-fx-font-weight: bold ;
+	-fx-background-color:  #2D75E8;
+	
 }
 
 
 /*split pane */
 .split-pane {
 	-fx-background-color: #F0F8FF;
-	-fx-border-color: #4682B4;
+	-fx-border-color: #2D75E8;
 	-fx-border-width: 4px; 
 }
 .split-pane:horizontal > .split-pane-divider {
-	-fx-color: 	#4682B4;
+	-fx-color: 	#2D75E8;
 }
 
 
@@ -35,7 +39,7 @@
 
 .table-view .column-header{
 	-fx-font-weight: 300;
-	-fx-background-color: #F0FFFF;
+	-fx-background-color: #E0FFFF	;
 	-fx-font-size: 16px;
 	-fx-padding: 10px; 
 	-fx-alignment: center ;
@@ -61,11 +65,10 @@
 }
 
 .accordion .titled-pane .title{
-	-fx-background-color: 	#B0E0E6;
-	-fx-background-radius: 19px;
+	-fx-background-color: 	#E0FFFF	;
 	-fx-border-radius: 15px; 
 	-fx-border-style: solid;
-	-fx-border-color: #4682B4;
+	-fx-border-color:  #2D75E8;
 	-fx-border-width: 2px;
 }
 
@@ -74,7 +77,7 @@
 }
 
 .accordion .titled-pane .button:hover{
-	-fx-background-color: 	#4682B4;
+	-fx-background-color: 	#2D75E8;
 	-fx-font-weight: bold;
 	-fx-text-fill: white;
 }
@@ -92,7 +95,7 @@
 }
 
 #paneFundo{
-	-fx-background-color: linear-gradient(#F0F8FF 70%, #87CEEB 100%);
+	-fx-background-color: linear-gradient(#F0F8FF 70%,  #2D75E8 100%);
 }
 
 
