@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -366,35 +367,43 @@
 						<TitledPane prefHeight="219.0" prefWidth="220.0" text="Rotina">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="218.0">
-									<children>
-										<Button id="BtnNovaRotina" fx:id="BtnNovaRotina" alignment="CENTER" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Nova Rotina">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-										<Button fx:id="BtnNovoAlimento" alignment="CENTER" layoutY="70.0" mnemonicParsing="false" onAction="#novoAlimento" prefHeight="40.0" prefWidth="220.0" text="Editar Rotina">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-										<Button alignment="CENTER" layoutY="120.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Excluir Rotina">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-									</children>
+                           <children>
+                              <JFXButton layoutX="15.0" layoutY="14.0" prefHeight="34.0" prefWidth="196.0" text="Nova Rotina">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutX="15.0" layoutY="67.0" prefHeight="34.0" prefWidth="196.0" text="Editar Rotina">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutX="15.0" layoutY="119.0" prefHeight="34.0" prefWidth="196.0" text="Excluir Rotina">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
 								</AnchorPane>
 							</content>
 							<font>
 								<Font name="Arial" size="16.0" />
 							</font>
 						</TitledPane>
-						<TitledPane prefHeight="156.0" prefWidth="220.0" text="Exercicios e Alimentos">
+						<TitledPane prefHeight="156.0" prefWidth="220.0" text="Exercícios e Alimentos">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="218.0">
                            <children>
-                              <Button layoutX="8.0" layoutY="14.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="198.0" text="Meus Exercicios" />
-                              <Button layoutX="8.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" text="Meus Alimentos" />
+                              <JFXButton layoutX="11.0" layoutY="23.0" prefHeight="34.0" prefWidth="196.0" text="Meus Exercícios">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton layoutX="11.0" layoutY="99.0" prefHeight="34.0" prefWidth="196.0" text="Meus Alimentos">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
                            </children></AnchorPane>
 							</content>
 							<font>
@@ -404,18 +413,18 @@
 						<TitledPane prefHeight="243.0" prefWidth="220.0" text="Minhas Informações">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="218.0">
-									<children>
-										<Button alignment="CENTER" layoutY="13.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="220.0" text="Visualizar Histórico de Rotinas" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-										<Button alignment="CENTER" layoutY="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Meus Dados" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
-											<font>
-												<Font name="Arial" size="14.0" />
-											</font>
-										</Button>
-									</children>
+                           <children>
+                              <JFXButton layoutX="11.0" layoutY="14.0" prefHeight="34.0" prefWidth="196.0" text="Meus Dados">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton id="btnHistorico" fx:id="btnHistorico" layoutX="11.0" layoutY="67.0" onAction="#mostraHistorico" prefHeight="34.0" prefWidth="196.0" text="Histórico de Rotinas">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
 								</AnchorPane>
 							</content>
 							<font>

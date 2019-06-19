@@ -66,20 +66,29 @@
 
 .accordion .titled-pane .title{
 	-fx-background-color: 	#E0FFFF	;
+	-fx-background-radius: 15px;
 	-fx-border-radius: 15px; 
 	-fx-border-style: solid;
 	-fx-border-color:  #2D75E8;
 	-fx-border-width: 2px;
 }
 
-.accordion .titled-pane .button{
-	-fx-background-color: 	white;
+
+
+.accordion .titled-pane .jfx-button
+{
+-fx-background-color :#3936ff;
+-fx-text-fill : white;
 }
 
-.accordion .titled-pane .button:hover{
-	-fx-background-color: 	#2D75E8;
-	-fx-font-weight: bold;
-	-fx-text-fill: white;
+.accordion .titled-pane .jfx-button:hover{
+     -fx-background-color: #00BFFF;
+     -fx-text-fill: black;
+}
+
+.accordion .titled-pane .jfx-button:pressed
+{
+-fx-background-color : #1620A1;
 }
 
 /*ids */
