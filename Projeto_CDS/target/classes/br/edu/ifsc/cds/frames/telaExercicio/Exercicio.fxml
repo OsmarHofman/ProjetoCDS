@@ -66,7 +66,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="31.0" prefWidth="138.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+                  <TextField fx:id="txtNomeExer" prefHeight="31.0" prefWidth="138.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
                </children>
             </VBox>
             <VBox layoutX="219.0" layoutY="151.0" prefHeight="62.0" prefWidth="97.0">
@@ -101,7 +101,7 @@
             </VBox>
             <Separator layoutX="183.0" layoutY="76.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="219.0" prefWidth="2.0" style="-fx-background-color: black;" />
             <Separator layoutX="12.0" layoutY="295.0" prefHeight="3.0" prefWidth="347.0" style="-fx-background-color: black;" />
-            <Button layoutX="113.0" layoutY="312.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #2D75E8;" text="Adicionar " textFill="WHITE">
+            <Button fx:id="btnAdicionar" layoutX="113.0" layoutY="312.0" mnemonicParsing="false" onAction="#addExer" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #2D75E8;" text="Adicionar " textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
