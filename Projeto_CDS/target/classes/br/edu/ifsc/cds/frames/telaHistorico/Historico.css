@@ -1,13 +1,16 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-.button
+.jfx-button
 {
--fx-background-color : #05071F;
--fx-text-fill : #e7e5e5;
+-fx-background-color :#3936ff;
+-fx-text-fill : white;
 }
-.button:hover{
--fx-background-color : #10165F;
+
+.jfx-button:hover{
+     -fx-background-color: #00BFFF;
+     -fx-text-fill: black;
 }
-.button:pressed
+
+.jfx-button:pressed
 {
 -fx-background-color : #1620A1;
 }

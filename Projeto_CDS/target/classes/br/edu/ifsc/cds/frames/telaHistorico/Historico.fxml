@@ -23,11 +23,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="1051.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaHistorico.HistoricoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="928.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaHistorico.HistoricoController">
 	<children>
 		<VBox alignment="TOP_CENTER" layoutY="108.0" prefHeight="445.0" prefWidth="184.0" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="108.0">
 			<children>
-				<JFXButton fx:id="btnRotinas" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Rotinas" textFill="WHITE">
+				<JFXButton fx:id="btnRotinas" prefHeight="38.0" prefWidth="135.0" stylesheets="@Historico.css" text="Rotinas" textFill="WHITE">
 					<font>
 						<Font size="17.0" />
 					</font>
@@ -35,7 +35,7 @@
 						<Insets top="75.0" />
 					</VBox.margin>
 				</JFXButton>
-				<JFXButton fx:id="btnExercicios" prefHeight="38.0" prefWidth="135.0" style="-fx-background-color: #3936ff;" text="Exercicios" textFill="WHITE">
+				<JFXButton fx:id="btnExercicios" prefHeight="38.0" prefWidth="135.0" stylesheets="@Historico.css" text="Exercicios" textFill="WHITE">
 					<font>
 						<Font size="17.0" />
 					</font>
@@ -43,7 +43,7 @@
 						<Insets top="15.0" />
 					</VBox.margin>
 				</JFXButton>
-				<JFXButton fx:id="btnVoltar" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: #3936ff;" text="Voltar" textFill="WHITE">
+				<JFXButton fx:id="btnVoltar" prefHeight="38.0" prefWidth="135.0" stylesheets="@Historico.css" text="Voltar" textFill="WHITE">
 					<font>
 						<Font size="17.0" />
 					</font>
@@ -53,25 +53,25 @@
 				</JFXButton>
 			</children>
 		</VBox>
-		<StackPane layoutX="189.0" layoutY="111.0" prefHeight="445.0" prefWidth="862.0" style="-fx-background-color: transparent;">
+		<StackPane layoutX="191.0" layoutY="111.0" prefHeight="445.0" prefWidth="739.0" style="-fx-background-color: transparent;">
 			<children>
 				<Pane fx:id="pnlOverview" prefHeight="416.0" prefWidth="778.0" style="-fx-background-color: transparent;">
 					<children>
-                  <Pane layoutX="63.0" layoutY="21.0" prefHeight="394.0" prefWidth="656.0" style="-fx-border-radius: 50px; -fx-border-color: blue; -fx-background-color: white;">
+                  <Pane layoutX="14.0" layoutY="26.0" prefHeight="394.0" prefWidth="656.0" style="-fx-border-radius: 50px; -fx-border-color: blue; -fx-background-color: white;">
                      <children>
             						<Label layoutX="45.0" layoutY="22.0" prefHeight="38.0" prefWidth="213.0" text="Histórico de Rotinas" textFill="#3936ff">
             							<font>
             								<Font size="24.0" />
             							</font>
             						</Label>
-                        <TableView fx:id="tbvRotina" layoutX="60.0" layoutY="77.0" prefHeight="254.0" prefWidth="526.0">
+                        <TableView fx:id="tbvRotina" layoutX="58.0" layoutY="77.0" prefHeight="257.0" prefWidth="539.0">
                            <columns>
                               <TableColumn fx:id="tituloRotina" prefWidth="284.0" text="ID" />
                               <TableColumn fx:id="tituloRotina1" prefWidth="338.0" text="Rotina" />
                            </columns>
                         </TableView>
                         <Separator layoutX="22.0" layoutY="65.0" prefHeight="3.0" prefWidth="604.0" style="-fx-background-color: black;" />
-                        <JFXButton fx:id="btnaddRotina" layoutX="247.0" layoutY="340.0" prefHeight="38.0" prefWidth="172.0" style="-fx-background-color: #3936ff;" text="Adicionar a Rotinas" textFill="WHITE">
+                        <JFXButton fx:id="btnaddRotina" layoutX="242.0" layoutY="340.0" prefHeight="38.0" prefWidth="172.0" stylesheets="@Historico.css" text="Adicionar a Rotinas" textFill="WHITE">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -82,7 +82,7 @@
 				</Pane>
 			</children>
 		</StackPane>
-      <AnchorPane prefHeight="109.0" prefWidth="1051.0" style="-fx-background-color: #3936ff;">
+      <AnchorPane prefHeight="106.0" prefWidth="928.0" style="-fx-background-color: #3936ff;">
          <children>
             <Label layoutX="32.0" layoutY="4.0" prefHeight="104.0" prefWidth="121.0" text="CDS" textFill="#f8f8f8">
                <font>
