@@ -1,5 +1,6 @@
 package br.edu.ifsc.cds.frames.telaLogin;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -12,10 +13,14 @@ import com.jfoenix.controls.JFXTextField;
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
+import br.edu.ifsc.cds.frames.telaRotina.ControladorRotina;
 import br.edu.ifsc.cds.frames.telaRotina.ExecutorRotina;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -93,14 +98,27 @@ public class LoginController implements Initializable {
 			PessoaDAO pessoaDao = new PessoaDAO();
 			Pessoa usuario = pessoaDao.retrieveCount(user, password);
 			if (!usuario.equals(null)) {
-				JOptionPane.showMessageDialog(null,
-						"Login Efetuado com Sucesso!\n\n BEM-VINDO " + usuario.getNome() + " !");
+				JOptionPane.showMessageDialog(null, "Login Efetuado com Sucesso!");
 
-				ExecutorRotina telaRotina = new ExecutorRotina();
 				Stage telaAtual = (Stage) txtSignin.getScene().getWindow();
 				telaAtual.close();
-				Stage novaTela = new Stage();
-				telaRotina.start(novaTela);
+
+				try {
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("../telaRotina/TelaRotina.fxml"));
+					Parent root = (Parent) loader.load();
+
+					ControladorRotina ctrl_rotina = loader.getController();
+					ctrl_rotina.setPessoa(usuario);
+
+					Stage stage = new Stage();
+					stage.setScene(new Scene(root));
+					stage.setMaximized(true);
+					stage.show();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+//				ExecutorRotina telaRotina = new ExecutorRotina();
+//				telaRotina.start(new Stage());
 
 			} else {
 				JOptionPane.showMessageDialog(null, "Usuário/Senha Incorreto(s)!");

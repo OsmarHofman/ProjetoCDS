@@ -50,8 +50,13 @@ public class DadosController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+//		ControladorRotina ctrl_rotina = new ControladorRotina();
+//		Pessoa usuario = ctrl_rotina.getPessoa();
+//		txtAltura.setText(String.valueOf(usuario.getAltura()));
+//		txtPeso.setText(String.valueOf(usuario.getPeso_inicial()));
 		txtAltura.setEditable(false);
 		txtPeso.setEditable(false);
+
 	}
 
 }

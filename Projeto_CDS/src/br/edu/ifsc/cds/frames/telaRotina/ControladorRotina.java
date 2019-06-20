@@ -1,17 +1,32 @@
 package br.edu.ifsc.cds.frames.telaRotina;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.frames.telaDados.ExecutorDados;
 import br.edu.ifsc.cds.frames.telaExercicio.ExecutorExercicio;
 import br.edu.ifsc.cds.frames.telaHistorico.ExecutorHistorico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ControladorRotina {
+public class ControladorRotina implements Initializable {
+
+	private Pessoa pessoa;
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 
 	@FXML
 	private JFXButton btnDados;
@@ -44,6 +59,11 @@ public class ControladorRotina {
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		exeExercicio.start(stage);
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
 	}
 
 }
