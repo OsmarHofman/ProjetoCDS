@@ -13,7 +13,7 @@ public class ExecutorMeusAlimentos extends Application{
 		// TODO Auto-generated method stub
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("MeusAlimentos.fxml"));
-			Scene scene = new Scene(root, 1023, 651);
+			Scene scene = new Scene(root, 1130, 657);
 			scene.getStylesheets().add(getClass().getResource("MeusAlimentos.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
