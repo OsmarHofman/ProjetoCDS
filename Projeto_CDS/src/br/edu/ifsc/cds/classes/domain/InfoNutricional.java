@@ -28,21 +28,87 @@ public class InfoNutricional implements Serializable {
 	@OneToOne(mappedBy = "infoNutri")
 	private Alimento alimento;
 
+	// Implementação do Padrão Builder
+	public static class Builder {
+		private Integer id;
+		private float caloria = 0;
+		private float carboidrato = 0;
+		private float proteinas = 0;
+		private float gordurasTotais = 0;
+		private float gordurasSaturadas = 0;
+		private float gordurasTrans = 0;
+		private float fibras = 0;
+		private float sodio = 0;
+		private float totalCalorias = 0;
+
+		public Builder(Integer id) {
+			this.id = id;
+		}
+
+		public Builder caloria(float cal) {
+			caloria = cal;
+			return this;
+		}
+
+		public Builder carboidrato(float carb) {
+			carboidrato = carb;
+			return this;
+		}
+
+		public Builder proteinas(float prot) {
+			proteinas = prot;
+			return this;
+		}
+
+		public Builder gordurasTotais(float gordTot) {
+			gordurasTotais = gordTot;
+			return this;
+		}
+
+		public Builder gordurasSaturadas(float gordSat) {
+			gordurasSaturadas = gordSat;
+			return this;
+		}
+
+		public Builder gordurasTrans(float gordTran) {
+			gordurasTrans = gordTran;
+			return this;
+		}
+
+		public Builder fibras(float fib) {
+			fibras = fib;
+			return this;
+		}
+
+		public Builder sodio(float sod) {
+			sodio = sod;
+			return this;
+		}
+
+		public Builder totalCalorias(float totCal) {
+			totalCalorias = totCal;
+			return this;
+		}
+
+		public InfoNutricional build() {
+			return new InfoNutricional(this);
+		}
+	}
+
 	public InfoNutricional() {
 	}
 
-	public InfoNutricional(Integer id, float caloria, float carboidrato, float proteinas, float gorduras_totais,
-			float gorduras_saturadas, float gorduras_trans, float fibras, float sodio, float totalCalorias) {
-		this.id = id;
-		this.caloria = caloria;
-		this.carboidrato = carboidrato;
-		this.proteinas = proteinas;
-		this.gordurasTotais = gorduras_totais;
-		this.gordurasSaturadas = gorduras_saturadas;
-		this.gordurasTrans = gorduras_trans;
-		this.fibras = fibras;
-		this.sodio = sodio;
-		this.totalCalorias = totalCalorias;
+	public InfoNutricional(Builder builder) {
+		this.id = builder.id;
+		this.caloria = builder.caloria;
+		this.carboidrato = builder.carboidrato;
+		this.proteinas = builder.proteinas;
+		this.gordurasTotais = builder.gordurasTotais;
+		this.gordurasSaturadas = builder.gordurasSaturadas;
+		this.gordurasTrans = builder.gordurasTrans;
+		this.fibras = builder.fibras;
+		this.sodio = builder.sodio;
+		this.totalCalorias = builder.totalCalorias;
 	}
 
 	public Integer getId() {
@@ -148,6 +214,14 @@ public class InfoNutricional implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "InfoNutricional [id=" + id + ", caloria=" + caloria + ", carboidrato=" + carboidrato + ", proteinas="
+				+ proteinas + ", gordurasTotais=" + gordurasTotais + ", gordurasSaturadas=" + gordurasSaturadas
+				+ ", gordurasTrans=" + gordurasTrans + ", fibras=" + fibras + ", sodio=" + sodio + ", totalCalorias="
+				+ totalCalorias + ", alimento=" + alimento + "]";
 	}
 
 }
