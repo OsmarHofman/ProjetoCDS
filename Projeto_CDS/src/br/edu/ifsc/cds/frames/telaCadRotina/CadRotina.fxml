@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="1128.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaCadRotina.CadRotinaController">
+   <children>
+      <AnchorPane prefHeight="105.0" prefWidth="1129.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <Label layoutX="33.0" layoutY="15.0" prefHeight="82.0" prefWidth="138.0" text="CDS" textFill="WHITE">
+               <font>
+                  <Font size="52.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="15.0" layoutY="114.0" prefHeight="482.0" prefWidth="1097.0" style="-fx-border-radius: 30px; -fx-border-color: blue; -fx-background-color: white;">
+         <children>
+            <Label layoutX="440.0" layoutY="17.0" prefHeight="38.0" prefWidth="215.0" text="Cadastro de Rotina" textFill="#0f2fff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Separator layoutX="10.0" layoutY="60.0" prefHeight="2.0" prefWidth="1073.0" style="-fx-background-color: black;" />
+            <VBox layoutX="12.0" layoutY="151.0" prefHeight="62.0" prefWidth="156.0" />
+            <VBox layoutX="219.0" layoutY="151.0" prefHeight="62.0" prefWidth="97.0" />
+            <VBox layoutX="217.0" layoutY="95.0" prefHeight="62.0" prefWidth="100.0" />
+            <VBox layoutX="219.0" layoutY="213.0" prefHeight="62.0" prefWidth="97.0" />
+            <Separator layoutX="537.0" layoutY="62.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="320.0" prefWidth="2.0" style="-fx-background-color: black;" />
+            <Separator layoutX="12.0" layoutY="381.0" prefHeight="2.0" prefWidth="1071.0" style="-fx-background-color: black;" />
+            <Button fx:id="btnAdicionar" layoutX="623.0" layoutY="333.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Adicionar " textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <JFXButton fx:id="btnVoltar" layoutX="609.0" layoutY="425.0" onAction="#cancelar" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #2D75E8;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <TableView layoutX="552.0" layoutY="114.0" prefHeight="200.0" prefWidth="508.0">
+              <columns>
+                <TableColumn prefWidth="135.0" text="Nome" />
+                <TableColumn prefWidth="102.0" text="Intensidade" />
+                  <TableColumn prefWidth="122.0" text="Gasto Calórico" />
+                  <TableColumn prefWidth="75.0" text="Início" />
+                  <TableColumn prefWidth="75.0" text="Término" />
+              </columns>
+            </TableView>
+            <Label layoutX="730.0" layoutY="66.0" prefHeight="38.0" prefWidth="121.0" text="Exercícios" textFill="#0f2fff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAdicionar1" layoutX="766.0" layoutY="333.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Editar" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAdicionar2" layoutX="919.0" layoutY="336.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Excluir" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAdicionar21" layoutX="355.0" layoutY="329.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Excluir" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAdicionar11" layoutX="218.0" layoutY="330.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Editar" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <TableView layoutX="13.0" layoutY="114.0" prefHeight="200.0" prefWidth="508.0">
+               <columns>
+                  <TableColumn prefWidth="135.0" text="Título" />
+                  <TableColumn prefWidth="102.0" text="Alimentos" />
+                  <TableColumn prefWidth="122.0" text="Total Caloria" />
+                  <TableColumn prefWidth="75.0" text="Início" />
+                  <TableColumn prefWidth="75.0" text="Término" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnAdicionar3" layoutX="54.0" layoutY="328.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" style="-fx-background-color: #2D75E8;" text="Adicionar " textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="217.0" layoutY="66.0" prefHeight="38.0" prefWidth="109.0" text="Refeições" textFill="#0f2fff">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnVoltar1" layoutX="436.0" layoutY="423.0" onAction="#cancelar" prefHeight="38.0" prefWidth="121.0" style="-fx-background-color: #2D75E8;" text="Cadastrar" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

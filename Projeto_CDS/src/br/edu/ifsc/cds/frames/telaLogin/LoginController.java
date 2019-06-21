@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
 		String email_pessoa = txtEmailCad.getText();
 		Float peso_pessoa = Float.parseFloat(txtPesoCad.getText());
 		Float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
-		Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa);
+		Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa, null);
 		PessoaDAO dao = new PessoaDAO();
 		if (Validacao.verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(),
 				txtAlturaCad.getText())) {

@@ -7,9 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Rotina implements Serializable {
@@ -26,8 +25,7 @@ public class Rotina implements Serializable {
 	@ManyToMany(mappedBy = "listaExRotina")
 	private List<Exercicio> listaExercicio;
 
-	@ManyToOne
-	@JoinColumn(name = "pessoa_id")
+	@OneToOne(mappedBy = "rotina")
 	private Pessoa pessoa;
 
 	public Rotina() {

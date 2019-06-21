@@ -1,10 +1,10 @@
 package br.edu.ifsc.cds.classes.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
@@ -15,16 +15,19 @@ public class Pessoa extends Usuario implements Serializable {
 	private float pesoInicial;
 	private float altura;
 
-	@OneToMany(mappedBy = "pessoa")
-	private List<Rotina> listaRotinas;
+	@JoinColumn(name = "rotina_id")
+	@OneToOne
+	private Rotina rotina;
 
 	public Pessoa() {
 	}
 
-	public Pessoa(Integer id, String nome, String email, String senha, float peso_inicial, float altura) {
+	public Pessoa(Integer id, String nome, String email, String senha, float peso_inicial, float altura,
+			Rotina rotina) {
 		super(id, nome, email, senha);
 		this.pesoInicial = peso_inicial;
 		this.altura = altura;
+		this.rotina = rotina;
 	}
 
 	public float getPeso_inicial() {
@@ -43,12 +46,12 @@ public class Pessoa extends Usuario implements Serializable {
 		this.altura = altura;
 	}
 
-	public List<Rotina> getListaRotinas() {
-		return listaRotinas;
+	public Rotina getRotina() {
+		return rotina;
 	}
 
-	public void setListaRotinas(List<Rotina> listaRotinas) {
-		this.listaRotinas = listaRotinas;
+	public void setRotina(Rotina rotina) {
+		this.rotina = rotina;
 	}
 
 }
