@@ -3,10 +3,14 @@ package br.edu.ifsc.cds.frames.telaDados;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DAO.PessoaDAO;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.frames.telaRotina.ControladorRotina;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,7 +41,15 @@ public class DadosController implements Initializable {
 			txtAltura.setEditable(false);
 			txtPeso.setEditable(false);
 			btnEditar.setText("Editar Informações");
+
+			Pessoa usuario = ControladorRotina.pessoa;
+			usuario.setAltura(Float.parseFloat(txtAltura.getText()));
+			usuario.setPeso_inicial(Float.parseFloat(txtPeso.getText()));
+
 			PessoaDAO pessoaDAO = new PessoaDAO();
+			pessoaDAO.update(usuario);
+			JOptionPane.showMessageDialog(null, "Informações Salvas com sucesso!");
+
 		}
 
 	}
@@ -50,10 +62,8 @@ public class DadosController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		ControladorRotina ctrl_rotina = new ControladorRotina();
-//		Pessoa usuario = ctrl_rotina.getPessoa();
-//		txtAltura.setText(String.valueOf(usuario.getAltura()));
-//		txtPeso.setText(String.valueOf(usuario.getPeso_inicial()));
+		txtAltura.setText(String.valueOf(ControladorRotina.pessoa.getAltura()));
+		txtPeso.setText(String.valueOf(ControladorRotina.pessoa.getPeso_inicial()));
 		txtAltura.setEditable(false);
 		txtPeso.setEditable(false);
 

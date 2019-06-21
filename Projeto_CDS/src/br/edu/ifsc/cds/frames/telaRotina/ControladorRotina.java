@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class ControladorRotina implements Initializable {
 
-	private Pessoa pessoa;
+	public static Pessoa pessoa;
 
 	public Pessoa getPessoa() {
 		return pessoa;
