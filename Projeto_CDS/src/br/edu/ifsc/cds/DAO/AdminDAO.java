@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IAdminDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
-import br.edu.ifsc.cds.classes.domain.Executora;
 
 public class AdminDAO implements IAdminDAO {
 
@@ -18,12 +18,12 @@ public class AdminDAO implements IAdminDAO {
 	public void create(Admin admin) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(admin);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
+			
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -35,21 +35,21 @@ public class AdminDAO implements IAdminDAO {
 	public List<Admin> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Admin> adm = new ArrayList<>();
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
 		adm = query.getResultList();
 		em.close();
-		Executora.emf.close();
+		
 		return adm;
 	}
 
 	@Override
 	public Admin retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Admin adm = em.find(Admin.class, id);
 		em.close();
-		Executora.emf.close();
+		
 		return adm;
 	}
 
@@ -57,12 +57,11 @@ public class AdminDAO implements IAdminDAO {
 	public void update(Admin admin) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(admin);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -74,12 +73,12 @@ public class AdminDAO implements IAdminDAO {
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Admin adm = em.find(Admin.class, id);
 			em.getTransaction().begin();
 			em.remove(adm);
 			em.getTransaction().commit();
-
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IinfoNutricionalDAO;
-import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.InfoNutricional;
 
 public class InfoNutricionalDAO implements IinfoNutricionalDAO{
@@ -18,13 +18,11 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO{
 	public void create(InfoNutricional infnutri) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(infnutri);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();
@@ -35,21 +33,19 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO{
 	public List<InfoNutricional> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<InfoNutricional> infonutris = new ArrayList<>();
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
 		infonutris = query.getResultList();
 		em.close();
-		Executora.emf.close();
 		return infonutris;
 	}
 
 	@Override
 	public InfoNutricional retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		InfoNutricional infonutri = em.find(InfoNutricional.class, id);
 		em.close();
-		Executora.emf.close();
 		return infonutri;
 	}
 
@@ -57,12 +53,11 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO{
 	public void update(InfoNutricional infonutri) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(infonutri);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -74,12 +69,12 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			InfoNutricional infonutri = em.find(InfoNutricional.class, id);
 			em.getTransaction().begin();
 			em.remove(infonutri);
 			em.getTransaction().commit();
-
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

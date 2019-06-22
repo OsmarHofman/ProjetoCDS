@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IHorarioDAO;
-import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.Horario;
 
 public class HorarioDAO implements IHorarioDAO{
@@ -18,12 +18,11 @@ public class HorarioDAO implements IHorarioDAO{
 	public void create(Horario horario) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(horario);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -35,21 +34,19 @@ public class HorarioDAO implements IHorarioDAO{
 	public List<Horario> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Horario> horarios = new ArrayList<>();
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
 		horarios = query.getResultList();
 		em.close();
-		Executora.emf.close();
 		return horarios;
 	}
 
 	@Override
 	public Horario retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em = Executora.emf.createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Horario horario= em.find(Horario.class, id);
 		em.close();
-		Executora.emf.close();
 		return horario;
 	}
 
@@ -57,13 +54,11 @@ public class HorarioDAO implements IHorarioDAO{
 	public void update(Horario horario) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(horario);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
-			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();
@@ -74,12 +69,12 @@ public class HorarioDAO implements IHorarioDAO{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Horario horario = em.find(Horario.class, id);
 			em.getTransaction().begin();
 			em.remove(horario);
 			em.getTransaction().commit();
-
+            em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

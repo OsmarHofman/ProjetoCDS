@@ -6,8 +6,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IRefeicaoDAO;
-import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.Refeicao;
 
 public class RefeicaoDAO implements IRefeicaoDAO{
@@ -18,12 +18,11 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void create(Refeicao refeicao) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(refeicao);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -35,21 +34,19 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public List<Refeicao> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Refeicao> refeicoes = new ArrayList<>();
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
 		refeicoes = query.getResultList();
 		em.close();
-		Executora.emf.close();
 		return refeicoes;
 	}
 
 	@Override
 	public Refeicao retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em = Executora.emf.createEntityManager();
+		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Refeicao refeicao = em.find(Refeicao.class, id);
 		em.close();
-		Executora.emf.close();
 		return refeicao;
 	}
 
@@ -57,12 +54,11 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void update(Refeicao admin) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(admin);
 			em.getTransaction().commit();
 			em.close();
-			Executora.emf.close();
 			
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -74,12 +70,12 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em = Executora.emf.createEntityManager();
+			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Refeicao refeicao = em.find(Refeicao.class, id);
 			em.getTransaction().begin();
 			em.remove(refeicao);
 			em.getTransaction().commit();
-
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
