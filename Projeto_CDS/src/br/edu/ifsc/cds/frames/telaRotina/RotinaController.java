@@ -16,7 +16,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ControladorRotina implements Initializable {
+public class RotinaController implements Initializable {
 
 	public static Pessoa pessoa;
 

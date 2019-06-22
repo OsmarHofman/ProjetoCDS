@@ -13,7 +13,7 @@ import com.jfoenix.controls.JFXTextField;
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
-import br.edu.ifsc.cds.frames.telaRotina.ControladorRotina;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import br.edu.ifsc.cds.frames.telaRotina.ExecutorRotina;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -107,7 +107,7 @@ public class LoginController implements Initializable {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("../telaRotina/TelaRotina.fxml"));
 					Parent root = (Parent) loader.load();
 
-					ControladorRotina ctrl_rotina = loader.getController();
+					RotinaController ctrl_rotina = loader.getController();
 					ctrl_rotina.setPessoa(usuario);
 
 					Stage stage = new Stage();

@@ -10,7 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
-import br.edu.ifsc.cds.frames.telaRotina.ControladorRotina;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +42,7 @@ public class DadosController implements Initializable {
 			txtPeso.setEditable(false);
 			btnEditar.setText("Editar Informações");
 
-			Pessoa usuario = ControladorRotina.pessoa;
+			Pessoa usuario = RotinaController.pessoa;
 			usuario.setAltura(Float.parseFloat(txtAltura.getText()));
 			usuario.setPeso_inicial(Float.parseFloat(txtPeso.getText()));
 
@@ -62,8 +62,8 @@ public class DadosController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		txtAltura.setText(String.valueOf(ControladorRotina.pessoa.getAltura()));
-		txtPeso.setText(String.valueOf(ControladorRotina.pessoa.getPeso_inicial()));
+		txtAltura.setText(String.valueOf(RotinaController.pessoa.getAltura()));
+		txtPeso.setText(String.valueOf(RotinaController.pessoa.getPeso_inicial()));
 		txtAltura.setEditable(false);
 		txtPeso.setEditable(false);
 
