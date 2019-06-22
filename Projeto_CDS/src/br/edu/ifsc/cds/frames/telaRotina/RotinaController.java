@@ -9,6 +9,7 @@ import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.frames.telaDados.ExecutorDados;
 import br.edu.ifsc.cds.frames.telaExercicio.ExecutorExercicio;
 import br.edu.ifsc.cds.frames.telaHistorico.ExecutorHistorico;
+import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,6 +29,9 @@ public class RotinaController implements Initializable {
 		this.pessoa = pessoa;
 	}
 
+	@FXML
+    private JFXButton btnVoltar;
+	
 	@FXML
 	private JFXButton btnDados;
 
@@ -59,6 +63,15 @@ public class RotinaController implements Initializable {
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		exeExercicio.start(stage);
+	}
+
+	@FXML
+	void voltar(ActionEvent event) {
+		ExecutorLogin login = new ExecutorLogin();
+		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
+		telaAtual.close();
+		Stage novaTela = new Stage();
+		login.start(novaTela);
 	}
 
 	@Override
