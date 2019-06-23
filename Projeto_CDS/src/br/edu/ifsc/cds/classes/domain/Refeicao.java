@@ -87,7 +87,7 @@ public class Refeicao implements Serializable {
 	public float totalGanhoCalorico(ArrayList<Alimento> alimentos) {
 		float total = 0;
 		for (Alimento ali : alimentos) {
-			total += ali.getInfoNutri().getTotalCalorias();
+			total += ali.getInfoNutri().getCaloriasInfo();
 		}
 		return total;
 	}

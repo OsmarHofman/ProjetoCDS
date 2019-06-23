@@ -23,7 +23,7 @@ public class InfoNutricional implements Serializable {
 	private float gordurasTrans;
 	private float fibras;
 	private float sodio;
-	private float totalCalorias;
+	private float caloriasInfo;
 
 	@OneToOne(mappedBy = "infoNutri")
 	private Alimento alimento;
@@ -108,7 +108,7 @@ public class InfoNutricional implements Serializable {
 		this.gordurasTrans = builder.gordurasTrans;
 		this.fibras = builder.fibras;
 		this.sodio = builder.sodio;
-		this.totalCalorias = builder.totalCalorias;
+		this.caloriasInfo = builder.totalCalorias;
 	}
 
 	public Integer getId() {
@@ -183,12 +183,12 @@ public class InfoNutricional implements Serializable {
 		this.sodio = sodio;
 	}
 
-	public float getTotalCalorias() {
-		return totalCalorias;
+	public float getCaloriasInfo() {
+		return caloriasInfo;
 	}
 
-	public void setTotalCalorias(float totalCalorias) {
-		this.totalCalorias = totalCalorias;
+	public void setCaloriasInfo(float caloriasInfo) {
+		this.caloriasInfo = caloriasInfo;
 	}
 
 	@Override
@@ -220,8 +220,8 @@ public class InfoNutricional implements Serializable {
 	public String toString() {
 		return "InfoNutricional [id=" + id + ", caloria=" + caloria + ", carboidrato=" + carboidrato + ", proteinas="
 				+ proteinas + ", gordurasTotais=" + gordurasTotais + ", gordurasSaturadas=" + gordurasSaturadas
-				+ ", gordurasTrans=" + gordurasTrans + ", fibras=" + fibras + ", sodio=" + sodio + ", totalCalorias="
-				+ totalCalorias + ", alimento=" + alimento + "]";
+				+ ", gordurasTrans=" + gordurasTrans + ", fibras=" + fibras + ", sodio=" + sodio + ", alimento="
+				+ alimento + "]";
 	}
 
 }

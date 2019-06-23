@@ -24,6 +24,7 @@ public class Alimento implements Serializable {
 	private String nome;
 	private float quantidade;
 	private String unidadeMedida;
+	private float caloriaTotal;
 
 	@JoinColumn(name = "info_nutri_id")
 	@OneToOne(cascade = CascadeType.ALL)
@@ -36,12 +37,14 @@ public class Alimento implements Serializable {
 	public Alimento() {
 	}
 
-	public Alimento(Integer id, String nome, float quantidade, String unidade_medida, InfoNutricional infoNutri) {
+	public Alimento(Integer id, String nome, float quantidade, String unidade_medida, InfoNutricional infoNutri,
+			float caloriaTotal) {
 		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
 		this.unidadeMedida = unidade_medida;
 		this.infoNutri = infoNutri;
+		this.caloriaTotal = caloriaTotal;
 	}
 
 	public Integer getId() {
@@ -92,8 +95,24 @@ public class Alimento implements Serializable {
 		this.listaRefeicao = listaRefeicao;
 	}
 
-	public void addNovoAlimento(Alimento alimento, InfoNutricional info) {
-		// TODO
+	public float getCaloriaTotal() {
+		return caloriaTotal;
+	}
+
+	public void setCaloriaTotal(float quantidade, String unidade_medida, float caloriasInfo) {
+		if (unidade_medida.equals("Unidade")) {
+			this.caloriaTotal = quantidade + caloriasInfo;
+		} else if (unidade_medida.equals("Xicara de chá")) {
+			this.caloriaTotal = quantidade * 200 + caloriasInfo;
+		} else if (unidade_medida.equals("Copo")) {
+			this.caloriaTotal = quantidade * 200 + caloriasInfo;
+		} else if (unidade_medida.equals("Colher de Sopa")) {
+			this.caloriaTotal = quantidade * 10 + caloriasInfo;
+		} else if (unidade_medida.equals("Colher de chá")) {
+			this.caloriaTotal = quantidade * 5 + caloriasInfo;
+		} else {
+			this.caloriaTotal = 0;
+		}
 	}
 
 	@Override
