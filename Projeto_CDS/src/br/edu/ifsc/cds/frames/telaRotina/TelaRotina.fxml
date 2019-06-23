@@ -394,12 +394,17 @@
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="218.0">
                            <children>
-                              <JFXButton layoutX="11.0" layoutY="23.0" prefHeight="34.0" prefWidth="196.0" text="Meus Exercícios">
+                              <JFXButton fx:id="btnExercicios" layoutX="11.0" layoutY="23.0" onAction="#mostraExercicios" prefHeight="34.0" prefWidth="196.0" text="Meus Exercícios">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton layoutX="11.0" layoutY="99.0" prefHeight="34.0" prefWidth="196.0" text="Meus Alimentos">
+                              <JFXButton fx:id="btnRefeicoes" layoutX="11.0" layoutY="119.0" onAction="#mostraRefeicoes" prefHeight="34.0" prefWidth="196.0" text="Minhas Refeições">
+                                 <font>
+                                    <Font name="Arial Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnAlimentos" layoutX="11.0" layoutY="71.0" onAction="#mostraAlimentos" prefHeight="34.0" prefWidth="196.0" text="Meus Alimentos">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>

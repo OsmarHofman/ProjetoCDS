@@ -20,9 +20,6 @@ public class MeusExerciciosController implements Initializable {
 	private JFXButton btnExcluirExercicio;
 
 	@FXML
-	private JFXButton btneditarExercicio;
-
-	@FXML
 	private Pane pnlOverview;
 
 	@FXML

@@ -6,8 +6,10 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.frames.telaAlimento.telaMeusAlimentos.ExecutorMeusAlimentos;
 import br.edu.ifsc.cds.frames.telaDados.ExecutorDados;
 import br.edu.ifsc.cds.frames.telaExercicio.ExecutorExercicio;
+import br.edu.ifsc.cds.frames.telaExercicio.telaMeusExercicios.ExecutorMeusExercicios;
 import br.edu.ifsc.cds.frames.telaHistorico.ExecutorHistorico;
 import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
 import javafx.event.ActionEvent;
@@ -28,7 +30,17 @@ public class RotinaController implements Initializable {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
+	
 
+    @FXML
+    private JFXButton btnAlimentos;
+    
+    @FXML
+    private JFXButton btnRefeicoes;
+	
+	@FXML
+    private JFXButton btnExercicios;
+	
 	@FXML
     private JFXButton btnVoltar;
 	
@@ -37,6 +49,30 @@ public class RotinaController implements Initializable {
 
 	@FXML
 	private Button BtnNovoAlimento;
+	
+	
+	@FXML
+    void mostraExercicios(ActionEvent event) throws Exception {
+		ExecutorMeusExercicios exe = new ExecutorMeusExercicios();
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		exe.start(stage);
+    }
+
+    @FXML
+    void mostraRefeicoes(ActionEvent event) {
+	
+    }
+
+    @FXML
+    void mostraAlimentos(ActionEvent event) {
+		ExecutorMeusAlimentos ali = new ExecutorMeusAlimentos();
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		ali.start(stage);
+    }
 
 	@FXML
 	void mostraDados(ActionEvent event) {

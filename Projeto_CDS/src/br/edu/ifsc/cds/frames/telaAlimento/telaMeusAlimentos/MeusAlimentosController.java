@@ -20,9 +20,6 @@ public class MeusAlimentosController implements Initializable{
 	private JFXButton btnexcluirAlimento;
 
 	@FXML
-	private JFXButton btneditarAlimento;
-
-	@FXML
 	private Pane pnlOverview;
 
 	@FXML
