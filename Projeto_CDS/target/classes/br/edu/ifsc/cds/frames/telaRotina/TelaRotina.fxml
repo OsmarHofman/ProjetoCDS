@@ -433,6 +433,11 @@
 						</TitledPane>
 					</panes>
 				</Accordion>
+            <JFXButton id="btnHistorico" fx:id="btnVoltar" onAction="#voltar" prefHeight="34.0" prefWidth="196.0" text="Sair">
+               <font>
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+            </JFXButton>
 			</children>
 		</VBox>
 	</left>
@@ -447,11 +452,6 @@
 						<Font name="Arial Bold" size="31.0" />
 					</font>
 				</Label>
-            <JFXButton id="btnHistorico" fx:id="btnVoltar" layoutX="1170.0" layoutY="29.0" onAction="#voltar" prefHeight="34.0" prefWidth="196.0" text="Voltar">
-               <font>
-                  <Font name="Arial Bold" size="15.0" />
-               </font>
-            </JFXButton>
 			</children>
 		</Pane>
 	</top>
