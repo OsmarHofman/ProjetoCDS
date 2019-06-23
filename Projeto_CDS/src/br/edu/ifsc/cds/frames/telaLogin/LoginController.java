@@ -255,7 +255,7 @@ public class LoginController implements Initializable {
 
 				Stage stage = new Stage();
 				stage.setScene(new Scene(root));
-				stage.setMaximized(true);
+				stage.setMaximized(false);
 				stage.show();
 			} catch (Exception e) {
 				e.printStackTrace();

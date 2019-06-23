@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="378.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaCadExercicio.CadExercicioController">
    <children>
-      <AnchorPane prefHeight="105.0" prefWidth="386.0" style="-fx-background-color: #2D75E8;">
+      <AnchorPane prefHeight="102.0" prefWidth="386.0" style="-fx-background-color: #2D75E8;">
          <children>
             <Label layoutX="33.0" layoutY="15.0" prefHeight="82.0" prefWidth="138.0" text="CDS" textFill="WHITE">
                <font>

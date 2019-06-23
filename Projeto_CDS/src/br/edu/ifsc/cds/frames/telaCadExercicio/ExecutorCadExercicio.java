@@ -11,9 +11,10 @@ public class ExecutorCadExercicio extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("CadExercicio.fxml"));
-			Scene scene = new Scene(root, 470, 516);
+			Scene scene = new Scene(root, 378, 516);
 			scene.getStylesheets().add(getClass().getResource("CadExercicio.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();

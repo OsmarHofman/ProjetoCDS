@@ -14,6 +14,7 @@ public class ExecutorUsuarios extends Application {
 			Scene scene = new Scene(root, 914, 546);
 			scene.getStylesheets().add(getClass().getResource("Usuarios.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
