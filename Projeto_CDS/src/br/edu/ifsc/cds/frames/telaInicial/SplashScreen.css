@@ -1,0 +1,6 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#ancorPane{
+-fx-background-image: url("images/img8.png");
+-fx-background-repeat: no-repeat;
+-fx-background-size: 569px 370px;
+}

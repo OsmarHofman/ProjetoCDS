@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -11,30 +12,30 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<fx:root prefHeight="374.0" prefWidth="561.0" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="stck" prefHeight="369.0" prefWidth="570.0" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane />
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="569.0" style="-fx-background-color: white;">
-         <children>
-            <Separator layoutX="73.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="374.0" prefWidth="7.0" style="-fx-background-color: black;" />
-            <Separator layoutX="2.0" layoutY="335.0" prefHeight="6.0" prefWidth="569.0" style="-fx-background-color: black;" />
-            <Text fill="#3936ff" layoutX="183.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controle de Dieta e Saúde" wrappingWidth="228.3203125">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Text>
-            <Label layoutX="490.0" layoutY="346.0" prefHeight="19.0" prefWidth="71.0" text="Vesão 1.0" textFill="#7300ff">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <ProgressIndicator layoutX="267.0" layoutY="200.0" maxHeight="30.0" maxWidth="30.0" minHeight="60.0" minWidth="60.0" prefHeight="30.0" prefWidth="30.0" />
-            <Text fill="#3936ff" layoutX="234.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CDS" wrappingWidth="228.3203125">
-               <font>
-                  <Font size="68.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
+      <BorderPane>
+         <center>
+            <AnchorPane id="ancorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="369.0" prefWidth="570.0" stylesheets="@SplashScreen.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="WHITE" layoutX="183.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controle de Dieta e Saúde" wrappingWidth="228.3203125">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="490.0" layoutY="346.0" prefHeight="19.0" prefWidth="71.0" text="Versão 1.0" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <ProgressIndicator fx:id="batata" layoutX="267.0" layoutY="232.0" maxHeight="30.0" maxWidth="30.0" minHeight="60.0" minWidth="60.0" prefHeight="30.0" prefWidth="30.0" />
+                  <Text fill="WHITE" layoutX="226.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CDS" wrappingWidth="228.3203125">
+                     <font>
+                        <Font size="68.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center></BorderPane>
    </children>
 </fx:root>
