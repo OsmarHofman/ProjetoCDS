@@ -21,4 +21,11 @@ public class EntityMagerFactorySingleton {
 		return emf;
 	}
 
+	public static void closeFactory() {
+		if (emf != null) {
+           emf.close();
+		}
+
+	}
+
 }
