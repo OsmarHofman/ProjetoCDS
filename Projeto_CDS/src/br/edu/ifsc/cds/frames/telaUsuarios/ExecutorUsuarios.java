@@ -18,7 +18,7 @@ public class ExecutorUsuarios extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}// C:\Users\luana\git\ProjetoCDS\Projeto_CDS\src\br\edu\ifsc\cds\frames\telaHistorico
+	}
 
 	public static void main(String[] args) {
 		launch(args);

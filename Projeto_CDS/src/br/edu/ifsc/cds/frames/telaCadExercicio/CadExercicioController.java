@@ -1,4 +1,4 @@
-package br.edu.ifsc.cds.frames.telaExercicio;
+package br.edu.ifsc.cds.frames.telaCadExercicio;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 
-public class ExercicioController implements Initializable {
+public class CadExercicioController implements Initializable {
 
 	@FXML
 	private JFXButton btnVoltar;

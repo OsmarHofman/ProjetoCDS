@@ -6,11 +6,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class ExecutorCadRefeicao extends Application{
+public class ExecutorCadRefeicao extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("CadRefeicao.fxml"));
 			Scene scene = new Scene(root, 748, 607);
@@ -21,7 +20,7 @@ public class ExecutorCadRefeicao extends Application{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

@@ -21,7 +21,6 @@ public class Exercicio implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String intensidade;
 	private float met;
 	private float gastoCaloria;
 
@@ -37,10 +36,9 @@ public class Exercicio implements Serializable {
 
 	}
 
-	public Exercicio(Integer id, String nome, String intensidade, float met, float gastoCaloria, Horario horario) {
+	public Exercicio(Integer id, String nome, float met, float gastoCaloria, Horario horario) {
 		this.id = id;
 		this.nome = nome;
-		this.intensidade = intensidade;
 		this.met = met;
 		this.gastoCaloria = gastoCaloria;
 		this.horarioEx = horario;
@@ -60,14 +58,6 @@ public class Exercicio implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getIntensidade() {
-		return intensidade;
-	}
-
-	public void setIntensidade(String intensidade) {
-		this.intensidade = intensidade;
 	}
 
 	public float getMet() {
