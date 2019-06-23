@@ -23,7 +23,7 @@ public class ExecutorSplashScreen extends Application {
 
 		// I am using the code below so the Primary Stage of the application
 		// doesn't appear for 2 seconds , so the splash screen is displayed
-		PauseTransition splashScreenDelay = new PauseTransition(Duration.seconds(6));
+		PauseTransition splashScreenDelay = new PauseTransition(Duration.seconds(4));
 		EntityManager em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		em.close();
 		splashScreenDelay.setOnFinished(f -> {
