@@ -16,7 +16,7 @@ public class ExecutorLogin extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("Login.fxml"));
-			Scene scene = new Scene(root, 877, 440);
+			Scene scene = new Scene(root, 880, 440);
 			scene.getStylesheets().add(getClass().getResource("Login.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
@@ -24,7 +24,7 @@ public class ExecutorLogin extends Application {
 
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
-					int op = JOptionPane.showConfirmDialog(null, "Deseja sair?");
+					int op = JOptionPane.showConfirmDialog(null, "      Deseja sair?");
 					fechar(op, we);
 				}
 			});

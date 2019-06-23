@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class ExecutorMeusAlimentos extends Application{
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) {
 		// TODO Auto-generated method stub
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("MeusAlimentos.fxml"));
