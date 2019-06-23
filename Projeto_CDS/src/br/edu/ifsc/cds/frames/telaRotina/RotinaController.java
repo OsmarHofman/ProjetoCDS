@@ -28,51 +28,49 @@ public class RotinaController implements Initializable {
 	}
 
 	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+		RotinaController.pessoa = pessoa;
 	}
-	
 
-    @FXML
-    private JFXButton btnAlimentos;
-    
-    @FXML
-    private JFXButton btnRefeicoes;
-	
 	@FXML
-    private JFXButton btnExercicios;
-	
+	private JFXButton btnAlimentos;
+
 	@FXML
-    private JFXButton btnVoltar;
-	
+	private JFXButton btnRefeicoes;
+
+	@FXML
+	private JFXButton btnExercicios;
+
+	@FXML
+	private JFXButton btnVoltar;
+
 	@FXML
 	private JFXButton btnDados;
 
 	@FXML
 	private Button BtnNovoAlimento;
-	
-	
+
 	@FXML
-    void mostraExercicios(ActionEvent event) throws Exception {
+	void mostraExercicios(ActionEvent event) throws Exception {
 		ExecutorMeusExercicios exe = new ExecutorMeusExercicios();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		exe.start(stage);
-    }
+	}
 
-    @FXML
-    void mostraRefeicoes(ActionEvent event) {
-	
-    }
+	@FXML
+	void mostraRefeicoes(ActionEvent event) {
 
-    @FXML
-    void mostraAlimentos(ActionEvent event) {
+	}
+
+	@FXML
+	void mostraAlimentos(ActionEvent event) {
 		ExecutorMeusAlimentos ali = new ExecutorMeusAlimentos();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		ali.start(stage);
-    }
+	}
 
 	@FXML
 	void mostraDados(ActionEvent event) {

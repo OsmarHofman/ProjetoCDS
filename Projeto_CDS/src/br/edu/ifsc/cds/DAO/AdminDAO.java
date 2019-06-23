@@ -18,12 +18,11 @@ public class AdminDAO implements IAdminDAO {
 	public void create(Admin admin) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(admin);
 			em.getTransaction().commit();
 			em.close();
-			
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -35,21 +34,21 @@ public class AdminDAO implements IAdminDAO {
 	public List<Admin> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Admin> adm = new ArrayList<>();
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
 		adm = query.getResultList();
 		em.close();
-		
+
 		return adm;
 	}
 
 	@Override
 	public Admin retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Admin adm = em.find(Admin.class, id);
 		em.close();
-		
+
 		return adm;
 	}
 
@@ -57,7 +56,7 @@ public class AdminDAO implements IAdminDAO {
 	public void update(Admin admin) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(admin);
 			em.getTransaction().commit();
@@ -73,7 +72,7 @@ public class AdminDAO implements IAdminDAO {
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Admin adm = em.find(Admin.class, id);
 			em.getTransaction().begin();
 			em.remove(adm);
@@ -82,6 +81,16 @@ public class AdminDAO implements IAdminDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	@Override
+	public Admin retrieveCount(String user, String password) {
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query consulta = em
+				.createQuery(
+						"SELECT a FROM Usuario u INNER JOIN Admin a ON u.id = a.id WHERE u.email = ?1 AND u.senha = ?2")
+				.setParameter(1, user).setParameter(2, password);
+		return (Admin) consulta.getSingleResult();
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.frames.telaCadAlimento.ExecutorCadAlimento;
 import br.edu.ifsc.cds.frames.telaCadExercicio.ExecutorCadExercicio;
 import javafx.event.ActionEvent;
@@ -14,6 +15,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class UsuariosController implements Initializable {
+
+	public static Admin admin;
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		UsuariosController.admin = admin;
+	}
 
 	@FXML
 	private JFXButton btnAlimentos;

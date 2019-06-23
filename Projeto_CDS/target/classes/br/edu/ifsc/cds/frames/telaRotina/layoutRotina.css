@@ -1,9 +1,13 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 /*tab */
 .tab {
-	-fx-background-color:  #2D75E8;
+	-fx-background-color:  #3936ff;
 	-fx-font-size: 15px;
 	-fx-padding: 15px; 
+}
+
+.tab-label{
+	-fx-text-fill: white;
 }
 
 .tab-pane{  
@@ -19,7 +23,7 @@
 
 .tab:selected {
 	-fx-font-weight: bold ;
-	-fx-background-color:  #2D75E8;
+	-fx-background-color:  #3936ff;
 	
 }
 
