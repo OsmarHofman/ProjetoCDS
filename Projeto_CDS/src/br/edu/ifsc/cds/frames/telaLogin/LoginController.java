@@ -78,19 +78,24 @@ public class LoginController implements Initializable {
 		String nome_pessoa = txtNomeCad.getText();
 		String senha_pessoa = txtxSenhaCad.getText();
 		String email_pessoa = txtEmailCad.getText();
-		Float peso_pessoa = Float.parseFloat(txtPesoCad.getText());
-		Float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
-		Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa, null);
-		PessoaDAO dao = new PessoaDAO();
-		if (Validacao.verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(),
-				txtAlturaCad.getText())) {
-			dao.create(pessoa);
-			JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
-			ExecutorRotina telaRotina = new ExecutorRotina();
-			Stage telaAtual = (Stage) btnSignUp.getScene().getWindow();
-			telaAtual.close();
-			Stage novaTela = new Stage();
-			telaRotina.start(novaTela);
+		float peso_pessoa = Float.parseFloat(txtPesoCad.getText());
+		float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
+		if (Validacao.verificaString(txtNomeCad.getText(), txtxSenhaCad.getText(), txtEmailCad.getText(),
+				txtPesoCad.getText(), txtAlturaCad.getText())) {
+			if (Validacao.verificaFloat(peso_pessoa, altura_pessoa)) {
+				Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa,
+						null);
+				PessoaDAO dao = new PessoaDAO();
+				dao.create(pessoa);
+				JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
+				ExecutorRotina telaRotina = new ExecutorRotina();
+				Stage telaAtual = (Stage) btnSignUp.getScene().getWindow();
+				telaAtual.close();
+				Stage novaTela = new Stage();
+				telaRotina.start(novaTela);
+			} else {
+				JOptionPane.showMessageDialog(null, "Digite somente valores maiores que 0 nos campos Peso e Altura");
+			}
 		}
 
 	}
@@ -99,7 +104,7 @@ public class LoginController implements Initializable {
 	void signin(ActionEvent event) {
 		String user = txtUsuario.getText();
 		String password = txtSenha.getText();
-		if (Validacao.verificaValidade(user, password)) {
+		if (Validacao.verificaString(user, password)) {
 			PessoaDAO pessoaDao = new PessoaDAO();
 			Pessoa usuario = pessoaDao.retrieveCount(user, password);
 			if (!usuario.equals(null)) {
@@ -122,8 +127,6 @@ public class LoginController implements Initializable {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-//				ExecutorRotina telaRotina = new ExecutorRotina();
-//				telaRotina.start(new Stage());
 
 			} else {
 				JOptionPane.showMessageDialog(null, "Usuário/Senha Incorreto(s)!");
@@ -137,7 +140,7 @@ public class LoginController implements Initializable {
 		if (event.getCode() == KeyCode.ENTER) {
 			String user = txtUsuario.getText();
 			String password = txtSenha.getText();
-			if (Validacao.verificaValidade(user, password)) {
+			if (Validacao.verificaString(user, password)) {
 				PessoaDAO pessoaDao = new PessoaDAO();
 				Pessoa usuario = pessoaDao.retrieveCount(user, password);
 				if (!usuario.equals(null)) {
@@ -160,8 +163,6 @@ public class LoginController implements Initializable {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-//					ExecutorRotina telaRotina = new ExecutorRotina();
-//					telaRotina.start(new Stage());
 
 				} else {
 					JOptionPane.showMessageDialog(null, "Usuário/Senha Incorreto(s)!");
@@ -177,19 +178,25 @@ public class LoginController implements Initializable {
 			String nome_pessoa = txtNomeCad.getText();
 			String senha_pessoa = txtxSenhaCad.getText();
 			String email_pessoa = txtEmailCad.getText();
-			Float peso_pessoa = Float.parseFloat(txtPesoCad.getText());
-			Float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
-			Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa, altura_pessoa, null);
-			PessoaDAO dao = new PessoaDAO();
-			if (Validacao.verificaValidade(nome_pessoa, email_pessoa, senha_pessoa, txtPesoCad.getText(),
-					txtAlturaCad.getText())) {
-				dao.create(pessoa);
-				JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
-				ExecutorRotina telaRotina = new ExecutorRotina();
-				Stage telaAtual = (Stage) btnSignUp.getScene().getWindow();
-				telaAtual.close();
-				Stage novaTela = new Stage();
-				telaRotina.start(novaTela);
+			float peso_pessoa = Float.parseFloat(txtPesoCad.getText());
+			float altura_pessoa = Float.parseFloat(txtAlturaCad.getText());
+			if (Validacao.verificaString(txtNomeCad.getText(), txtxSenhaCad.getText(), txtEmailCad.getText(),
+					txtPesoCad.getText(), txtAlturaCad.getText())) {
+				if (Validacao.verificaFloat(peso_pessoa, altura_pessoa)) {
+					Pessoa pessoa = new Pessoa(null, nome_pessoa, email_pessoa, senha_pessoa, peso_pessoa,
+							altura_pessoa, null);
+					PessoaDAO dao = new PessoaDAO();
+					dao.create(pessoa);
+					JOptionPane.showMessageDialog(null, "Cadastro concluído com sucesso!");
+					ExecutorRotina telaRotina = new ExecutorRotina();
+					Stage telaAtual = (Stage) btnSignUp.getScene().getWindow();
+					telaAtual.close();
+					Stage novaTela = new Stage();
+					telaRotina.start(novaTela);
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"Digite somente valores maiores que 0 nos campos Peso e Altura");
+				}
 			}
 
 		}

@@ -39,9 +39,18 @@ public class Validacao {
 		});
 	}
 
-	public static boolean verificaValidade(String... listaCampos) {
+	public static boolean verificaString(String... listaCampos) {
 		for (String campos : listaCampos) {
 			if (campos.equals("") || campos.equals(null)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean verificaFloat(float... listaCampos) {
+		for (float campos : listaCampos) {
+			if (campos <= 0) {
 				return false;
 			}
 		}
