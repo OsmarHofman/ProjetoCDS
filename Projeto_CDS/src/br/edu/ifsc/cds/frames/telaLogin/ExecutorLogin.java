@@ -24,7 +24,7 @@ public class ExecutorLogin extends Application {
 
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
-					int op = JOptionPane.showConfirmDialog(null, "      Deseja sair?");
+					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");
 					fechar(op, we);
 				}
 			});

@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Alimento implements Serializable {
+public class Alimento implements Serializable  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -99,20 +99,8 @@ public class Alimento implements Serializable {
 		return caloriaTotal;
 	}
 
-	public void setCaloriaTotal(float quantidade, String unidade_medida, float caloriasInfo) {
-		if (unidade_medida.equals("Unidade")) {
-			this.caloriaTotal = quantidade + caloriasInfo;
-		} else if (unidade_medida.equals("Xicara de chá")) {
-			this.caloriaTotal = quantidade * 200 + caloriasInfo;
-		} else if (unidade_medida.equals("Copo")) {
-			this.caloriaTotal = quantidade * 200 + caloriasInfo;
-		} else if (unidade_medida.equals("Colher de Sopa")) {
-			this.caloriaTotal = quantidade * 10 + caloriasInfo;
-		} else if (unidade_medida.equals("Colher de chá")) {
-			this.caloriaTotal = quantidade * 5 + caloriasInfo;
-		} else {
-			this.caloriaTotal = 0;
-		}
+	public void setCaloriaTotal(float total) {
+    this.caloriaTotal = total;
 	}
 
 	@Override
