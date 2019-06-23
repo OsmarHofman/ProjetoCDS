@@ -13,19 +13,24 @@ import com.jfoenix.controls.JFXTextField;
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
-import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import br.edu.ifsc.cds.frames.telaRotina.ExecutorRotina;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
-
+	
+	@FXML
+	private AnchorPane ancorGeral;
+	
 	@FXML
 	private JFXPasswordField txtSenha;
 
@@ -68,7 +73,7 @@ public class LoginController implements Initializable {
 	// Métodos
 
 	@FXML
-	void signUp(ActionEvent event) {
+	void signUp(KeyEvent event) {
 		anchorSignUp.setVisible(true);
 		String nome_pessoa = txtNomeCad.getText();
 		String senha_pessoa = txtxSenhaCad.getText();
@@ -91,7 +96,7 @@ public class LoginController implements Initializable {
 	}
 
 	@FXML
-	void signin(ActionEvent event) {
+	void signin(KeyEvent event) {
 		String user = txtUsuario.getText();
 		String password = txtSenha.getText();
 		if (Validacao.verificaValidade(user, password)) {
@@ -128,6 +133,20 @@ public class LoginController implements Initializable {
 	}
 
 	@FXML
+	void teclaEnterEntrar(KeyEvent event) {
+		if (event.getCode() == KeyCode.ENTER) {
+			this.signin(event);
+		}
+	}
+
+	@FXML
+	void teclaEnterCadastrar(KeyEvent event) {
+		if (event.getCode() == KeyCode.ENTER) {
+			this.signUp(event);
+		}
+	}
+
+	@FXML
 	void mSignin(ActionEvent event) {
 		anchorSignIn.setVisible(true);
 		anchorSignUp.setVisible(false);
@@ -144,7 +163,6 @@ public class LoginController implements Initializable {
 		anchorSignIn.setVisible(true);
 		anchorSignUp.setVisible(false);
 		validadoresTela();
-
 	}
 
 	private void validadoresTela() {
