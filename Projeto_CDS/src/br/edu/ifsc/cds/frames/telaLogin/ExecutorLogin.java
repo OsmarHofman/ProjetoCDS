@@ -1,10 +1,15 @@
 package br.edu.ifsc.cds.frames.telaLogin;
 
+import javax.swing.JOptionPane;
+
+import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ExecutorLogin extends Application {
 	@Override
@@ -16,6 +21,13 @@ public class ExecutorLogin extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
+
+			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we) {
+					int op = JOptionPane.showConfirmDialog(null, "Deseja sair?");
+					fechar(op, we);
+				}
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -24,4 +36,13 @@ public class ExecutorLogin extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+
+	public void fechar(int op, WindowEvent we) {
+		if (op == 1 || op == 2) {
+			we.consume();
+		} else {
+			EntityMagerFactorySingleton.closeFactory();
+		}
+	}
+
 }
