@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * This class contains the SplashScreen of the Application
+ * Essa classe é a Tela Inicial (Splash Screen)
  *
  */
 public class SplashScreenController extends StackPane {
@@ -20,13 +20,10 @@ public class SplashScreenController extends StackPane {
 	private Logger logger = Logger.getLogger(getClass().getName());
 
 	/**
-	 * The Window of the Splash Screen
+	 * A Janela
 	 */
 	Stage window = new Stage();
 
-	/**
-	 * Constructor.
-	 */
 	public SplashScreenController() {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("SplashScreenController.fxml"));
 		loader.setController(this);
@@ -38,15 +35,15 @@ public class SplashScreenController extends StackPane {
 			logger.log(Level.SEVERE, "", ex);
 		}
 
-		// Window
-		window.setTitle("Splash Screen");
+		// Altera o titulo da Janela e a coloca na cena
+		window.setTitle("CDS");
 		window.initStyle(StageStyle.TRANSPARENT);
 		window.setScene(new Scene(this));
 
 	}
 
 	/**
-	 * Shows the window of the SplashScreen
+	 * mostra a janela na Tela Inicial
 	 */
 	public void showWindow() {
 		window.show();

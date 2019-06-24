@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+/**
+ * Classe que representa o período de início e fim de uma ação
+ * 
+ *
+ */
 @Entity
 public class Horario implements Serializable {
 	private static final long serialVersionUID = 1L;

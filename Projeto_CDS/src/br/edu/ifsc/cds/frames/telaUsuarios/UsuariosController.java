@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.classes.domain.Admin;
+import br.edu.ifsc.cds.classes.domain.Alimento;
+import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.frames.telaCadAlimento.ExecutorCadAlimento;
 import br.edu.ifsc.cds.frames.telaCadExercicio.ExecutorCadExercicio;
 import javafx.event.ActionEvent;
@@ -29,6 +31,11 @@ public class UsuariosController implements Initializable {
 	@FXML
 	private JFXButton btnAlimentos;
 
+	/**
+	 * Mostra a tela de cadastro dos {@link Exercicio} do sistema.
+	 * 
+	 * @param Clique do botão
+	 */
 	@FXML
 	void mostraExercicios(ActionEvent event) {
 		Stage stage = new Stage();
@@ -39,6 +46,11 @@ public class UsuariosController implements Initializable {
 		exeCadExercicio.start(stage);
 	}
 
+	/**
+	 * Mostra a tela de cadastro dos {@link Alimento} do sistema.
+	 * 
+	 * @param Clique do botão
+	 */
 	@FXML
 	void mostraAlimentos(ActionEvent event) {
 		Stage stage = new Stage();

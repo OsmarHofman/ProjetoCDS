@@ -9,6 +9,15 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
+import br.edu.ifsc.cds.classes.domain.Admin;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
+
+/**
+ * 
+ * Classe que representa o Usuário, no qual é herdada pelas Classes
+ * {@link Admin} e {@link Pessoa}
+ *
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario implements Serializable {
@@ -62,10 +71,6 @@ public abstract class Usuario implements Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	void cadastro(Usuario usuario) {
-		// TODO
 	}
 
 	@Override

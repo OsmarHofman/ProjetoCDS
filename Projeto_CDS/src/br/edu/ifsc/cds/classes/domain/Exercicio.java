@@ -13,6 +13,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * Classe que representa um Exercício dentro de uma {@link Rotina} e que contém
+ * um {@link Horario}
+ *
+ */
 @Entity
 public class Exercicio implements Serializable {
 	private static final long serialVersionUID = 1L;

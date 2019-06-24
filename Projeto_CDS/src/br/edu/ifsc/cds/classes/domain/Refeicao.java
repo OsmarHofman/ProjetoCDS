@@ -13,6 +13,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * Classe que representa uma Refeicao dentro de uma {@link Rotina} que contém
+ * {@link Alimento} e um {@link Horario}
+ *
+ */
 @Entity
 public class Refeicao implements Serializable {
 	private static final long serialVersionUID = 1L;

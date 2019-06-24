@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * Rotina que pode conter {@link Refeicao} e {@link Exercicio}
+ *
+ */
 @Entity
 public class Rotina implements Serializable {
 	private static final long serialVersionUID = 1L;

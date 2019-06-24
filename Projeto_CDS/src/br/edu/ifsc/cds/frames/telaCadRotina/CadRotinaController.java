@@ -35,6 +35,11 @@ public class CadRotinaController implements Initializable {
 
 	}
 
+	/**
+	 * Fecha esta tela e Retorna a tela que a chamou
+	 * 
+	 * @param Clique no botão
+	 */
 	@FXML
 	void cancelar(ActionEvent event) {
 		Stage telaAtual = (Stage) btnCancelar.getScene().getWindow();
@@ -73,6 +78,8 @@ public class CadRotinaController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// desabilita alguns botoes que só tem ações que dependem de outros campos e
+		// ações
 		btnCadastrar.setDisable(true);
 		btnEditRef.setDisable(true);
 		btnExcRef.setDisable(true);

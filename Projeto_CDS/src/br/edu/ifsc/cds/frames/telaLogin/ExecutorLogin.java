@@ -22,6 +22,7 @@ public class ExecutorLogin extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.show();
 
+			// confirmação para sair da tela
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
 					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");

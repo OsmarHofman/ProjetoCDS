@@ -14,8 +14,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * Classe que representa um Alimento que pode estar presente em uma
+ * {@link Refeicao} e que contém {@link InfoNutricional}
+ *
+ */
 @Entity
-public class Alimento implements Serializable  {
+public class Alimento implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -100,7 +106,7 @@ public class Alimento implements Serializable  {
 	}
 
 	public void setCaloriaTotal(float total) {
-    this.caloriaTotal = total;
+		this.caloriaTotal = total;
 	}
 
 	@Override

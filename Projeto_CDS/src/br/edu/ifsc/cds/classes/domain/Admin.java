@@ -6,6 +6,12 @@ import javax.persistence.Entity;
 
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
+/**
+ * 
+ * Classe que Representa um Usuário Administrador. Herdada da classe
+ * {@link Usuario}
+ *
+ */
 @Entity
 public class Admin extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;

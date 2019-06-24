@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+/**
+ * 
+ * Classe que representa as Informações Nutricionais de um {@link Alimento}
+ *
+ */
 @Entity
 public class InfoNutricional implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -94,6 +99,7 @@ public class InfoNutricional implements Serializable {
 			return new InfoNutricional(this);
 		}
 	}
+	// Fim da Implementação do Padrão Builder
 
 	public InfoNutricional() {
 	}

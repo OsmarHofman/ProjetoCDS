@@ -73,16 +73,17 @@ public class LoginController implements Initializable {
 	// Métodos
 
 	/**
-	 * Cadastro de pessoas, no qual recebe os valores das caixas de texto, verifica
-	 * se essas caixas estão preenchidas e não tem valores negativos, monta uma
-	 * Pessoa com os dados, e persiste no banco de dados. Caso o cadastro seja
-	 * realizado, o usuário já é direcionado a tela principal de Rotinas.
+	 * Cadastro de {@link Pessoa}, no qual recebe os valores das caixas de texto,
+	 * verifica se essas caixas estão preenchidas e não tem valores negativos, monta
+	 * uma Pessoa com os dados, e persiste no banco de dados. Caso o cadastro seja
+	 * realizado, o usuário já é direcionado a tela principal de
+	 * {@link ExecutorRotina}.
 	 * 
 	 * @param Evento de clique do botão de Cadastro
 	 * 
-	 * @exception Caso haja uma caixa de texto vazia será informado na interface
-	 *                 gráfica qual a caixa não preenchida. E caso haja um valor
-	 *                 numérico negativo será informado tal.
+	 * @exception Exception Caso haja uma caixa de texto vazia será informado na
+	 *                      interface gráfica qual a caixa não preenchida. E caso
+	 *                      haja um valor numérico negativo será informado tal.
 	 * 
 	 */
 	@FXML
@@ -128,8 +129,9 @@ public class LoginController implements Initializable {
 
 	/**
 	 * Login no sistema, no qual através de um usuário, senha e a tela atual, o
-	 * método loginUsuario faz a verificação de que tipo de usuário está tentando
-	 * logar (Pessoa ou Administrador) e redireciona para a tela correta.
+	 * método {@link #loginUsuario} faz a verificação de que tipo de usuário está
+	 * tentando logar ({@link Pessoa} ou {@link Admin}) e redireciona para a tela
+	 * correta.
 	 * 
 	 * @param Evento de clique do botão de Login
 	 * 
@@ -144,10 +146,10 @@ public class LoginController implements Initializable {
 	}
 
 	/**
-	 * Este método implementa as funções do método signIn quando a tecla enter é
+	 * Este método implementa as funções do método signin quando a tecla Enter é
 	 * pressionada.
 	 * 
-	 * @see Método signIn desta classe
+	 * @see Método {@link #signin} desta classe
 	 * 
 	 * @param Botão Enter pressionado
 	 */
@@ -166,7 +168,7 @@ public class LoginController implements Initializable {
 	 * Este método implementa as funções do método signUp quando a tecla enter é
 	 * pressionada.
 	 * 
-	 * @see Método signUp desta classe
+	 * @see Método {@link #signUp} desta classe
 	 * 
 	 * @param Botão Enter pressionado
 	 */
@@ -233,36 +235,73 @@ public class LoginController implements Initializable {
 		Validacao.criaValidadorPassField(Arrays.asList(txtSenha, txtxSenhaCad));
 	}
 
+	/**
+	 * Realiza as verificações e o login de uma {@link Pessoa} ao sistema. Verifica
+	 * se os campos estão vazios, tenta recuperar a Pessoa presente no banco, então
+	 * fecha a tela atual, inicia a tela de Rotina {@link ExecutorRotina}, passando
+	 * a Pessoa que realizou o login
+	 * 
+	 * @param user      email do usuário para realizar login
+	 * @param password  senha do usuário para realizar logina
+	 * @param telaAtual tela que solicitou o login (para ser fechada)
+	 * 
+	 * @exception Exception Caso não encontre uma Pessoa, irá verificar se o usuário
+	 *                      é um Administrador, caso contrário irá informar que o
+	 *                      Usuário não existe no Banco
+	 */
 	public void loginUsuario(String user, String password, Stage telaAtual) {
 		if (Validacao.verificaString(user, password)) {
 			try {
 				PessoaDAO pessoaDao = new PessoaDAO();
+
+				// Tenta recuperar a conta da Pessoa na base de dados
 				Pessoa usuario = pessoaDao.retrieveCount(user, password);
 				JOptionPane.showMessageDialog(null, "Login Efetuado com Sucesso!");
 
 				telaAtual.close();
 
+				// Tenta Iniciar a nova tela de Rotina
 				try {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("../telaRotina/TelaRotina.fxml"));
 					Parent root = (Parent) loader.load();
 
+					// Obtem o controller relacionado a tela, e passar o objeto Pessoa para a
+					// mesma
 					RotinaController ctrl_rotina = loader.getController();
 					ctrl_rotina.setPessoa(usuario);
 
+					// Contrói a nova tela
 					Stage stage = new Stage();
 					stage.setScene(new Scene(root));
 					stage.setMaximized(true);
+					stage.setTitle("CDS");
 					stage.show();
 				} catch (IllegalStateException e) {
 					e.printStackTrace();
 				}
 
+				// Caso não encontre a Pessoa na base de dados, tenta encontrar um Administrador
 			} catch (Exception ex) {
 				loginAdmin(user, password, telaAtual);
 			}
 		}
 	}
 
+	/**
+	 * Realiza as verificações e o login de um {@link Admin} ao sistema. Verifica se
+	 * os campos estão vazios, tenta recuperar o Admin presente no banco, então
+	 * fecha a tela atual, inicia a tela de Rotina, passando o Admin que realizou o
+	 * login
+	 * 
+	 * @see loginUsuario para mais informações das operações do método
+	 * 
+	 * @param user      email do usuário para realizar login
+	 * @param password  senha do usuário para realizar logina
+	 * @param telaAtual tela que solicitou o login (para ser fechada)
+	 * 
+	 * @exception Exception Caso não encontre um Administrador, irá informar que o
+	 *                      Usuário não existe no Banco
+	 */
 	public void loginAdmin(String user, String password, Stage telaAtual) {
 		try {
 			AdminDAO adminDao = new AdminDAO();

@@ -30,13 +30,23 @@ public class DadosController implements Initializable {
 	@FXML
 	private JFXButton btnVoltar;
 
+	/**
+	 * Editar e Salvar os dados da {@link Pessoa}. Quando clicado no botão para
+	 * Editar, e os campos estiverem desabilitados, pode-se alterar os valores da
+	 * Altura e Peso da Pessoa. E quando clicado no botão Salvar, irá armazenar as
+	 * informações nos campos, na Pessoa correspondente.
+	 * 
+	 * @param Clique no botão
+	 */
 	@FXML
 	void editarInfo(ActionEvent event) {
+		// Caso deseja alterar
 		if (!txtPeso.isEditable() && !txtAltura.isEditable()) {
 			txtAltura.setEditable(true);
 			txtPeso.setEditable(true);
 			txtPeso.requestFocus();
 			btnEditar.setText("Salvar");
+			// Caso deseja salvar
 		} else {
 			txtAltura.setEditable(false);
 			txtPeso.setEditable(false);
@@ -45,7 +55,7 @@ public class DadosController implements Initializable {
 			Pessoa usuario = RotinaController.pessoa;
 			usuario.setAltura(Float.parseFloat(txtAltura.getText()));
 			usuario.setPeso_inicial(Float.parseFloat(txtPeso.getText()));
-
+			// altera no banco de dados
 			PessoaDAO pessoaDAO = new PessoaDAO();
 			pessoaDAO.update(usuario);
 			JOptionPane.showMessageDialog(null, "Informações Salvas com sucesso!");
@@ -54,12 +64,19 @@ public class DadosController implements Initializable {
 
 	}
 
+	/**
+	 * Fecha esta tela e Retorna a tela que a chamou
+	 * 
+	 * @param Clique no botão
+	 */
 	@FXML
 	void voltarTela(ActionEvent event) {
 		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
 		telaAtual.close();
 	}
 
+	// Inicializa a Classe obtendo os valores de Altura e Peso da Pessoa, e
+	// desabilitando os seus campos
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		txtAltura.setText(String.valueOf(RotinaController.pessoa.getAltura()));

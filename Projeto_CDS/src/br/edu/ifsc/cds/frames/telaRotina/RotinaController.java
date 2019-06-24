@@ -72,23 +72,34 @@ public class RotinaController implements Initializable {
 		ali.start(stage);
 	}
 
+	/**
+	 * Mostra a tela com os dados pessoais da {@link Pessoa}.
+	 * 
+	 * @param Clique do botão
+	 */
 	@FXML
 	void mostraDados(ActionEvent event) {
-		ExecutorDados exeDados = new ExecutorDados();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		stage.setTitle("CDS - Meus Dados");
+
+		ExecutorDados exeDados = new ExecutorDados();
 		exeDados.start(stage);
 	}
 
+	/**
+	 * Mostra a tela com os dados do histórico de Rotinas da {@link Pessoa}.
+	 * 
+	 * @param Clique do botão
+	 */
 	@FXML
 	void mostraHistorico(ActionEvent event) {
-		ExecutorHistorico exeHistorico = new ExecutorHistorico();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		stage.setTitle("CDS - Histórico");
+		ExecutorHistorico exeHistorico = new ExecutorHistorico();
 		exeHistorico.start(stage);
 	}
 
@@ -101,6 +112,11 @@ public class RotinaController implements Initializable {
 		exeExercicio.start(stage);
 	}
 
+	/**
+	 * Fecha esta tela e Retorna a tela que a chamou
+	 * 
+	 * @param Clique no botão
+	 */
 	@FXML
 	void voltar(ActionEvent event) {
 		ExecutorLogin login = new ExecutorLogin();

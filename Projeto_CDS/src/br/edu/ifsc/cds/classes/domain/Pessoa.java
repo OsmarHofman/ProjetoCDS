@@ -8,6 +8,11 @@ import javax.persistence.OneToOne;
 
 import br.edu.ifsc.cds.classes.abstracts.Usuario;
 
+/**
+ * Classe que representa um Usuário comum ao sistema. Herda da Classe
+ * {@link Usuario}
+ *
+ */
 @Entity
 public class Pessoa extends Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
