@@ -1,15 +1,23 @@
 package br.edu.ifsc.cds.frames.telaCadRefeicao;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.DTO.AlimentoDTO;
+import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.frames.telaCadRotina.CadRotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,7 +36,13 @@ public class CadRefeicaoController implements Initializable {
 	private TextField txtQtd;
 
 	@FXML
+	private JFXButton btnSalvar;
+
+	@FXML
 	private JFXButton btnOK;
+
+	@FXML
+	private TextField txtTitulo;
 
 	@FXML
 	private TableView<AlimentoDTO> tbvAlimento;
@@ -56,6 +70,24 @@ public class CadRefeicaoController implements Initializable {
 
 	@FXML
 	private ChoiceBox<String> boxAlimentos;
+
+	@FXML
+	void salvarRefeicao(ActionEvent event) throws ParseException {
+		String titulo = txtTitulo.getText();
+		List<String> nomesAlimentos = new ArrayList<>();
+		float caloria = 0;
+		for (AlimentoDTO alimentoDTO : tbvAlimento.getItems()) {
+			nomesAlimentos.add(alimentoDTO.getNome());
+			caloria = caloria + alimentoDTO.getCalorias();
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+		Date horarioInicio = sdf.parse(txtInicio.getText());
+		Date horarioFim = sdf.parse(txtFim.getText());
+		RefeicaoDTO dto = new RefeicaoDTO(titulo, nomesAlimentos, caloria, horarioInicio, horarioFim);
+		CadRotinaController.addListaRefeicao(dto);
+		JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
+		ControleComponente.fechaBotao(btnSalvar);
+	}
 
 	@FXML
 	void confirmaPorcao(ActionEvent event) {

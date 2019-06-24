@@ -1,10 +1,13 @@
 package br.edu.ifsc.cds.frames.telaCadRotina;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaCadRefeicao.ExecutorCadRefeicao;
 import javafx.event.ActionEvent;
@@ -14,6 +17,20 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CadRotinaController implements Initializable {
+
+	private static List<RefeicaoDTO> listaRefeicao;
+
+	public static List<RefeicaoDTO> getListaRefeicao() {
+		return listaRefeicao;
+	}
+
+	public static void setListaRefeicao(List<RefeicaoDTO> listaRefeicao) {
+		CadRotinaController.listaRefeicao = listaRefeicao;
+	}
+
+	public static void addListaRefeicao(RefeicaoDTO refeicao) {
+		CadRotinaController.listaRefeicao.add(refeicao);
+	}
 
 	@FXML
 	private JFXButton btnVoltar;
@@ -97,6 +114,7 @@ public class CadRotinaController implements Initializable {
 		btnExcRef.setDisable(true);
 		btnEditEx.setDisable(true);
 		btnExcEx.setDisable(true);
+		listaRefeicao = new ArrayList<RefeicaoDTO>();
 	}
 
 }

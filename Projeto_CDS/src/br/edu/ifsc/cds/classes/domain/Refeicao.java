@@ -73,8 +73,8 @@ public class Refeicao implements Serializable {
 		this.listaRefRotina = listaRefRotina;
 	}
 
-	public List<Alimento> getListaAlimento() {
-		return listaAlimento;
+	public ArrayList<Alimento> getListaAlimento() {
+		return (ArrayList<Alimento>) listaAlimento;
 	}
 
 	public void setListaAlimento(List<Alimento> listaAlimento) {

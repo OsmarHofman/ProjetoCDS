@@ -77,7 +77,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <JFXButton layoutX="80.0" layoutY="563.0" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Salvar" textFill="WHITE">
+            <JFXButton fx:id="btnSalvar" layoutX="80.0" layoutY="563.0" onAction="#salvarRefeicao" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Salvar" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
