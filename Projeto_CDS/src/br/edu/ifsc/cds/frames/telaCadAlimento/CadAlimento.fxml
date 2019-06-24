@@ -26,7 +26,6 @@
          </children></AnchorPane>
       <Pane layoutX="14.0" layoutY="128.0" prefHeight="343.0" prefWidth="507.0" style="-fx-border-radius: 30px; -fx-border-color: blue; -fx-background-color: white;">
          <children>
-            <TextField layoutX="28.0" layoutY="189.0" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
             <Label layoutX="36.0" layoutY="163.0" text="Nome">
                <font>
                   <Font size="15.0" />
@@ -37,24 +36,24 @@
                   <Label layoutX="44.0" layoutY="55.0" text="Caloria" />
                   <Label layoutX="128.0" layoutY="55.0" text="Carboidrato" />
                   <Label layoutX="42.0" layoutY="104.0" text="Proteina" />
-                  <TextField layoutX="120.0" layoutY="72.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
-                  <TextField layoutX="27.0" layoutY="121.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
-                  <TextField layoutX="120.0" layoutY="121.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
-                  <Label layoutX="116.0" layoutY="104.0" text="Gorduras Totais" />
-                  <TextField layoutX="29.0" layoutY="171.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
+                  <Label layoutX="118.0" layoutY="105.0" text="Gorduras Totais" />
                   <Label layoutX="22.0" layoutY="154.0" text="Gorduras Trans" />
-                  <TextField layoutX="121.0" layoutY="171.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
                   <Label layoutX="118.0" layoutY="154.0" text="Gordura Saturada" />
-                  <TextField layoutX="29.0" layoutY="222.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
-                  <TextField layoutX="122.0" layoutY="222.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
                   <Label layoutX="142.0" layoutY="205.0" text="Sódio" />
                   <Label layoutX="47.0" layoutY="205.0" text="Fibras" />
-                  <TextField layoutX="29.0" layoutY="72.0" prefHeight="27.0" prefWidth="75.0" style="-fx-border-color: blue; -fx-border-radius: 50px; -fx-background-color: white;" />
                   <Label layoutX="35.0" layoutY="14.0" prefHeight="27.0" prefWidth="175.0" text="Informações Nutricionais">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
+                  <JFXTextField fx:id="txtCaloria" alignment="TOP_LEFT" layoutX="35.0" layoutY="74.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtCarboidrato" alignment="TOP_LEFT" layoutX="131.0" layoutY="74.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtGordTot" alignment="TOP_LEFT" layoutX="132.0" layoutY="123.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtProteina" alignment="TOP_LEFT" layoutX="36.0" layoutY="123.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtFibras" alignment="TOP_LEFT" layoutX="37.0" layoutY="225.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtSodio" alignment="TOP_LEFT" layoutX="133.0" layoutY="225.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtGordSat" alignment="TOP_LEFT" layoutX="132.0" layoutY="176.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="txtGordTrans" alignment="TOP_LEFT" layoutX="36.0" layoutY="176.0" prefHeight="27.0" prefWidth="64.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
                </children>
             </AnchorPane>
             <Separator layoutX="252.0" layoutY="78.0" minWidth="-Infinity" orientation="VERTICAL" prefHeight="250.0" prefWidth="2.0" style="-fx-background-color: black;" />
@@ -64,6 +63,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <JFXTextField fx:id="txtNomeExer" alignment="TOP_LEFT" layoutX="26.0" layoutY="192.0" prefHeight="25.0" prefWidth="156.0" style="-fx-border-color: blue;" unFocusColor="WHITE" />
          </children>
       </Pane>
       <JFXButton fx:id="btnVoltar" layoutX="303.0" layoutY="489.0" onAction="#voltar" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Voltar" textFill="WHITE">
@@ -71,7 +71,7 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="96.0" layoutY="489.0" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Adicionar" textFill="WHITE">
+      <JFXButton fx:id="btnAdd" layoutX="96.0" layoutY="489.0" onAction="#adicionar" prefHeight="38.0" prefWidth="139.0" style="-fx-background-color: #3936ff;" text="Adicionar" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

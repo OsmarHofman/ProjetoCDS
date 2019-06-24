@@ -27,6 +27,7 @@ public class ExecutorLogin extends Application {
 				public void handle(WindowEvent we) {
 					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");
 					fechar(op, we);
+					EntityMagerFactorySingleton.emf.close();
 				}
 			});
 		} catch (Exception e) {
