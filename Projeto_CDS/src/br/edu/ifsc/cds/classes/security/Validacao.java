@@ -1,5 +1,7 @@
 package br.edu.ifsc.cds.classes.security;
 
+import java.util.List;
+
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
@@ -8,35 +10,41 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
 public class Validacao {
-	public static boolean criaValidador(JFXTextField campo) {
-		RequiredFieldValidator validador = new RequiredFieldValidator();
-		campo.getValidators().add(validador);
-		validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
-		campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if (!newValue) {
-					campo.validate();
+	public static void criaValidadorTxtField(List<JFXTextField> campoTela) {
+		for (JFXTextField campo : campoTela) {
+			RequiredFieldValidator validador = new RequiredFieldValidator();
+			campo.getValidators().add(validador);
+			validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
+			campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
+				@Override
+				public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+					if (!newValue) {
+						campo.validate();
+					}
 				}
-			}
 
-		});
-		return campo.focusedProperty().getValue();
+			});
+
+		}
+
 	}
 
-	public static void criaValidador(JFXPasswordField campo) {
-		RequiredFieldValidator validador = new RequiredFieldValidator();
-		campo.getValidators().add(validador);
-		validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
-		campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
-			@Override
-			public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-				if (!newValue) {
-					campo.validate();
+	public static void criaValidadorPassField(List<JFXPasswordField> campoTela) {
+		for (JFXPasswordField campo : campoTela) {
+			RequiredFieldValidator validador = new RequiredFieldValidator();
+			campo.getValidators().add(validador);
+			validador.setMessage("Campo " + campo.getPromptText() + " Obrigatório");
+			campo.focusedProperty().addListener(new ChangeListener<Boolean>() {
+				@Override
+				public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+					if (!newValue) {
+						campo.validate();
+					}
 				}
-			}
 
-		});
+			});
+		}
+
 	}
 
 	public static boolean verificaString(String... listaCampos) {

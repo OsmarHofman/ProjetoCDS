@@ -31,19 +31,21 @@ public class UsuariosController implements Initializable {
 
 	@FXML
 	void mostraExercicios(ActionEvent event) {
-		ExecutorCadExercicio exeCadExercicio = new ExecutorCadExercicio();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
+		stage.setTitle("CDS - Cadastro de Exercícios");
+		ExecutorCadExercicio exeCadExercicio = new ExecutorCadExercicio();
 		exeCadExercicio.start(stage);
 	}
 
 	@FXML
 	void mostraAlimentos(ActionEvent event) {
-		ExecutorCadAlimento exeCadAlimento = new ExecutorCadAlimento();
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
+		stage.setTitle("CDS - Cadastro de Alimentos");
+		ExecutorCadAlimento exeCadAlimento = new ExecutorCadAlimento();
 		exeCadAlimento.start(stage);
 	}
 

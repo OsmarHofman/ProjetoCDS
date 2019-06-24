@@ -12,24 +12,25 @@ import javafx.util.Duration;
 public class ExecutorSplashScreen extends Application {
 
 	/**
-	 * This will be used as a splash screen for the application It will display some
-	 * important data to the user and then disappear
+	 * Esta tela será utilizada como uma tela inicial e desaparecerá depois de 4
+	 * segundos
 	 */
-	SplashScreenController spashScreen = new SplashScreenController();
+	SplashScreenController splashScreen = new SplashScreenController();
 
 	@Override
 	public void start(Stage primaryStage) {
-		spashScreen.showWindow();
-
-		// I am using the code below so the Primary Stage of the application
-		// doesn't appear for 2 seconds , so the splash screen is displayed
+		primaryStage.setTitle("CDS");
+		splashScreen.showWindow();
 		PauseTransition splashScreenDelay = new PauseTransition(Duration.seconds(4));
+		// irá iniciar o entity manager, para otimizar as outras operações no banco
 		EntityManager em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		em.close();
+		// após o delay de 4 segundos, irá chamar a tela de login
 		splashScreenDelay.setOnFinished(f -> {
-			spashScreen.hideWindow();
+			splashScreen.hideWindow();
 			ExecutorLogin telaRotina = new ExecutorLogin();
 			Stage novaTela = new Stage();
+			novaTela.setTitle("CDS");
 			telaRotina.start(novaTela);
 		});
 		splashScreenDelay.playFromStart();

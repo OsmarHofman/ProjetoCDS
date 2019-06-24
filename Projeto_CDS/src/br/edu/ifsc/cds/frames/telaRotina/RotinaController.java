@@ -78,6 +78,7 @@ public class RotinaController implements Initializable {
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
+		stage.setTitle("CDS - Meus Dados");
 		exeDados.start(stage);
 	}
 
@@ -87,6 +88,7 @@ public class RotinaController implements Initializable {
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
+		stage.setTitle("CDS - Histórico");
 		exeHistorico.start(stage);
 	}
 
