@@ -28,7 +28,6 @@ public class InfoNutricional implements Serializable {
 	private float gordurasTrans;
 	private float fibras;
 	private float sodio;
-	private float caloriasInfo;
 
 	@OneToOne(mappedBy = "infoNutri")
 	private Alimento alimento;
@@ -114,7 +113,6 @@ public class InfoNutricional implements Serializable {
 		this.gordurasTrans = builder.gordurasTrans;
 		this.fibras = builder.fibras;
 		this.sodio = builder.sodio;
-		this.caloriasInfo = builder.totalCalorias;
 	}
 
 	public Integer getId() {
@@ -187,14 +185,6 @@ public class InfoNutricional implements Serializable {
 
 	public void setSodio(float sodio) {
 		this.sodio = sodio;
-	}
-
-	public float getCaloriasInfo() {
-		return caloriasInfo;
-	}
-
-	public void setCaloriasInfo(float caloriasInfo) {
-		this.caloriasInfo = caloriasInfo;
 	}
 
 	@Override

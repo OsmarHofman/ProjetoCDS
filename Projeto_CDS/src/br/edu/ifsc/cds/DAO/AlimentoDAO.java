@@ -10,7 +10,6 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IAlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
-import br.edu.ifsc.cds.classes.domain.Executora;
 
 public class AlimentoDAO implements IAlimentoDAO {
 
@@ -36,8 +35,8 @@ public class AlimentoDAO implements IAlimentoDAO {
 	public List<Alimento> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Alimento> alimentos = new ArrayList<>();
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Query query = em.createQuery("FROM Alimentos");
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query query = em.createQuery("FROM Alimento");
 		alimentos = query.getResultList();
 		em.close();
 		return alimentos;
@@ -46,7 +45,7 @@ public class AlimentoDAO implements IAlimentoDAO {
 	@Override
 	public Alimento retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Alimento alimento = em.find(Alimento.class, id);
 		em.close();
 		return alimento;
@@ -77,7 +76,7 @@ public class AlimentoDAO implements IAlimentoDAO {
 			em.getTransaction().begin();
 			em.remove(adm);
 			em.getTransaction().commit();
-            em.close();
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
