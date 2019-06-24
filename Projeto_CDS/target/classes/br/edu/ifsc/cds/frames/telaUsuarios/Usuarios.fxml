@@ -51,7 +51,7 @@
             								<Font size="24.0" />
             							</font>
             						</Label>
-                        <TableView fx:id="tbvRotina" layoutX="55.0" layoutY="108.0" prefHeight="272.0" prefWidth="539.0">
+                        <TableView fx:id="tbvUsuarios" layoutX="55.0" layoutY="108.0" prefHeight="272.0" prefWidth="539.0">
                            <columns>
                               <TableColumn fx:id="tituloRotina" prefWidth="139.0" text="ID" />
                               <TableColumn fx:id="tituloRotina1" prefWidth="182.0" text="Nome" />
