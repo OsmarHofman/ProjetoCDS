@@ -2,7 +2,7 @@ package br.edu.ifsc.cds.frames.telaLogin;
 
 import javax.swing.JOptionPane;
 
-import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -26,8 +26,7 @@ public class ExecutorLogin extends Application {
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
 					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");
-					fechar(op, we);
-					EntityMagerFactorySingleton.emf.close();
+					ControleComponente.fechaJanela(op, we);
 				}
 			});
 		} catch (Exception e) {
@@ -37,14 +36,6 @@ public class ExecutorLogin extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-	}
-
-	public void fechar(int op, WindowEvent we) {
-		if (op == 1 || op == 2) {
-			we.consume();
-		} else {
-			EntityMagerFactorySingleton.closeFactory();
-		}
 	}
 
 }

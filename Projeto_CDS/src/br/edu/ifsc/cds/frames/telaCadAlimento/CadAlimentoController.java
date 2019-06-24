@@ -8,9 +8,9 @@ import com.jfoenix.controls.JFXTextField;
 import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.InfoNutricional;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.stage.Stage;
 
 public class CadAlimentoController {
 
@@ -76,8 +76,7 @@ public class CadAlimentoController {
 	 */
 	@FXML
 	void voltar(ActionEvent event) {
-		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
-		telaAtual.close();
+		ControleComponente.fechaBotao(btnVoltar);
 	}
 
 }

@@ -11,11 +11,11 @@ import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DAO.ExercicioDAO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.classes.security.Validacao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
 
 public class CadExercicioController implements Initializable {
 
@@ -52,8 +52,7 @@ public class CadExercicioController implements Initializable {
 	 */
 	@FXML
 	void cancelar(ActionEvent event) {
-		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
-		telaAtual.close();
+		ControleComponente.fechaBotao(btnVoltar);
 	}
 
 	@Override

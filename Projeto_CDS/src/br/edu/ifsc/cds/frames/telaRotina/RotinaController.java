@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaAlimento.telaMeusAlimentos.ExecutorMeusAlimentos;
 import br.edu.ifsc.cds.frames.telaCadExercicio.ExecutorCadExercicio;
 import br.edu.ifsc.cds.frames.telaDados.ExecutorDados;
@@ -41,7 +42,7 @@ public class RotinaController implements Initializable {
 	private JFXButton btnExercicios;
 
 	@FXML
-	private JFXButton btnVoltar;
+	private JFXButton btnLogout;
 
 	@FXML
 	private JFXButton btnDados;
@@ -118,12 +119,10 @@ public class RotinaController implements Initializable {
 	 * @param Clique no botão
 	 */
 	@FXML
-	void voltar(ActionEvent event) {
+	void logout(ActionEvent event) {
+		ControleComponente.fechaBotao(btnLogout);
 		ExecutorLogin login = new ExecutorLogin();
-		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
-		telaAtual.close();
-		Stage novaTela = new Stage();
-		login.start(novaTela);
+		login.start(new Stage());
 	}
 
 	@Override

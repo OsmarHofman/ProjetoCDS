@@ -10,11 +10,11 @@ import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
 
 public class DadosController implements Initializable {
 
@@ -71,8 +71,7 @@ public class DadosController implements Initializable {
 	 */
 	@FXML
 	void voltarTela(ActionEvent event) {
-		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
-		telaAtual.close();
+		ControleComponente.fechaBotao(btnVoltar);
 	}
 
 	// Inicializa a Classe obtendo os valores de Altura e Peso da Pessoa, e

@@ -1,18 +1,25 @@
 package br.edu.ifsc.cds.frames.telaUsuarios;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaCadAlimento.ExecutorCadAlimento;
 import br.edu.ifsc.cds.frames.telaCadExercicio.ExecutorCadExercicio;
+import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -27,6 +34,12 @@ public class UsuariosController implements Initializable {
 	public void setAdmin(Admin admin) {
 		UsuariosController.admin = admin;
 	}
+
+	@FXML
+	private TableView<?> tbvUsuarios;
+
+	@FXML
+	private JFXButton btnLogout;
 
 	@FXML
 	private JFXButton btnAlimentos;
@@ -61,9 +74,23 @@ public class UsuariosController implements Initializable {
 		exeCadAlimento.start(stage);
 	}
 
+	/**
+	 * Fecha esta tela e Retorna a tela que a chamou
+	 * 
+	 * @param Clique no botão
+	 */
+	@FXML
+	void logout(ActionEvent event) {
+		ControleComponente.fechaBotao(btnLogout);
+		ExecutorLogin login = new ExecutorLogin();
+		login.start(new Stage());
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		List<Pessoa> pessoas = new ArrayList<>();
+		PessoaDAO dao = new PessoaDAO();
+		pessoas = dao.retrieveAll();
 
 	}
 

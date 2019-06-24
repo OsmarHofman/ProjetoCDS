@@ -1,10 +1,15 @@
 package br.edu.ifsc.cds.frames.telaRotina;
 
+import javax.swing.JOptionPane;
+
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ExecutorRotina extends Application {
 	@Override
@@ -18,6 +23,13 @@ public class ExecutorRotina extends Application {
 			scene.getStylesheets().add(getClass().getResource("layoutRotina.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			// confirmação para sair da tela
+			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we) {
+					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");
+					ControleComponente.fechaJanela(op, we);
+				}
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -5,13 +5,13 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class HistoricoController implements Initializable {
 
@@ -44,8 +44,7 @@ public class HistoricoController implements Initializable {
 
 	@FXML
 	void voltarTela(ActionEvent event) {
-		Stage telaAtual = (Stage) btnVoltar.getScene().getWindow();
-		telaAtual.close();
+		ControleComponente.fechaBotao(btnVoltar);
 	}
 
 	@Override

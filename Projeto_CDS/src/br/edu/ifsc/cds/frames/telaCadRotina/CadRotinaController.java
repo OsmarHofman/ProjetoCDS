@@ -5,15 +5,15 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.classes.security.ControleComponente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
 
 public class CadRotinaController implements Initializable {
 
 	@FXML
-	private JFXButton btnCancelar;
+	private JFXButton btnVoltar;
 
 	@FXML
 	private JFXButton btnCadastrar;
@@ -41,9 +41,8 @@ public class CadRotinaController implements Initializable {
 	 * @param Clique no botão
 	 */
 	@FXML
-	void cancelar(ActionEvent event) {
-		Stage telaAtual = (Stage) btnCancelar.getScene().getWindow();
-		telaAtual.close();
+	void voltar(ActionEvent event) {
+		ControleComponente.fechaBotao(btnVoltar);
 	}
 
 	@FXML
