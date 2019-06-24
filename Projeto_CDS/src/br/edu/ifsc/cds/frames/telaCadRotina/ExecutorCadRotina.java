@@ -11,7 +11,7 @@ public class ExecutorCadRotina extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("CadRotina.fxml"));
-			Scene scene = new Scene(root, 470, 516);
+			Scene scene = new Scene(root, 1128, 609);
 			scene.getStylesheets().add(getClass().getResource("CadRotina.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

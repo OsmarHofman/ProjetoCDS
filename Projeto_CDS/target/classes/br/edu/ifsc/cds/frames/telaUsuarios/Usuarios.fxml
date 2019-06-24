@@ -51,15 +51,14 @@
             								<Font size="24.0" />
             							</font>
             						</Label>
-                        <TableView fx:id="tbvUsuarios" layoutX="55.0" layoutY="108.0" prefHeight="272.0" prefWidth="539.0">
+                        <TableView fx:id="tbvUsuarios" layoutX="55.0" layoutY="87.0" prefHeight="272.0" prefWidth="539.0">
                            <columns>
-                              <TableColumn fx:id="tituloRotina" prefWidth="139.0" text="ID" />
-                              <TableColumn fx:id="tituloRotina1" prefWidth="182.0" text="Nome" />
-                              <TableColumn fx:id="tituloRotina11" prefWidth="217.0" text="Email" />
+                              <TableColumn fx:id="colId" prefWidth="139.0" text="ID" />
+                              <TableColumn fx:id="colNome" prefWidth="182.0" text="Nome" />
+                              <TableColumn fx:id="colEmail" prefWidth="217.0" text="Email" />
                            </columns>
                         </TableView>
                         <Separator layoutX="22.0" layoutY="65.0" prefHeight="3.0" prefWidth="604.0" style="-fx-background-color: black;" />
-                        <JFXTextField alignment="TOP_LEFT" layoutX="435.0" layoutY="76.0" prefHeight="25.0" prefWidth="156.0" promptText="Pesquisar" stylesheets="@Usuarios.css" unFocusColor="WHITE" />
                      </children>
                   </Pane>
 					</children>

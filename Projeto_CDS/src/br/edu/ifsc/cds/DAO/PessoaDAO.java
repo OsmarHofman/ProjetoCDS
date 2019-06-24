@@ -23,7 +23,7 @@ public class PessoaDAO implements IPessoaDAO {
 			em.persist(pessoa);
 			em.getTransaction().commit();
 			em.close();
-			//Executora.emf.close();
+			// Executora.emf.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -36,7 +36,7 @@ public class PessoaDAO implements IPessoaDAO {
 		// TODO Auto-generated method stub
 		List<Pessoa> pessoas = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Query query = em.createQuery("FROM Admin");
+		Query query = em.createQuery("FROM Pessoa");
 		pessoas = query.getResultList();
 		em.close();
 		return pessoas;
@@ -69,7 +69,7 @@ public class PessoaDAO implements IPessoaDAO {
 			em.merge(pessoa);
 			em.getTransaction().commit();
 			em.close();
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();
@@ -85,7 +85,7 @@ public class PessoaDAO implements IPessoaDAO {
 			em.getTransaction().begin();
 			em.remove(adm);
 			em.getTransaction().commit();
-            em.close();
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

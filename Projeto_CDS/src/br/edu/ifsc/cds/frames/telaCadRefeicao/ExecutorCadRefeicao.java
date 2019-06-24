@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class ExecutorCadRefeicao extends Application {
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("CadRefeicao.fxml"));
 			Scene scene = new Scene(root, 748, 607);

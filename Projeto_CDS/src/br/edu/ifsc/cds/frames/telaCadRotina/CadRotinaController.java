@@ -6,9 +6,12 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.frames.telaCadRefeicao.ExecutorCadRefeicao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class CadRotinaController implements Initializable {
 
@@ -47,7 +50,12 @@ public class CadRotinaController implements Initializable {
 
 	@FXML
 	void addEx(ActionEvent event) {
-
+//		Stage stage = new Stage();
+//		stage.initModality(Modality.APPLICATION_MODAL);
+//		stage.setResizable(false);
+//		stage.setTitle("CDS - Refeição");
+//		ExecutorCadExercicio exeCadExercicio = new ExecutorCadExercicio();
+//		exeCadExercicio.start(stage);
 	}
 
 	@FXML
@@ -67,7 +75,12 @@ public class CadRotinaController implements Initializable {
 
 	@FXML
 	void addRef(ActionEvent event) {
-
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		stage.setTitle("CDS - Refeição");
+		ExecutorCadRefeicao exeHistorico = new ExecutorCadRefeicao();
+		exeHistorico.start(stage);
 	}
 
 	@FXML

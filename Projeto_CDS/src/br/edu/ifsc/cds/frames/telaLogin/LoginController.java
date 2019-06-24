@@ -276,7 +276,7 @@ public class LoginController implements Initializable {
 					stage.setMaximized(true);
 					stage.setTitle("CDS");
 					stage.show();
-				} catch (IllegalStateException e) {
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
