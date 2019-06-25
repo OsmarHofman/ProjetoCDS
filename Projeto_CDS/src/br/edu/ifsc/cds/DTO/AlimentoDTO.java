@@ -1,13 +1,17 @@
 package br.edu.ifsc.cds.DTO;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
+import br.edu.ifsc.cds.classes.domain.Strategy.ColherCha;
+import br.edu.ifsc.cds.classes.domain.Strategy.ColherSopa;
+import br.edu.ifsc.cds.classes.domain.Strategy.Copo;
+import br.edu.ifsc.cds.classes.domain.Strategy.Unidade;
+import br.edu.ifsc.cds.classes.domain.Strategy.UnidadeMedida;
+import br.edu.ifsc.cds.classes.domain.Strategy.XicaraCha;
 
 /**
  * 
@@ -60,23 +64,54 @@ public class AlimentoDTO {
 	 * @param alimento Alimento a ser convertido
 	 * @return um AlimentoDTO baseado no Alimento dado
 	 */
-	public AlimentoDTO converteAlimento(Alimento alimento) {
+	private AlimentoDTO converteAlimento(Alimento alimento) {
 		return new AlimentoDTO(alimento.getId(), alimento.getNome(), alimento.getCaloriaTotal());
 	}
 
 	/**
-	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
-	 * {@link TableView}
+	 * Transforma um Alimento não instanciado, em um AlimentoDTO.
 	 * 
+	 * @param nomeAlimento  Nome do Alimento a ser transformado
+	 * @param quantidade    Quantidade relacionada a Unidade de Medida
+	 * @param unidadeMedida Unidade de medida que o Alimento será utilizado
+	 * @return AlimentoDTO com seus atributos calculados
 	 */
-	public ObservableList<AlimentoDTO> geraListaAlimento() {
+	public AlimentoDTO geraAlimentoDTO(String nomeAlimento, Float quantidade, String unidadeMedida) {
 		List<Alimento> alimentos = new AlimentoDAO().retrieveAll();
-		List<AlimentoDTO> alimentosDTO = new ArrayList<>();
-		for (Alimento alimentoLista : alimentos) {
-			AlimentoDTO dto = new AlimentoDTO();
-			alimentosDTO.add(dto.converteAlimento(alimentoLista));
+		AlimentoDTO alimentoDTO = new AlimentoDTO();
+		// verifica os alimentos presentes no banco até achar um correspondente
+		for (Alimento alimento : alimentos) {
+			if (nomeAlimento.equals(alimento.getNome())) {
+				alimentoDTO = converteAlimento(alimento);
+			}
 		}
-		return FXCollections.observableArrayList(alimentosDTO);
+		// verifica a unidade de medida selecionada pelo usuário e a instancia
+		// corretamente
+		UnidadeMedida unidade;
+		if (unidadeMedida.equals("Unidade")) {
+			unidade = new Unidade();
+		} else if (unidadeMedida.equals("Copo")) {
+			unidade = new Copo();
+		} else if (unidadeMedida.equals("Xícara de chá")) {
+			unidade = new XicaraCha();
+		} else if (unidadeMedida.equals("Colher de Chá")) {
+			unidade = new ColherCha();
+		} else if (unidadeMedida.equals("Colher de Sopa")) {
+			unidade = new ColherSopa();
+		} else {
+			unidade = null;
+		}
+
+		// calcula as calorias totais com base na quantidade e nas calorias do próprio
+		// Alimento
+		if (unidade != null) {
+			alimentoDTO.setCalorias(unidade.Totalcalorias(quantidade, alimentoDTO.getCalorias()));
+		} else {
+			JOptionPane.showMessageDialog(null, "Selecione uma unidade de medida!");
+			return null;
+		}
+		return alimentoDTO;
+
 	}
 
 }

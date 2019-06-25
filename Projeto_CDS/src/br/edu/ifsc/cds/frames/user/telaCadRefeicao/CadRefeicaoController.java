@@ -122,8 +122,15 @@ public class CadRefeicaoController implements Initializable {
 	 */
 	@FXML
 	void confirmaPorcao(ActionEvent event) {
-		AlimentoDTO dto = new AlimentoDTO();
-		tbvAlimento.setItems(dto.geraListaAlimento());
+		// pega os dados dos campos da tela
+		String nomeAlimento = boxAlimentos.getValue();
+		Float quantidade = Float.parseFloat(txtQtd.getText());
+		RadioButton botao = (RadioButton) opcoes.getSelectedToggle();
+		String unidadeMedida = botao.getText();
+		// a partir dos dados, gera um AlimentoDTO que então adiciona na tabela
+		AlimentoDTO dto = new AlimentoDTO().geraAlimentoDTO(nomeAlimento, quantidade, unidadeMedida);
+		tbvAlimento.getItems().add(dto);
+
 	}
 
 	/**

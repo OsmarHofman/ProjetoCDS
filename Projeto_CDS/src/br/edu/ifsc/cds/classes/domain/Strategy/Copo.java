@@ -12,7 +12,7 @@ public class Copo implements UnidadeMedida {
 
 	}
 
-	public float Totalcalorias(int qtd, float calorias) {
+	public float Totalcalorias(float qtd, float calorias) {
 		return (qtd * 200) + calorias;
 	}
 

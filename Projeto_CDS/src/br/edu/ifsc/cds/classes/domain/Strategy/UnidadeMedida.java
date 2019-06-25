@@ -16,5 +16,5 @@ public interface UnidadeMedida {
 	 * @param calorias são as calorias base do alimento
 	 * @return o total de colorias do alimento
 	 */
-	public float Totalcalorias(int qtd, float calorias);
+	public float Totalcalorias(float qtd, float calorias);
 }

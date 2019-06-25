@@ -12,7 +12,7 @@ public class XicaraCha implements UnidadeMedida {
 	}
 
 	@Override
-	public float Totalcalorias(int qtd, float calorias) {
+	public float Totalcalorias(float qtd, float calorias) {
 		return (qtd * 200) + calorias;
 	}
 
