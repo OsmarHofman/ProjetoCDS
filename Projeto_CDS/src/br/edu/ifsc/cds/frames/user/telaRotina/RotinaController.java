@@ -19,7 +19,6 @@ import br.edu.ifsc.cds.frames.user.telaHistorico.ExecutorHistorico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -84,22 +83,16 @@ public class RotinaController implements Initializable {
 	private BorderPane paneTela;
 
 	@FXML
-	private JFXButton btnAlimentos;
-
-	@FXML
-	private JFXButton btnRefeicoes;
-
-	@FXML
-	private JFXButton btnExercicios;
-
-	@FXML
 	private JFXButton btnLogout;
 
 	@FXML
 	private JFXButton btnDados;
 
 	@FXML
-	private Button BtnNovoAlimento;
+	private JFXButton btnExcRotina;
+
+	@FXML
+	private JFXButton btnEditRotina;
 
 	/**
 	 * Mostra a tela com os dados pessoais da {@link Pessoa}.
@@ -154,7 +147,7 @@ public class RotinaController implements Initializable {
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
-		stage.setTitle("CDS - Rotina");
+		stage.setTitle("CDS - Cadastro Rotina");
 		ExecutorCadRotina exeCadRotina = new ExecutorCadRotina();
 		exeCadRotina.start(stage);
 	}
@@ -179,7 +172,12 @@ public class RotinaController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// instanciando a lista de refeicoes
 		listaRefeicao = new ArrayList<RefeicaoDTO>();
+
+		// desabilitando os botoes
+		btnExcRotina.setDisable(true);
+		btnEditRotina.setDisable(true);
 
 		// formata as celulas da Tabela
 		alimentoSeg.setCellValueFactory(new PropertyValueFactory<>("listaAlimento"));

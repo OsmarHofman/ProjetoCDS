@@ -372,7 +372,7 @@
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton layoutX="15.0" layoutY="67.0" prefHeight="34.0" prefWidth="196.0" text="Editar Rotina">
+                              <JFXButton fx:id="btnEditRotina" layoutX="15.0" layoutY="67.0" prefHeight="34.0" prefWidth="196.0" text="Editar Rotina">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>

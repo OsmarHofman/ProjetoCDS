@@ -11,6 +11,8 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DAO.ExercicioDAO;
 import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class TelaCadExercicioController implements Initializable {
 
@@ -49,6 +53,9 @@ public class TelaCadExercicioController implements Initializable {
 
 	@FXML
 	private JFXButton btnOK;
+
+	@FXML
+	private JFXButton btnVoltar;
 
 	/**
 	 * Adiciona o Alimento na tabela para visualização
@@ -91,6 +98,28 @@ public class TelaCadExercicioController implements Initializable {
 		colInicio.setCellValueFactory(new PropertyValueFactory<>("PeriodoInicio"));
 		colFim.setCellValueFactory(new PropertyValueFactory<>("PeriodoFim"));
 
+	}
+
+	/**
+	 * Fecha a tela atual e abre a tela de Cadastro de Rotina novamente
+	 * 
+	 * @param event Clique do Botão
+	 */
+	@FXML
+	void voltar(ActionEvent event) {
+		ControleComponente controle = new ControleComponente();
+		// fecha a tela
+		controle.fechaBotao(btnVoltar);
+
+		// cria uma estrutura da tela
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		stage.setTitle("CDS - Cadastro Rotina");
+
+		// inicia uma nova tela de Cadastro
+		ExecutorCadRotina exeCadRotina = new ExecutorCadRotina();
+		exeCadRotina.start(stage);
 	}
 
 }

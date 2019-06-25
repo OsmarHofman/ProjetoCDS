@@ -18,6 +18,7 @@ import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,6 +32,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class CadRefeicaoController implements Initializable {
 
@@ -42,6 +45,9 @@ public class CadRefeicaoController implements Initializable {
 
 	@FXML
 	private JFXButton btnOK;
+
+	@FXML
+	private JFXButton btnVoltar;
 
 	@FXML
 	private TextField txtTitulo;
@@ -118,6 +124,28 @@ public class CadRefeicaoController implements Initializable {
 	void confirmaPorcao(ActionEvent event) {
 		AlimentoDTO dto = new AlimentoDTO();
 		tbvAlimento.setItems(dto.geraListaAlimento());
+	}
+
+	/**
+	 * Fecha a tela atual e abre a tela de Cadastro de Rotina novamente
+	 * 
+	 * @param event Clique do Botão
+	 */
+	@FXML
+	void voltar(ActionEvent event) {
+		ControleComponente controle = new ControleComponente();
+		// fecha a tela
+		controle.fechaBotao(btnVoltar);
+
+		// cria uma estrutura da tela
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		stage.setTitle("CDS - Cadastro Rotina");
+
+		// inicia uma nova tela de Cadastro
+		ExecutorCadRotina exeCadRotina = new ExecutorCadRotina();
+		exeCadRotina.start(stage);
 	}
 
 	/**
