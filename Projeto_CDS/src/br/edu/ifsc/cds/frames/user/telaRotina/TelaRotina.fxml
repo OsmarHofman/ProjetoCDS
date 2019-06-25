@@ -45,9 +45,9 @@
 											<columns>
 												<TableColumn id="headerRefe" prefWidth="283.0" text="Refeição">
 													<columns>
+                                          <TableColumn fx:id="titSeg" prefWidth="75.0" text="Título" />
 														<TableColumn fx:id="alimentoSeg" prefWidth="180.0" text="Alimento" />
 														<TableColumn fx:id="qtdSeg" prefWidth="180.0" text="Qtd." />
-														<TableColumn fx:id="unSeg" prefWidth="89.0" text="Un. Med." />
 														<TableColumn fx:id="inicioSeg" prefWidth="65.0" text="Inicio" />
 														<TableColumn fx:id="terminoSeg" prefWidth="159.0" text="Término" />
 														<TableColumn fx:id="calorSeg" prefWidth="75.0" text="Calorias" />

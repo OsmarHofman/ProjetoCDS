@@ -23,15 +23,17 @@ public class AlimentoDTO {
 	private Integer id;
 	private String nome;
 	private Float calorias;
+	private Float quantidade;
 
 	public AlimentoDTO() {
 
 	}
 
-	public AlimentoDTO(Integer id, String nome, Float calorias) {
+	public AlimentoDTO(Integer id, String nome, Float calorias, Float quantidade) {
 		this.id = id;
 		this.nome = nome;
 		this.calorias = calorias;
+		this.quantidade = quantidade;
 	}
 
 	public Integer getId() {
@@ -58,6 +60,14 @@ public class AlimentoDTO {
 		this.calorias = calorias;
 	}
 
+	public Float getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Float quantidade) {
+		this.quantidade = quantidade;
+	}
+
 	/**
 	 * Converte um Alimento em um AlimentoDTO
 	 * 
@@ -65,7 +75,8 @@ public class AlimentoDTO {
 	 * @return um AlimentoDTO baseado no Alimento dado
 	 */
 	private AlimentoDTO converteAlimento(Alimento alimento) {
-		return new AlimentoDTO(alimento.getId(), alimento.getNome(), alimento.getCaloriaTotal());
+		return new AlimentoDTO(alimento.getId(), alimento.getNome(), alimento.getCaloriaTotal(),
+				alimento.getQuantidade());
 	}
 
 	/**
@@ -83,6 +94,7 @@ public class AlimentoDTO {
 		for (Alimento alimento : alimentos) {
 			if (nomeAlimento.equals(alimento.getNome())) {
 				alimentoDTO = converteAlimento(alimento);
+				alimentoDTO.setQuantidade(quantidade);
 			}
 		}
 		// verifica a unidade de medida selecionada pelo usuário e a instancia

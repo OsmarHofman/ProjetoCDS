@@ -17,6 +17,7 @@ import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Horario;
+import br.edu.ifsc.cds.classes.domain.Refeicao;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
@@ -65,6 +66,9 @@ public class CadRefeicaoController implements Initializable {
 	private TableColumn<AlimentoDTO, Integer> colId;
 
 	@FXML
+	private TableColumn<AlimentoDTO, Float> colQtd;
+
+	@FXML
 	private TextField txtInicio;
 
 	@FXML
@@ -87,25 +91,36 @@ public class CadRefeicaoController implements Initializable {
 	 */
 	@FXML
 	void salvarRefeicao(ActionEvent event) throws ParseException {
+		// pega os dados da interface gráfica
 		String titulo = txtTitulo.getText();
-		String nomesAlimentos = "";
-		float caloria = 0;
-		for (AlimentoDTO alimentoDTO : tbvAlimento.getItems()) {
-			nomesAlimentos = nomesAlimentos + alimentoDTO.getNome() + "\n";
-			caloria = caloria + alimentoDTO.getCalorias();
-		}
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Date horarioInicio = sdf.parse(txtInicio.getText());
 		Date horarioFim = sdf.parse(txtFim.getText());
 		String diaSemana = boxDiaSemana.getValue();
 		String quantidade = txtQtd.getText();
-		RadioButton botao = (RadioButton) opcoes.getSelectedToggle();
-		String unidadeMedida = botao.getText();
-		RefeicaoDTO dto = new RefeicaoDTO(nomesAlimentos, Float.parseFloat(quantidade), unidadeMedida, horarioInicio,
-				horarioFim, diaSemana, caloria);
+		RadioButton radioButton = (RadioButton) opcoes.getSelectedToggle();
+		String unidadeMedida = radioButton.getText();
+
+		// Gera os campos nome do alimento, caloria e quantidade de cada alimento
+		String nomesAlimentos = "";
+		String quantidades = "";
+		float caloria = 0;
+		for (AlimentoDTO alimentoDTO : tbvAlimento.getItems()) {
+			nomesAlimentos = nomesAlimentos + alimentoDTO.getNome() + "\n";
+			caloria = caloria + alimentoDTO.getCalorias();
+			quantidades = quantidades + String.valueOf(alimentoDTO.getQuantidade()) + "\n";
+		}
+
+		// Cria uma refeicaoDTO
+		RefeicaoDTO dto = new RefeicaoDTO(titulo, nomesAlimentos, quantidades, horarioInicio, horarioFim, diaSemana,
+				caloria);
+
+		// Verifica se o horário pretendido está disponível
 		Horario horario = new Horario();
 		if (horario.verificaRefeicaoHorario(horarioInicio, horarioFim, diaSemana)) {
-			RotinaController.addListaRefeicao(dto);
+			Horario horarioRefeicao = new Horario(null, horarioInicio, horarioFim, diaSemana);
+			List<Refeicao> refeicaoPessoa = RotinaController.getPessoa().getRotina().getListaRefeicao();
+			refeicaoPessoa.add(new Refeicao(null, titulo, null, horarioRefeicao));
 			JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
 			ControleComponente controle = new ControleComponente();
 			controle.fechaBotao(btnSalvar);
@@ -182,6 +197,7 @@ public class CadRefeicaoController implements Initializable {
 		colId.setCellValueFactory(new PropertyValueFactory<>("Id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		colCaloria.setCellValueFactory(new PropertyValueFactory<>("Calorias"));
+		colQtd.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
 
 	}
 

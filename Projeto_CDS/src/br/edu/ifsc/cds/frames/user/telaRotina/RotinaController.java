@@ -2,9 +2,7 @@ package br.edu.ifsc.cds.frames.user.telaRotina;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -30,24 +28,9 @@ import javafx.stage.Stage;
 public class RotinaController implements Initializable {
 
 	// Pessoa que logou
-	public static Pessoa pessoa;
+	private static Pessoa pessoa;
 
-	// lista de refeicoes
-	private static List<RefeicaoDTO> listaRefeicao;
-
-	public static List<RefeicaoDTO> getListaRefeicao() {
-		return listaRefeicao;
-	}
-
-	public static void setListaRefeicao(List<RefeicaoDTO> listaRefeicao) {
-		RotinaController.listaRefeicao = listaRefeicao;
-	}
-
-	public static void addListaRefeicao(RefeicaoDTO refeicao) {
-		RotinaController.listaRefeicao.add(refeicao);
-	}
-
-	public Pessoa getPessoa() {
+	public static Pessoa getPessoa() {
 		return pessoa;
 	}
 
@@ -68,10 +51,10 @@ public class RotinaController implements Initializable {
 	private TableColumn<RefeicaoDTO, String> alimentoSeg;
 
 	@FXML
-	private TableColumn<RefeicaoDTO, Float> qtdSeg;
+	private TableColumn<RefeicaoDTO, String> titSeg;
 
 	@FXML
-	private TableColumn<RefeicaoDTO, String> unSeg;
+	private TableColumn<RefeicaoDTO, Float> qtdSeg;
 
 	@FXML
 	private TableColumn<RefeicaoDTO, Date> inicioSeg;
@@ -172,17 +155,15 @@ public class RotinaController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// instanciando a lista de refeicoes
-		listaRefeicao = new ArrayList<RefeicaoDTO>();
 
 		// desabilitando os botoes
 		btnExcRotina.setDisable(true);
 		btnEditRotina.setDisable(true);
 
 		// formata as celulas da Tabela
+		titSeg.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 		alimentoSeg.setCellValueFactory(new PropertyValueFactory<>("listaAlimento"));
 		qtdSeg.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-		unSeg.setCellValueFactory(new PropertyValueFactory<>("unidadeMedida"));
 		inicioSeg.setCellValueFactory(new PropertyValueFactory<>("horarioInicio"));
 		terminoSeg.setCellValueFactory(new PropertyValueFactory<>("horarioFim"));
 		calorSeg.setCellValueFactory(new PropertyValueFactory<>("calorias"));

@@ -1,8 +1,10 @@
 package br.edu.ifsc.cds.DTO;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Refeicao;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
@@ -17,8 +19,9 @@ import javafx.scene.control.TableView;
  */
 public class RefeicaoDTO {
 
+	private String titulo;
 	private String listaAlimento;
-	private Float quantidade;
+	private String quantidade;
 	private String unidadeMedida;
 	private Date horarioInicio;
 	private Date horarioFim;
@@ -29,9 +32,9 @@ public class RefeicaoDTO {
 
 	}
 
-	public RefeicaoDTO(String listaAlimentos, Float quantidade, String unidadeMedida, Date horarioInicio,
-			Date horarioFim, String diaSemana, Float calorias) {
-
+	public RefeicaoDTO(String titulo, String listaAlimentos, String quantidade, Date horarioInicio, Date horarioFim,
+			String diaSemana, Float calorias) {
+		this.titulo = titulo;
 		this.listaAlimento = listaAlimentos;
 		this.quantidade = quantidade;
 		this.unidadeMedida = unidadeMedida;
@@ -39,6 +42,14 @@ public class RefeicaoDTO {
 		this.horarioFim = horarioFim;
 		this.diaSemana = diaSemana;
 		this.calorias = calorias;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getListaAlimento() {
@@ -73,11 +84,11 @@ public class RefeicaoDTO {
 		this.horarioFim = horarioFim;
 	}
 
-	public Float getQuantidade() {
+	public String getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Float quantidade) {
+	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
 	}
 
@@ -98,13 +109,34 @@ public class RefeicaoDTO {
 	}
 
 	/**
+	 * Converte uma Refeicao em uma RefeicaoDTO
+	 * 
+	 * @param alimento Alimento a ser convertido
+	 * @return um AlimentoDTO baseado no Alimento dado
+	 */
+	private RefeicaoDTO converteAlimento(Refeicao refeicao) {
+		String listaAlimentos = "";
+		String listaQuantidade = "";
+		for (Alimento alimento : refeicao.getListaAlimento()) {
+			listaAlimentos = listaAlimentos + alimento.getNome() + "\n";
+			listaQuantidade = listaQuantidade + alimento.getQuantidade() + "\n";
+		}
+		return new RefeicaoDTO(refeicao.getTitulo(), listaAlimentos, listaQuantidade,
+				refeicao.getHorarioRef().getPeriodoInicio(), refeicao.getHorarioRef().getPeriodoFim(),
+				refeicao.getHorarioRef().getDiaSemana(), refeicao.totalGanhoCalorico(refeicao.getListaAlimento()));
+	}
+
+	/**
 	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
 	 * {@link TableView}
 	 * 
 	 */
 	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
-		List<RefeicaoDTO> lista = RotinaController.getListaRefeicao();
-		return FXCollections.observableArrayList(lista);
+		List<RefeicaoDTO> listaRefeicaoDTO = new ArrayList<>();
+		for (Refeicao refeicao : RotinaController.getPessoa().getRotina().getListaRefeicao()) {
+			listaRefeicaoDTO.add(new RefeicaoDTO().converteAlimento(refeicao));
+		}
+		return FXCollections.observableArrayList(listaRefeicaoDTO);
 	}
 
 }
