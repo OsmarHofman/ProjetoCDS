@@ -50,7 +50,7 @@ public class Alimento implements Serializable {
 		this.quantidade = quantidade;
 		this.unidadeMedida = unidade_medida;
 		this.infoNutri = infoNutri;
-		this.caloriaTotal = caloriaTotal;
+		this.caloriaTotal = infoNutri.getCaloria();
 	}
 
 	public Integer getId() {

@@ -66,10 +66,11 @@ public class CadAlimentoController {
 		float sodio = Float.parseFloat(txtSodio.getText());
 		InfoNutricional info = new InfoNutricional.Builder(null).caloria(caloria).carboidrato(carboidrato)
 				.proteinas(proteina).gordurasTotais(gord_totais).gordurasTrans(gord_trans).gordurasSaturadas(gord_sat)
-				.fibras(fibras).sodio(sodio).totalCalorias(0).build();
+				.fibras(fibras).sodio(sodio).build();
 		Alimento alimento = new Alimento();
 		alimento.setNome(nome);
 		alimento.setInfoNutri(info);
+		alimento.setCaloriaTotal(info.getCaloria());
 		AlimentoDAO dao = new AlimentoDAO();
 		dao.create(alimento);
 		JOptionPane.showMessageDialog(null, "Alimento cadastrado com Sucesso!");

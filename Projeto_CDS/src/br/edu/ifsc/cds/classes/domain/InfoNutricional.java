@@ -43,7 +43,6 @@ public class InfoNutricional implements Serializable {
 		private float gordurasTrans = 0;
 		private float fibras = 0;
 		private float sodio = 0;
-		private float totalCalorias = 0;
 
 		public Builder(Integer id) {
 			this.id = id;
@@ -86,11 +85,6 @@ public class InfoNutricional implements Serializable {
 
 		public Builder sodio(float sod) {
 			sodio = sod;
-			return this;
-		}
-
-		public Builder totalCalorias(float totCal) {
-			totalCalorias = totCal;
 			return this;
 		}
 
