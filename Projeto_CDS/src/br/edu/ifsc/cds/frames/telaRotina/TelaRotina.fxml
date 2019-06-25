@@ -403,7 +403,7 @@
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton id="btnHistorico" fx:id="btnVoltar" layoutX="11.0" layoutY="119.0" onAction="#logout" prefHeight="34.0" prefWidth="196.0" text="Logout">
+                              <JFXButton id="btnHistorico" fx:id="btnLogout" layoutX="11.0" layoutY="119.0" onAction="#logout" prefHeight="34.0" prefWidth="196.0" text="Logout">
                                  <font>
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
