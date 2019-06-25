@@ -10,13 +10,18 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IRotinaDAO;
 import br.edu.ifsc.cds.classes.domain.Rotina;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IRotinaDAO} para as operações no
+ * banco
+ *
+ */
 public class RotinaDAO implements IRotinaDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Rotina rotina) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -32,7 +37,6 @@ public class RotinaDAO implements IRotinaDAO {
 
 	@Override
 	public List<Rotina> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Rotina> rotinas = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Rotina");
@@ -44,7 +48,6 @@ public class RotinaDAO implements IRotinaDAO {
 
 	@Override
 	public Rotina retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Rotina rotina = em.find(Rotina.class, id);
 		em.close();
@@ -54,7 +57,6 @@ public class RotinaDAO implements IRotinaDAO {
 
 	@Override
 	public void update(Rotina rotina) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -70,7 +72,6 @@ public class RotinaDAO implements IRotinaDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Rotina rotina = em.find(Rotina.class, id);

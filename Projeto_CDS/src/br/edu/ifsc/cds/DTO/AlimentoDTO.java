@@ -7,7 +7,14 @@ import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
+/**
+ * 
+ * Objeto de Transferência de Dados da classe {@link Alimento} para incluir os
+ * elementos na interface gráfica
+ *
+ */
 public class AlimentoDTO {
 	private Integer id;
 	private String nome;
@@ -47,10 +54,21 @@ public class AlimentoDTO {
 		this.calorias = calorias;
 	}
 
+	/**
+	 * Converte um Alimento em um AlimentoDTO
+	 * 
+	 * @param alimento Alimento a ser convertido
+	 * @return um AlimentoDTO baseado no Alimento dado
+	 */
 	public AlimentoDTO converteAlimento(Alimento alimento) {
 		return new AlimentoDTO(alimento.getId(), alimento.getNome(), alimento.getCaloriaTotal());
 	}
 
+	/**
+	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
+	 * {@link TableView}
+	 * 
+	 */
 	public ObservableList<AlimentoDTO> geraListaAlimento() {
 		List<Alimento> alimentos = new AlimentoDAO().retrieveAll();
 		List<AlimentoDTO> alimentosDTO = new ArrayList<>();

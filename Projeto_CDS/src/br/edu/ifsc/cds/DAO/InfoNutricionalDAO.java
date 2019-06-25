@@ -10,13 +10,18 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IinfoNutricionalDAO;
 import br.edu.ifsc.cds.classes.domain.InfoNutricional;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IinfoNutricionalDAO} para as
+ * operações no banco
+ *
+ */
 public class InfoNutricionalDAO implements IinfoNutricionalDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(InfoNutricional infnutri) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -31,7 +36,6 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO {
 
 	@Override
 	public List<InfoNutricional> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<InfoNutricional> infonutris = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM infoNutricional");
@@ -42,7 +46,6 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO {
 
 	@Override
 	public InfoNutricional retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		InfoNutricional infonutri = em.find(InfoNutricional.class, id);
 		em.close();
@@ -51,7 +54,6 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO {
 
 	@Override
 	public void update(InfoNutricional infonutri) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -67,7 +69,6 @@ public class InfoNutricionalDAO implements IinfoNutricionalDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			InfoNutricional infonutri = em.find(InfoNutricional.class, id);

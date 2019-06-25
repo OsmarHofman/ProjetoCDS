@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.swing.JOptionPane;
 
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
-import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
+import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 
 /**
  * Classe que representa o período de início e fim de uma ação

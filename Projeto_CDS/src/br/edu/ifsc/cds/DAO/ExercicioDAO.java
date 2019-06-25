@@ -10,13 +10,18 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IExercicioDAO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IExercicioDAO} para as operações no
+ * banco
+ *
+ */
 public class ExercicioDAO implements IExercicioDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Exercicio exercicio) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -32,7 +37,6 @@ public class ExercicioDAO implements IExercicioDAO {
 
 	@Override
 	public List<Exercicio> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Exercicio> exercicios = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Exercicio");
@@ -43,7 +47,6 @@ public class ExercicioDAO implements IExercicioDAO {
 
 	@Override
 	public Exercicio retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Exercicio exercicio = em.find(Exercicio.class, id);
 		em.close();
@@ -52,7 +55,6 @@ public class ExercicioDAO implements IExercicioDAO {
 
 	@Override
 	public void update(Exercicio exercicio) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -68,7 +70,6 @@ public class ExercicioDAO implements IExercicioDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Exercicio exercicio = em.find(Exercicio.class, id);

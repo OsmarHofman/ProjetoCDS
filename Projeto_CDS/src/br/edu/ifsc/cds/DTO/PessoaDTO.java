@@ -7,7 +7,14 @@ import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
+/**
+ * 
+ * Objeto de Transferência de Dados da classe {@link Pessoa} para incluir os
+ * elementos na interface gráfica
+ *
+ */
 public class PessoaDTO {
 	private Integer id;
 	private String nome;
@@ -47,10 +54,21 @@ public class PessoaDTO {
 		this.email = email;
 	}
 
+	/**
+	 * Converte uma Pessoa em uma PessoaDTO
+	 * 
+	 * @param pessoa Pessoa a ser convertido
+	 * @return uma PessoaDTO baseado na pessoa dado
+	 */
 	public PessoaDTO convertePessoa(Pessoa pessoa) {
 		return new PessoaDTO(pessoa.getId(), pessoa.getNome(), pessoa.getEmail());
 	}
 
+	/**
+	 * A partir de Pessoa na base de dados, cria uma lista observável pelas
+	 * {@link TableView}
+	 * 
+	 */
 	public ObservableList<PessoaDTO> geraListaPessoa() {
 		List<Pessoa> pessoas = new PessoaDAO().retrieveAll();
 		List<PessoaDTO> pessoasDTO = new ArrayList<>();

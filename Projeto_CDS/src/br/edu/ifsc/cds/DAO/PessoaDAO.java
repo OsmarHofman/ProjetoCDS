@@ -10,20 +10,24 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IPessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IPessoaDAO} para as operações no
+ * banco
+ *
+ */
 public class PessoaDAO implements IPessoaDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Pessoa pessoa) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(pessoa);
 			em.getTransaction().commit();
 			em.close();
-			// Executora.emf.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -33,7 +37,6 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public List<Pessoa> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Pessoa> pessoas = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Pessoa");
@@ -44,7 +47,6 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public Pessoa retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Pessoa pessoa = em.find(Pessoa.class, id);
 		em.close();
@@ -62,7 +64,6 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public void update(Pessoa pessoa) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -78,7 +79,6 @@ public class PessoaDAO implements IPessoaDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Pessoa adm = em.find(Pessoa.class, id);

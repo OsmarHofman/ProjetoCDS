@@ -26,7 +26,8 @@ public class ExecutorLogin extends Application {
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {
 					int op = JOptionPane.showConfirmDialog(null, "            Deseja sair?");
-					ControleComponente.fechaJanela(op, we);
+					ControleComponente controle = new ControleComponente();
+					controle.fechaJanela(op, we);
 				}
 			});
 		} catch (Exception e) {

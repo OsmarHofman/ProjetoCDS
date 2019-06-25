@@ -10,13 +10,18 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IRefeicaoDAO;
 import br.edu.ifsc.cds.classes.domain.Refeicao;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IRefeicaoDAO} para as operações no
+ * banco
+ *
+ */
 public class RefeicaoDAO implements IRefeicaoDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Refeicao refeicao) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -32,7 +37,6 @@ public class RefeicaoDAO implements IRefeicaoDAO {
 
 	@Override
 	public List<Refeicao> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Refeicao> refeicoes = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Refeicao");
@@ -43,7 +47,6 @@ public class RefeicaoDAO implements IRefeicaoDAO {
 
 	@Override
 	public Refeicao retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Refeicao refeicao = em.find(Refeicao.class, id);
 		em.close();
@@ -52,7 +55,6 @@ public class RefeicaoDAO implements IRefeicaoDAO {
 
 	@Override
 	public void update(Refeicao admin) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -68,7 +70,6 @@ public class RefeicaoDAO implements IRefeicaoDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Refeicao refeicao = em.find(Refeicao.class, id);

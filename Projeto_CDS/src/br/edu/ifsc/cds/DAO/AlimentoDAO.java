@@ -11,13 +11,18 @@ import br.edu.ifsc.cds.DAO.interfaces.IAlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IAlimentoDAO} para as operações no
+ * banco
+ *
+ */
 public class AlimentoDAO implements IAlimentoDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Alimento alimento) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -33,7 +38,6 @@ public class AlimentoDAO implements IAlimentoDAO {
 
 	@Override
 	public List<Alimento> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Alimento> alimentos = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Alimento");
@@ -44,7 +48,6 @@ public class AlimentoDAO implements IAlimentoDAO {
 
 	@Override
 	public Alimento retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Alimento alimento = em.find(Alimento.class, id);
 		em.close();
@@ -53,7 +56,6 @@ public class AlimentoDAO implements IAlimentoDAO {
 
 	@Override
 	public void update(Alimento alimento) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -69,7 +71,6 @@ public class AlimentoDAO implements IAlimentoDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Admin adm = em.find(Admin.class, id);

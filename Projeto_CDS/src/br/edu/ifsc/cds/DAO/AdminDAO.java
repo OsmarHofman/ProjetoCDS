@@ -10,15 +10,21 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IAdminDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IAdminDAO} para as operações no
+ * banco
+ *
+ */
 public class AdminDAO implements IAdminDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Admin admin) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+			// começa uma transação para garantir que será persistido no banco
 			em.getTransaction().begin();
 			em.persist(admin);
 			em.getTransaction().commit();
@@ -32,7 +38,6 @@ public class AdminDAO implements IAdminDAO {
 
 	@Override
 	public List<Admin> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Admin> adm = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Admin");
@@ -44,7 +49,6 @@ public class AdminDAO implements IAdminDAO {
 
 	@Override
 	public Admin retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Admin adm = em.find(Admin.class, id);
 		em.close();
@@ -54,7 +58,6 @@ public class AdminDAO implements IAdminDAO {
 
 	@Override
 	public void update(Admin admin) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -70,7 +73,6 @@ public class AdminDAO implements IAdminDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Admin adm = em.find(Admin.class, id);

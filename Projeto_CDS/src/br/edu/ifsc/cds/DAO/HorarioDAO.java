@@ -10,13 +10,18 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IHorarioDAO;
 import br.edu.ifsc.cds.classes.domain.Horario;
 
+/**
+ * 
+ * Classe que implementa a interface {@link IHorarioDAO} para as operações no
+ * banco
+ *
+ */
 public class HorarioDAO implements IHorarioDAO {
 
 	protected EntityManager em;
 
 	@Override
 	public void create(Horario horario) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -32,7 +37,6 @@ public class HorarioDAO implements IHorarioDAO {
 
 	@Override
 	public List<Horario> retrieveAll() {
-		// TODO Auto-generated method stub
 		List<Horario> horarios = new ArrayList<>();
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Query query = em.createQuery("FROM Horario");
@@ -43,7 +47,6 @@ public class HorarioDAO implements IHorarioDAO {
 
 	@Override
 	public Horario retrieve(Integer id) {
-		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Horario horario = em.find(Horario.class, id);
 		em.close();
@@ -52,7 +55,6 @@ public class HorarioDAO implements IHorarioDAO {
 
 	@Override
 	public void update(Horario horario) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
@@ -67,7 +69,6 @@ public class HorarioDAO implements IHorarioDAO {
 
 	@Override
 	public void delete(Integer id) {
-		// TODO Auto-generated method stub
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Horario horario = em.find(Horario.class, id);

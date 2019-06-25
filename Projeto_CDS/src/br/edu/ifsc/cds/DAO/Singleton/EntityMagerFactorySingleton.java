@@ -3,6 +3,12 @@ package br.edu.ifsc.cds.DAO.Singleton;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/**
+ * 
+ * Classe que irá criar e gerenciar o {@link EntityManagerFactory} para realizar
+ * todas as operações no banco de dados
+ *
+ */
 public class EntityMagerFactorySingleton {
 	public static EntityManagerFactory emf;
 
@@ -23,7 +29,7 @@ public class EntityMagerFactorySingleton {
 
 	public static void closeFactory() {
 		if (emf != null) {
-           emf.close();
+			emf.close();
 		}
 
 	}

@@ -3,10 +3,18 @@ package br.edu.ifsc.cds.DTO;
 import java.util.Date;
 import java.util.List;
 
-import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
+import br.edu.ifsc.cds.classes.domain.Refeicao;
+import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableView;
 
+/**
+ * 
+ * Objeto de Transferência de Dados da classe {@link Refeicao} para incluir os
+ * elementos na interface gráfica
+ *
+ */
 public class RefeicaoDTO {
 
 	private String listaAlimento;
@@ -89,6 +97,11 @@ public class RefeicaoDTO {
 		this.diaSemana = diaSemana;
 	}
 
+	/**
+	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
+	 * {@link TableView}
+	 * 
+	 */
 	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
 		List<RefeicaoDTO> lista = RotinaController.getListaRefeicao();
 		return FXCollections.observableArrayList(lista);

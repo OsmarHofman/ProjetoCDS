@@ -15,9 +15,9 @@ import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
-import br.edu.ifsc.cds.frames.telaRotina.ExecutorRotina;
-import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
-import br.edu.ifsc.cds.frames.telaUsuarios.UsuariosController;
+import br.edu.ifsc.cds.frames.admin.telaUsuarios.UsuariosController;
+import br.edu.ifsc.cds.frames.user.telaRotina.ExecutorRotina;
+import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -262,7 +262,7 @@ public class LoginController implements Initializable {
 
 				// Tenta Iniciar a nova tela de Rotina
 				try {
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("../telaRotina/TelaRotina.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("../user/telaRotina/TelaRotina.fxml"));
 					Parent root = (Parent) loader.load();
 
 					// Obtem o controller relacionado a tela, e passar o objeto Pessoa para a
@@ -311,7 +311,7 @@ public class LoginController implements Initializable {
 			telaAtual.close();
 
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../telaUsuarios/Usuarios.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../admin/telaUsuarios/Usuarios.fxml"));
 				Parent root = (Parent) loader.load();
 
 				UsuariosController ctrl_users = loader.getController();
