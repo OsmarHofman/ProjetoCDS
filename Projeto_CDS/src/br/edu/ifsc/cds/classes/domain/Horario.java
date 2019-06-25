@@ -132,19 +132,6 @@ public class Horario implements Serializable {
 
 			}
 
-			// for das iterações da lista de Exercicios
-//			for (Exercicio exercicio : RotinaController.getListaExercicio()) {
-//				if (exercicio.getHorarioRef().getDiaSemana().equals(diaSemana)) {
-//					if (inicio.after(exercicio.getHorarioRef().getPeriodoInicio())
-//							&& inicio.before(exercicio.getHorarioRef().getPeriodoFim())) {
-//						return false;
-//					}
-//					if (fim.after(exercicio.getHorarioRef().getPeriodoInicio())
-//							&& fim.before(exercicio.getHorarioRef().getPeriodoFim())) {
-//						return false;
-//					}
-//				}
-//			}
 			return true;
 		} else {
 			JOptionPane.showMessageDialog(null, "Fim não pode ser antes do Inicio");

@@ -16,6 +16,7 @@ import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
+import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
@@ -90,10 +91,15 @@ public class CadRefeicaoController implements Initializable {
 		String unidadeMedida = botao.getText();
 		RefeicaoDTO dto = new RefeicaoDTO(nomesAlimentos, Float.parseFloat(quantidade), unidadeMedida, horarioInicio,
 				horarioFim, diaSemana, caloria);
-		RotinaController.addListaRefeicao(dto);
+		Horario horario = new Horario();
+		if (horario.verificaRefeicaoHorario(horarioInicio, horarioFim, diaSemana)) {
+			RotinaController.addListaRefeicao(dto);
+			JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
+			ControleComponente.fechaBotao(btnSalvar);
+		} else {
+			JOptionPane.showMessageDialog(null, "Data de Inicio/Fim inválido(s)");
+		}
 
-		JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
-		ControleComponente.fechaBotao(btnSalvar);
 	}
 
 	@FXML
@@ -123,9 +129,6 @@ public class CadRefeicaoController implements Initializable {
 		colId.setCellValueFactory(new PropertyValueFactory<>("Id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		colCaloria.setCellValueFactory(new PropertyValueFactory<>("Calorias"));
-
-		AlimentoDTO dto = new AlimentoDTO();
-		tbvAlimento.setItems(dto.geraListaAlimento());
 
 	}
 

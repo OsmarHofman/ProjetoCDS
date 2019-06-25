@@ -132,7 +132,6 @@ public class RotinaController implements Initializable {
 
 	@FXML
 	void atualizar(ActionEvent event) {
-
 		RefeicaoDTO dto = new RefeicaoDTO();
 		refeicaoSegunda.setItems(dto.geraListaRefeicao());
 	}
@@ -194,6 +193,9 @@ public class RotinaController implements Initializable {
 			};
 		});
 		calorSeg.setCellValueFactory(new PropertyValueFactory<>("calorias"));
+
+		RefeicaoDTO dto = new RefeicaoDTO();
+		refeicaoSegunda.setItems(dto.geraListaRefeicao());
 	}
 
 }
