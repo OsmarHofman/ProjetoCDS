@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class TelaExercicioController implements Initializable {
@@ -38,6 +39,9 @@ public class TelaExercicioController implements Initializable {
 	private TableColumn<AlimentoDTO, Date> colFim;
 
 	@FXML
+	private TableView<String> tbvExercicio;
+
+	@FXML
 	private ChoiceBox<String> boxDiaSemana;
 
 	@FXML
@@ -49,7 +53,7 @@ public class TelaExercicioController implements Initializable {
 	@FXML
 	void confirmaExercicio(ActionEvent event) {
 		Exercicio exe = new Exercicio();
-		boxExercicios.setItems(exe.geraListaExercicio());
+		tbvExercicio.setItems(exe.geraListaExercicio());
 	}
 
 	@Override
