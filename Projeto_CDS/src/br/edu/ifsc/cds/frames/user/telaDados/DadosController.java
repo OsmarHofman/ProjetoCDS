@@ -52,7 +52,7 @@ public class DadosController implements Initializable {
 			txtPeso.setEditable(false);
 			btnEditar.setText("Editar Informações");
 
-			Pessoa usuario = RotinaController.pessoa;
+			Pessoa usuario = RotinaController.getPessoa();
 			usuario.setAltura(Float.parseFloat(txtAltura.getText()));
 			usuario.setPeso_inicial(Float.parseFloat(txtPeso.getText()));
 			// altera no banco de dados
@@ -81,8 +81,8 @@ public class DadosController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		txtAltura.setText(String.valueOf(RotinaController.pessoa.getAltura()));
-		txtPeso.setText(String.valueOf(RotinaController.pessoa.getPeso_inicial()));
+		txtAltura.setText(String.valueOf(RotinaController.getPessoa().getAltura()));
+		txtPeso.setText(String.valueOf(RotinaController.getPessoa().getPeso_inicial()));
 		txtAltura.setEditable(false);
 		txtPeso.setEditable(false);
 
