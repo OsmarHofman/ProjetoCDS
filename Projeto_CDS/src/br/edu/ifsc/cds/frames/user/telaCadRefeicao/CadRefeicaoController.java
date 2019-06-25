@@ -17,7 +17,6 @@ import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Horario;
-import br.edu.ifsc.cds.classes.domain.Refeicao;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
@@ -97,9 +96,6 @@ public class CadRefeicaoController implements Initializable {
 		Date horarioInicio = sdf.parse(txtInicio.getText());
 		Date horarioFim = sdf.parse(txtFim.getText());
 		String diaSemana = boxDiaSemana.getValue();
-		String quantidade = txtQtd.getText();
-		RadioButton radioButton = (RadioButton) opcoes.getSelectedToggle();
-		String unidadeMedida = radioButton.getText();
 
 		// Gera os campos nome do alimento, caloria e quantidade de cada alimento
 		String nomesAlimentos = "";
@@ -118,9 +114,7 @@ public class CadRefeicaoController implements Initializable {
 		// Verifica se o horário pretendido está disponível
 		Horario horario = new Horario();
 		if (horario.verificaRefeicaoHorario(horarioInicio, horarioFim, diaSemana)) {
-			Horario horarioRefeicao = new Horario(null, horarioInicio, horarioFim, diaSemana);
-			List<Refeicao> refeicaoPessoa = RotinaController.getPessoa().getRotina().getListaRefeicao();
-			refeicaoPessoa.add(new Refeicao(null, titulo, null, horarioRefeicao));
+			RotinaController.addListaRefeicao(dto);
 			JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
 			ControleComponente controle = new ControleComponente();
 			controle.fechaBotao(btnSalvar);

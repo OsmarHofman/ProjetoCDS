@@ -1,10 +1,8 @@
 package br.edu.ifsc.cds.DTO;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Refeicao;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
@@ -22,7 +20,6 @@ public class RefeicaoDTO {
 	private String titulo;
 	private String listaAlimento;
 	private String quantidade;
-	private String unidadeMedida;
 	private Date horarioInicio;
 	private Date horarioFim;
 	private String diaSemana;
@@ -37,7 +34,6 @@ public class RefeicaoDTO {
 		this.titulo = titulo;
 		this.listaAlimento = listaAlimentos;
 		this.quantidade = quantidade;
-		this.unidadeMedida = unidadeMedida;
 		this.horarioInicio = horarioInicio;
 		this.horarioFim = horarioFim;
 		this.diaSemana = diaSemana;
@@ -92,14 +88,6 @@ public class RefeicaoDTO {
 		this.quantidade = quantidade;
 	}
 
-	public String getUnidadeMedida() {
-		return unidadeMedida;
-	}
-
-	public void setUnidadeMedida(String unidadeMedida) {
-		this.unidadeMedida = unidadeMedida;
-	}
-
 	public String getDiaSemana() {
 		return diaSemana;
 	}
@@ -108,23 +96,23 @@ public class RefeicaoDTO {
 		this.diaSemana = diaSemana;
 	}
 
-	/**
-	 * Converte uma Refeicao em uma RefeicaoDTO
-	 * 
-	 * @param alimento Alimento a ser convertido
-	 * @return um AlimentoDTO baseado no Alimento dado
-	 */
-	private RefeicaoDTO converteAlimento(Refeicao refeicao) {
-		String listaAlimentos = "";
-		String listaQuantidade = "";
-		for (Alimento alimento : refeicao.getListaAlimento()) {
-			listaAlimentos = listaAlimentos + alimento.getNome() + "\n";
-			listaQuantidade = listaQuantidade + alimento.getQuantidade() + "\n";
-		}
-		return new RefeicaoDTO(refeicao.getTitulo(), listaAlimentos, listaQuantidade,
-				refeicao.getHorarioRef().getPeriodoInicio(), refeicao.getHorarioRef().getPeriodoFim(),
-				refeicao.getHorarioRef().getDiaSemana(), refeicao.totalGanhoCalorico(refeicao.getListaAlimento()));
-	}
+//	/**
+//	 * Converte uma Refeicao em uma RefeicaoDTO
+//	 * 
+//	 * @param alimento Alimento a ser convertido
+//	 * @return um AlimentoDTO baseado no Alimento dado
+//	 */
+//	private RefeicaoDTO converteAlimento(Refeicao refeicao) {
+//		String listaAlimentos = "";
+//		String listaQuantidade = "";
+//		for (Alimento alimento : refeicao.getListaAlimento()) {
+//			listaAlimentos = listaAlimentos + alimento.getNome() + "\n";
+//			listaQuantidade = listaQuantidade + alimento.getQuantidade() + "\n";
+//		}
+//		return new RefeicaoDTO(refeicao.getTitulo(), listaAlimentos, listaQuantidade,
+//				refeicao.getHorarioRef().getPeriodoInicio(), refeicao.getHorarioRef().getPeriodoFim(),
+//				refeicao.getHorarioRef().getDiaSemana(), refeicao.totalGanhoCalorico(refeicao.getListaAlimento()));
+//	}
 
 	/**
 	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
@@ -132,11 +120,8 @@ public class RefeicaoDTO {
 	 * 
 	 */
 	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
-		List<RefeicaoDTO> listaRefeicaoDTO = new ArrayList<>();
-		for (Refeicao refeicao : RotinaController.getPessoa().getRotina().getListaRefeicao()) {
-			listaRefeicaoDTO.add(new RefeicaoDTO().converteAlimento(refeicao));
-		}
-		return FXCollections.observableArrayList(listaRefeicaoDTO);
+		List<RefeicaoDTO> refeicao = RotinaController.getListaRefeicao();
+		return FXCollections.observableArrayList(refeicao);
 	}
 
 }

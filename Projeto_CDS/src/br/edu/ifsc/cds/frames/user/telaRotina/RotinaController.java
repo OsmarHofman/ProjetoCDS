@@ -2,7 +2,9 @@ package br.edu.ifsc.cds.frames.user.telaRotina;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -30,12 +32,26 @@ public class RotinaController implements Initializable {
 	// Pessoa que logou
 	private static Pessoa pessoa;
 
+	private static List<RefeicaoDTO> listaRefeicao;
+
 	public static Pessoa getPessoa() {
 		return pessoa;
 	}
 
 	public void setPessoa(Pessoa pessoa) {
 		RotinaController.pessoa = pessoa;
+	}
+
+	public static List<RefeicaoDTO> getListaRefeicao() {
+		return listaRefeicao;
+	}
+
+	public static void setListaRefeicao(List<RefeicaoDTO> listaRefeicao) {
+		RotinaController.listaRefeicao = listaRefeicao;
+	}
+
+	public static void addListaRefeicao(RefeicaoDTO refeicao) {
+		RotinaController.listaRefeicao.add(refeicao);
 	}
 
 	@FXML
@@ -155,6 +171,8 @@ public class RotinaController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// instanciando a lista de refeicoes
+		listaRefeicao = new ArrayList<RefeicaoDTO>();
 
 		// desabilitando os botoes
 		btnExcRotina.setDisable(true);

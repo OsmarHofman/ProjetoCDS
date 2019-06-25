@@ -268,6 +268,7 @@ public class LoginController implements Initializable {
 					// Obtem o controller relacionado a tela, e passar o objeto Pessoa para a
 					// mesma
 					RotinaController ctrl_rotina = loader.getController();
+					System.out.println(usuario.getNome());
 					ctrl_rotina.setPessoa(usuario);
 
 					// Contrói a nova tela

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.swing.JOptionPane;
 
+import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 
 /**
@@ -129,25 +130,20 @@ public class Horario implements Serializable {
 		if (inicio.before(fim)) {
 			new RotinaController();
 
-			// pega a pessoa atual
-			Pessoa pessoa = RotinaController.getPessoa();
-
 			// for das iterações da lista de Refeicoes
-			for (Refeicao refeicao : pessoa.getRotina().getListaRefeicao()) {
+			for (RefeicaoDTO refeicao : RotinaController.getListaRefeicao()) {
 
 				// verifica se o dia da semana que foi inserido é o mesmo que de alguma refeicao
-				if (refeicao.getHorarioRef().getDiaSemana().equals(diaSemana)) {
+				if (refeicao.getDiaSemana().equals(diaSemana)) {
 
 					// verifica se o inicio da Refeicao está num horario já ocupado
-					if (inicio.after(refeicao.getHorarioRef().getPeriodoInicio())
-							&& inicio.before(refeicao.getHorarioRef().getPeriodoFim())) {
+					if (inicio.after(refeicao.getHorarioInicio()) && inicio.before(refeicao.getHorarioFim())) {
 						// caso estiver ocupado, retorna falso
 						return false;
 					}
 
 					// verifica se o fim da Refeicao está num horario já ocupado
-					if (fim.after(refeicao.getHorarioRef().getPeriodoInicio())
-							&& fim.before(refeicao.getHorarioRef().getPeriodoFim())) {
+					if (fim.after(refeicao.getHorarioInicio()) && fim.before(refeicao.getHorarioFim())) {
 						// caso estiver ocupado, retorna falso
 						return false;
 					}
