@@ -10,7 +10,7 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IRefeicaoDAO;
 import br.edu.ifsc.cds.classes.domain.Refeicao;
 
-public class RefeicaoDAO implements IRefeicaoDAO{
+public class RefeicaoDAO implements IRefeicaoDAO {
 
 	protected EntityManager em;
 
@@ -18,7 +18,7 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void create(Refeicao refeicao) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(refeicao);
 			em.getTransaction().commit();
@@ -34,8 +34,8 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public List<Refeicao> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Refeicao> refeicoes = new ArrayList<>();
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Query query = em.createQuery("FROM Admin");
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query query = em.createQuery("FROM Refeicao");
 		refeicoes = query.getResultList();
 		em.close();
 		return refeicoes;
@@ -44,7 +44,7 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	@Override
 	public Refeicao retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Refeicao refeicao = em.find(Refeicao.class, id);
 		em.close();
 		return refeicao;
@@ -54,12 +54,12 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void update(Refeicao admin) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.merge(admin);
 			em.getTransaction().commit();
 			em.close();
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();
@@ -70,7 +70,7 @@ public class RefeicaoDAO implements IRefeicaoDAO{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Refeicao refeicao = em.find(Refeicao.class, id);
 			em.getTransaction().begin();
 			em.remove(refeicao);

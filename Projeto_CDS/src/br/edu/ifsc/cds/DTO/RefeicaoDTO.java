@@ -1,48 +1,43 @@
 package br.edu.ifsc.cds.DTO;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.edu.ifsc.cds.DAO.RefeicaoDAO;
-import br.edu.ifsc.cds.classes.domain.Alimento;
-import br.edu.ifsc.cds.classes.domain.Refeicao;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class RefeicaoDTO {
-	private String titulo;
-	private List<String> listaAlimento;
-	private Float calorias;
+
+	private String listaAlimento;
+	private Float quantidade;
+	private String unidadeMedida;
 	private Date horarioInicio;
 	private Date horarioFim;
+	private String diaSemana;
+	private Float calorias;
 
 	public RefeicaoDTO() {
 
 	}
 
-	public RefeicaoDTO(String titulo, List<String> listaAlimentos, Float calorias, Date horarioInicio,
-			Date horarioFim) {
-		this.titulo = titulo;
+	public RefeicaoDTO(String listaAlimentos, Float quantidade, String unidadeMedida, Date horarioInicio,
+			Date horarioFim, String diaSemana, Float calorias) {
+
 		this.listaAlimento = listaAlimentos;
-		this.calorias = calorias;
+		this.quantidade = quantidade;
+		this.unidadeMedida = unidadeMedida;
 		this.horarioInicio = horarioInicio;
 		this.horarioFim = horarioFim;
+		this.diaSemana = diaSemana;
+		this.calorias = calorias;
 	}
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public List<String> getListaAlimento() {
+	public String getListaAlimento() {
 		return listaAlimento;
 	}
 
-	public void setListaAlimento(List<String> listaAlimento) {
+	public void setListaAlimento(String listaAlimento) {
 		this.listaAlimento = listaAlimento;
 	}
 
@@ -70,24 +65,33 @@ public class RefeicaoDTO {
 		this.horarioFim = horarioFim;
 	}
 
-	public RefeicaoDTO converteRefeicao(Refeicao refeicao) {
-		List<String> nomeAlimentos = new ArrayList<>();
-		for (Alimento alimento : refeicao.getListaAlimento()) {
-			nomeAlimentos.add(alimento.getNome());
-		}
-		return new RefeicaoDTO(refeicao.getTitulo(), nomeAlimentos,
-				refeicao.totalGanhoCalorico(refeicao.getListaAlimento()), refeicao.getHorarioRef().getPeriodoInicio(),
-				refeicao.getHorarioRef().getPeriodoInicio());
+	public Float getQuantidade() {
+		return quantidade;
 	}
 
-	public ObservableList<RefeicaoDTO> geraListRefeicao() {
-		List<Refeicao> refeicoes = new RefeicaoDAO().retrieveAll();
-		List<RefeicaoDTO> refeicoesDTO = new ArrayList<>();
-		for (Refeicao refeicaoLista : refeicoes) {
-			RefeicaoDTO dto = new RefeicaoDTO();
-			refeicoesDTO.add(dto.converteRefeicao(refeicaoLista));
-		}
-		return FXCollections.observableArrayList(refeicoesDTO);
+	public void setQuantidade(Float quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
+
+	public String getDiaSemana() {
+		return diaSemana;
+	}
+
+	public void setDiaSemana(String diaSemana) {
+		this.diaSemana = diaSemana;
+	}
+
+	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
+		List<RefeicaoDTO> lista = RotinaController.getListaRefeicao();
+		return FXCollections.observableArrayList(lista);
 	}
 
 }

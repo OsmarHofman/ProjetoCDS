@@ -95,7 +95,7 @@
             </Label>
             <Separator layoutX="19.0" layoutY="219.0" prefHeight="1.0" prefWidth="610.0" style="-fx-background-color: black;" />
             <Separator layoutX="322.0" layoutY="75.0" orientation="VERTICAL" prefHeight="148.0" prefWidth="2.0" />
-            <JFXButton fx:id="btnOK" layoutX="471.0" layoutY="137.0" onAction="#confirmaExercicio" prefHeight="25.0" prefWidth="75.0" text="OK" />
+            <JFXButton fx:id="btnOK" layoutX="471.0" layoutY="137.0" prefHeight="25.0" prefWidth="75.0" text="OK" />
          </children>
       </Pane>
    </children>

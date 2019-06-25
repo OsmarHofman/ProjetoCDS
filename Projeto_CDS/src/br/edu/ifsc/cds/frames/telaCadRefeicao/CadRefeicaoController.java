@@ -17,13 +17,14 @@ import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
-import br.edu.ifsc.cds.frames.telaCadRotina.CadRotinaController;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -74,17 +75,23 @@ public class CadRefeicaoController implements Initializable {
 	@FXML
 	void salvarRefeicao(ActionEvent event) throws ParseException {
 		String titulo = txtTitulo.getText();
-		List<String> nomesAlimentos = new ArrayList<>();
+		String nomesAlimentos = "";
 		float caloria = 0;
 		for (AlimentoDTO alimentoDTO : tbvAlimento.getItems()) {
-			nomesAlimentos.add(alimentoDTO.getNome());
+			nomesAlimentos = nomesAlimentos + alimentoDTO.getNome() + "\n";
 			caloria = caloria + alimentoDTO.getCalorias();
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Date horarioInicio = sdf.parse(txtInicio.getText());
 		Date horarioFim = sdf.parse(txtFim.getText());
-		RefeicaoDTO dto = new RefeicaoDTO(titulo, nomesAlimentos, caloria, horarioInicio, horarioFim);
-		CadRotinaController.addListaRefeicao(dto);
+		String diaSemana = boxDiaSemana.getValue();
+		String quantidade = txtQtd.getText();
+		RadioButton botao = (RadioButton) opcoes.getSelectedToggle();
+		String unidadeMedida = botao.getText();
+		RefeicaoDTO dto = new RefeicaoDTO(nomesAlimentos, Float.parseFloat(quantidade), unidadeMedida, horarioInicio,
+				horarioFim, diaSemana, caloria);
+		RotinaController.addListaRefeicao(dto);
+
 		JOptionPane.showMessageDialog(null, "Refeição Cadastrada com sucesso");
 		ControleComponente.fechaBotao(btnSalvar);
 	}
@@ -116,6 +123,9 @@ public class CadRefeicaoController implements Initializable {
 		colId.setCellValueFactory(new PropertyValueFactory<>("Id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<>("Nome"));
 		colCaloria.setCellValueFactory(new PropertyValueFactory<>("Calorias"));
+
+		AlimentoDTO dto = new AlimentoDTO();
+		tbvAlimento.setItems(dto.geraListaAlimento());
 
 	}
 

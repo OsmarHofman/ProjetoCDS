@@ -6,6 +6,10 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.swing.JOptionPane;
+
+import br.edu.ifsc.cds.DTO.RefeicaoDTO;
+import br.edu.ifsc.cds.frames.telaRotina.RotinaController;
 
 /**
  * Classe que representa o período de início e fim de uma ação
@@ -111,6 +115,41 @@ public class Horario implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public boolean verificaRefeicaoHorario(Date inicio, Date fim, String diaSemana) {
+		if (inicio.before(fim)) {
+			// for das iterações da lista de Refeicoes
+			for (RefeicaoDTO refeicao : RotinaController.getListaRefeicao()) {
+				if (refeicao.getDiaSemana().equals(diaSemana)) {
+					if (inicio.after(refeicao.getHorarioInicio()) && inicio.before(refeicao.getHorarioFim())) {
+						return false;
+					}
+					if (fim.after(refeicao.getHorarioInicio()) && fim.before(refeicao.getHorarioFim())) {
+						return false;
+					}
+				}
+
+			}
+
+			// for das iterações da lista de Exercicios
+//			for (Exercicio exercicio : RotinaController.getListaExercicio()) {
+//				if (exercicio.getHorarioRef().getDiaSemana().equals(diaSemana)) {
+//					if (inicio.after(exercicio.getHorarioRef().getPeriodoInicio())
+//							&& inicio.before(exercicio.getHorarioRef().getPeriodoFim())) {
+//						return false;
+//					}
+//					if (fim.after(exercicio.getHorarioRef().getPeriodoInicio())
+//							&& fim.before(exercicio.getHorarioRef().getPeriodoFim())) {
+//						return false;
+//					}
+//				}
+//			}
+			return true;
+		} else {
+			JOptionPane.showMessageDialog(null, "Fim não pode ser antes do Inicio");
+			return false;
+		}
 	}
 
 }

@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaCadRefeicao.ExecutorCadRefeicao;
+import br.edu.ifsc.cds.frames.telaExercicio.ExecutorTelaExercicio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,10 +40,7 @@ public class CadRotinaController implements Initializable {
 	private JFXButton btnCadastrar;
 
 	@FXML
-	private JFXButton btnEditRef;
-
-	@FXML
-	private JFXButton btnExcRef;
+	private JFXButton btnAddRef;
 
 	@FXML
 	private JFXButton btnEditEx;
@@ -67,31 +65,18 @@ public class CadRotinaController implements Initializable {
 
 	@FXML
 	void addEx(ActionEvent event) {
-//		Stage stage = new Stage();
-//		stage.initModality(Modality.APPLICATION_MODAL);
-//		stage.setResizable(false);
-//		stage.setTitle("CDS - Refeição");
-//		ExecutorCadExercicio exeCadExercicio = new ExecutorCadExercicio();
-//		exeCadExercicio.start(stage);
-	}
-
-	@FXML
-	void editEx(ActionEvent event) {
-
-	}
-
-	@FXML
-	void excEx(ActionEvent event) {
-
-	}
-
-	@FXML
-	void editRef(ActionEvent event) {
-
+		ControleComponente.fechaBotao(btnAddRef);
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		stage.setTitle("CDS - Refeição");
+		ExecutorTelaExercicio exeCadExercicio = new ExecutorTelaExercicio();
+		exeCadExercicio.start(stage);
 	}
 
 	@FXML
 	void addRef(ActionEvent event) {
+		ControleComponente.fechaBotao(btnAddRef);
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
@@ -109,11 +94,6 @@ public class CadRotinaController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// desabilita alguns botoes que só tem ações que dependem de outros campos e
 		// ações
-		btnCadastrar.setDisable(true);
-		btnEditRef.setDisable(true);
-		btnExcRef.setDisable(true);
-		btnEditEx.setDisable(true);
-		btnExcEx.setDisable(true);
 		listaRefeicao = new ArrayList<RefeicaoDTO>();
 	}
 

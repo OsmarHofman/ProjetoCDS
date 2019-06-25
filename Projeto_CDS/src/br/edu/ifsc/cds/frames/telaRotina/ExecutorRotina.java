@@ -23,6 +23,7 @@ public class ExecutorRotina extends Application {
 			scene.getStylesheets().add(getClass().getResource("layoutRotina.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+
 			// confirmação para sair da tela
 			primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 				public void handle(WindowEvent we) {

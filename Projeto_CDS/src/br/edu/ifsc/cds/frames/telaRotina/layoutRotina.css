@@ -49,18 +49,6 @@
 	-fx-alignment: center ;
 }
 
-.table-row-cell{
-    -fx-background-color: -fx-table-cell-border-color, #616161;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em;
-}
-
-.table-row-cell:odd{
-    -fx-background-color: -fx-table-cell-border-color, #424242;
-    -fx-background-insets: 0, 0 0 1 0;
-    -fx-padding: 0.0em;
-}
-
 /* accordion */
 
 .accordion .titled-pane > *.content{
