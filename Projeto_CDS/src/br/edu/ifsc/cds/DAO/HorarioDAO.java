@@ -10,7 +10,7 @@ import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IHorarioDAO;
 import br.edu.ifsc.cds.classes.domain.Horario;
 
-public class HorarioDAO implements IHorarioDAO{
+public class HorarioDAO implements IHorarioDAO {
 
 	protected EntityManager em;
 
@@ -18,7 +18,7 @@ public class HorarioDAO implements IHorarioDAO{
 	public void create(Horario horario) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
 			em.persist(horario);
 			em.getTransaction().commit();
@@ -34,8 +34,8 @@ public class HorarioDAO implements IHorarioDAO{
 	public List<Horario> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Horario> horarios = new ArrayList<>();
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Query query = em.createQuery("FROM Admin");
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query query = em.createQuery("FROM Horario");
 		horarios = query.getResultList();
 		em.close();
 		return horarios;
@@ -45,7 +45,7 @@ public class HorarioDAO implements IHorarioDAO{
 	public Horario retrieve(Integer id) {
 		// TODO Auto-generated method stub
 		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Horario horario= em.find(Horario.class, id);
+		Horario horario = em.find(Horario.class, id);
 		em.close();
 		return horario;
 	}
@@ -74,7 +74,7 @@ public class HorarioDAO implements IHorarioDAO{
 			em.getTransaction().begin();
 			em.remove(horario);
 			em.getTransaction().commit();
-            em.close();
+			em.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

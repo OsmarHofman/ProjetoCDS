@@ -13,6 +13,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import br.edu.ifsc.cds.DAO.ExercicioDAO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * 
  * Classe que representa um Exercício dentro de uma {@link Rotina} e que contém
@@ -121,6 +125,15 @@ public class Exercicio implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public ObservableList<String> geraListaExercicio() {
+		List<Exercicio> exercicios = new ExercicioDAO().retrieveAll();
+		List<String> nomes = new ArrayList<>();
+		for (Exercicio exercicio : exercicios) {
+			nomes.add(exercicio.getNome());
+		}
+		return FXCollections.observableArrayList(nomes);
 	}
 
 }

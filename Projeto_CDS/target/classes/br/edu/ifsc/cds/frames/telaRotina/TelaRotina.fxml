@@ -431,7 +431,7 @@
 						<Font name="Arial Bold" size="31.0" />
 					</font>
 				</Label>
-            <JFXButton fx:id="btnAtualizar" layoutX="978.0" layoutY="33.0" onAction="#atualizar" text="Atualizar" />
+            <JFXButton fx:id="btnAtualizar" layoutX="879.0" layoutY="40.0" onAction="#atualizar" style="-fx-background-color: blue;" text="Atualizar" textFill="WHITE" />
 			</children>
 		</Pane>
 	</top>

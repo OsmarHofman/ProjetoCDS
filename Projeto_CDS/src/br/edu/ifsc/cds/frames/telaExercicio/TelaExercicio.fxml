@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="680.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaCadRefeicao.CadRefeicaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="680.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.telaExercicio.TelaExercicioController">
    <children>
       <AnchorPane prefHeight="109.0" prefWidth="686.0" style="-fx-background-color: #3936ff;">
          <children>
@@ -26,7 +26,7 @@
          </children></AnchorPane>
       <Pane layoutX="14.0" layoutY="123.0" prefHeight="559.0" prefWidth="652.0" style="-fx-border-radius: 30px; -fx-border-color: blue; -fx-background-color: white;">
          <children>
-            <ChoiceBox fx:id="boxAlimentos" layoutX="337.0" layoutY="140.0" prefHeight="27.0" prefWidth="105.0" style="-fx-border-radius: 50px; -fx-border-color: white; -fx-background-color: transparent;" />
+            <ChoiceBox fx:id="boxExercicios" layoutX="337.0" layoutY="140.0" prefHeight="27.0" prefWidth="105.0" style="-fx-border-radius: 50px; -fx-border-color: white; -fx-background-color: transparent;" />
             <Label layoutX="293.0" layoutY="231.0" text="Exercícios" textFill="#3936ff">
                <font>
                   <Font size="15.0" />
@@ -46,8 +46,8 @@
                   <TableColumn id="headerExerc" fx:id="colId" prefWidth="289.0" text="ID" />
                   <TableColumn fx:id="colNome" prefWidth="65.0" text="Nome" />
                   <TableColumn fx:id="colCaloria" prefWidth="132.0" text="Calorias" />
-                  <TableColumn fx:id="colCaloria1" prefWidth="132.0" text="Início" />
-                  <TableColumn fx:id="colCaloria2" prefWidth="132.0" text="Fim" />
+                  <TableColumn fx:id="colInicio" prefWidth="132.0" text="Início" />
+                  <TableColumn fx:id="colFim" prefWidth="132.0" text="Fim" />
                </columns>
             </TableView>
             <Label layoutX="130.0" layoutY="93.0" text="Horário" textFill="#3936ff">
@@ -95,7 +95,7 @@
             </Label>
             <Separator layoutX="19.0" layoutY="219.0" prefHeight="1.0" prefWidth="610.0" style="-fx-background-color: black;" />
             <Separator layoutX="322.0" layoutY="75.0" orientation="VERTICAL" prefHeight="148.0" prefWidth="2.0" />
-            <JFXButton fx:id="btnOK" layoutX="471.0" layoutY="137.0" prefHeight="25.0" prefWidth="75.0" text="OK" />
+            <JFXButton fx:id="btnOK" layoutX="471.0" layoutY="137.0" onAction="#confirmaExercicio" prefHeight="25.0" prefWidth="75.0" text="OK" />
          </children>
       </Pane>
    </children>

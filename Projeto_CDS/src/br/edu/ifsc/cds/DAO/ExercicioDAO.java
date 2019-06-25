@@ -8,10 +8,9 @@ import javax.persistence.Query;
 
 import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IExercicioDAO;
-import br.edu.ifsc.cds.classes.domain.Executora;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 
-public class ExercicioDAO implements IExercicioDAO{
+public class ExercicioDAO implements IExercicioDAO {
 
 	protected EntityManager em;
 
@@ -35,8 +34,8 @@ public class ExercicioDAO implements IExercicioDAO{
 	public List<Exercicio> retrieveAll() {
 		// TODO Auto-generated method stub
 		List<Exercicio> exercicios = new ArrayList<>();
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
-		Query query = em.createQuery("FROM Admin");
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query query = em.createQuery("FROM Exercicio");
 		exercicios = query.getResultList();
 		em.close();
 		return exercicios;
@@ -45,7 +44,7 @@ public class ExercicioDAO implements IExercicioDAO{
 	@Override
 	public Exercicio retrieve(Integer id) {
 		// TODO Auto-generated method stub
-		em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 		Exercicio exercicio = em.find(Exercicio.class, id);
 		em.close();
 		return exercicio;
@@ -60,7 +59,7 @@ public class ExercicioDAO implements IExercicioDAO{
 			em.merge(exercicio);
 			em.getTransaction().commit();
 			em.close();
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			em.getTransaction().rollback();
@@ -71,7 +70,7 @@ public class ExercicioDAO implements IExercicioDAO{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		try {
-			em =  EntityMagerFactorySingleton.getFactory().createEntityManager();
+			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			Exercicio exercicio = em.find(Exercicio.class, id);
 			em.getTransaction().begin();
 			em.remove(exercicio);
