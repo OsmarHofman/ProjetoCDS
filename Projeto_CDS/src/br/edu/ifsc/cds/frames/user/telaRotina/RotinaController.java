@@ -7,8 +7,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
@@ -70,6 +73,9 @@ public class RotinaController implements Initializable {
 	private TableColumn<RefeicaoDTO, String> titSeg;
 
 	@FXML
+	private TableColumn<RefeicaoDTO, String> unidSeg;
+
+	@FXML
 	private TableColumn<RefeicaoDTO, Float> qtdSeg;
 
 	@FXML
@@ -77,6 +83,9 @@ public class RotinaController implements Initializable {
 
 	@FXML
 	private TableColumn<RefeicaoDTO, Date> terminoSeg;
+
+	@FXML
+	private TableColumn<ExercicioDTO, String> titEx;
 
 	@FXML
 	private BorderPane paneTela;
@@ -152,6 +161,24 @@ public class RotinaController implements Initializable {
 	}
 
 	/**
+	 * Exclui a Refeicao selecionada na tabela. Verifica antes de excluir a
+	 * Refeicao, e após a exclusão a tela é atualizada
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void excluir(ActionEvent event) {
+		RefeicaoDTO dto = refeicaoSegunda.getSelectionModel().getSelectedItem();
+		int decisaoEx = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir essa Refeicão?");
+		if (decisaoEx == 0) {
+			RotinaController.getListaRefeicao().remove(dto);
+			btnExcRotina.setDisable(true);
+			this.atualizar(event);
+		}
+
+	}
+
+	/**
 	 * Fecha esta tela e Retorna a tela que a chamou
 	 * 
 	 * @param Clique no botão
@@ -182,6 +209,7 @@ public class RotinaController implements Initializable {
 		titSeg.setCellValueFactory(new PropertyValueFactory<>("titulo"));
 		alimentoSeg.setCellValueFactory(new PropertyValueFactory<>("listaAlimento"));
 		qtdSeg.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+		unidSeg.setCellValueFactory(new PropertyValueFactory<>("unidadeMedida"));
 		inicioSeg.setCellValueFactory(new PropertyValueFactory<>("horarioInicio"));
 		terminoSeg.setCellValueFactory(new PropertyValueFactory<>("horarioFim"));
 		calorSeg.setCellValueFactory(new PropertyValueFactory<>("calorias"));
@@ -214,6 +242,13 @@ public class RotinaController implements Initializable {
 					}
 				}
 			};
+		});
+
+		// Verifica se algum item da tabela foi selecionado
+		refeicaoSegunda.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+			if (newSelection != null) {
+				btnExcRotina.setDisable(false);
+			}
 		});
 
 		// adiciona as refeicoes a tabela

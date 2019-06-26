@@ -137,13 +137,15 @@ public class Horario implements Serializable {
 				if (refeicao.getDiaSemana().equals(diaSemana)) {
 
 					// verifica se o inicio da Refeicao está num horario já ocupado
-					if (inicio.after(refeicao.getHorarioInicio()) && inicio.before(refeicao.getHorarioFim())) {
+					if (inicio.equals(refeicao.getHorarioInicio())
+							|| (inicio.after(refeicao.getHorarioInicio()) && inicio.before(refeicao.getHorarioFim()))) {
 						// caso estiver ocupado, retorna falso
 						return false;
 					}
 
 					// verifica se o fim da Refeicao está num horario já ocupado
-					if (fim.after(refeicao.getHorarioInicio()) && fim.before(refeicao.getHorarioFim())) {
+					if (fim.equals(refeicao.getHorarioFim())
+							|| (fim.after(refeicao.getHorarioInicio()) && fim.before(refeicao.getHorarioFim()))) {
 						// caso estiver ocupado, retorna falso
 						return false;
 					}

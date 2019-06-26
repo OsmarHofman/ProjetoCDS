@@ -13,21 +13,18 @@ import javax.swing.JOptionPane;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.DAO.ExercicioDAO;
-import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.ExercicioDTO;
-import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
-import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -37,9 +34,9 @@ import javafx.stage.Stage;
 
 public class TelaCadExercicioController implements Initializable {
 
-    @FXML
-    private JFXButton btnSalvarExercicio;
-	
+	@FXML
+	private JFXButton btnSalvarExercicio;
+
 	@FXML
 	private TableColumn<ExercicioDTO, String> colNome;
 
@@ -72,21 +69,20 @@ public class TelaCadExercicioController implements Initializable {
 
 	@FXML
 	private TextField txtInicio;
-	
-    @FXML
-    private TextField txtFim;
-    
-    
-    /**
+
+	@FXML
+	private TextField txtFim;
+
+	/**
 	 * A partir dos campos na tela, converte e cria um objeto {@link ExercicioDTO}
 	 * para inserir na lista de Exercicios da Rotina
 	 * 
 	 * @param event Clique do botão
-     * @throws ParseException 
+	 * @throws ParseException
 	 */
-    
-    @FXML
-    void salvarExercicio(ActionEvent event) throws ParseException {
+
+	@FXML
+	void salvarExercicio(ActionEvent event) throws ParseException {
 		String nomeExercicios = boxExercicios.getValue();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Date horarioInicio = sdf.parse(txtInicio.getText());
@@ -98,11 +94,11 @@ public class TelaCadExercicioController implements Initializable {
 			gastocalorias = exer.getCalorias();
 			id = Integer.parseInt(tbvExercicio.getId());
 		}
-		
-		ExercicioDTO dt = new ExercicioDTO(id,nomeExercicios,gastocalorias,horarioInicio,horarioFim);
+
+		ExercicioDTO dt = new ExercicioDTO(id, nomeExercicios, gastocalorias, horarioInicio, horarioFim);
 		Horario horario = new Horario();
 		if (horario.verificaRefeicaoHorario(horarioInicio, horarioFim, diaSemana)) {
-			//RotinaController.addListaExercicio(dt);
+			// RotinaController.addListaExercicio(dt);
 			JOptionPane.showMessageDialog(null, "Exercicio Cadastrado com sucesso");
 			ControleComponente controle = new ControleComponente();
 			controle.fechaBotao(btnSalvarExercicio);
@@ -110,14 +106,13 @@ public class TelaCadExercicioController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Data de Inicio/Fim inválido(s)");
 		}
 
-    }
-    
-    
+	}
+
 	/**
 	 * Adiciona o Exercicio na tabela para visualização
 	 * 
 	 * @param event Clique do Botão
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	@FXML
 	void confirmaExercicio(ActionEvent event) throws ParseException {
@@ -125,7 +120,7 @@ public class TelaCadExercicioController implements Initializable {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Date horarioInicio = sdf.parse(txtInicio.getText());
 		Date horarioFim = sdf.parse(txtFim.getText());
-        ExercicioDTO dt = new ExercicioDTO().geraExercicioDTO(nome, horarioInicio, horarioFim);
+		ExercicioDTO dt = new ExercicioDTO().geraExercicioDTO(nome, horarioInicio, horarioFim);
 		tbvExercicio.getItems().add(dt);
 	}
 
@@ -158,6 +153,36 @@ public class TelaCadExercicioController implements Initializable {
 		colCaloria.setCellValueFactory(new PropertyValueFactory<>("Calorias"));
 		colInicio.setCellValueFactory(new PropertyValueFactory<>("Inicio"));
 		colFim.setCellValueFactory(new PropertyValueFactory<>("Fim"));
+
+		// formata a coluna do Inicio, para a data ficar com o formato "HH:mm"
+		colInicio.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
+			return new TableCell<ExercicioDTO, Date>() {
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+					} else {
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+						setText(sdf.format((item)));
+					}
+				}
+			};
+		});
+
+		// formata a coluna do Fim, para a data ficar com o formato "HH:mm"
+		colFim.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
+			return new TableCell<ExercicioDTO, Date>() {
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+					} else {
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+						setText(sdf.format((item)));
+					}
+				}
+			};
+		});
 
 	}
 

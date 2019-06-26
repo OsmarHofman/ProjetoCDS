@@ -20,6 +20,7 @@ public class RefeicaoDTO {
 	private String titulo;
 	private String listaAlimento;
 	private String quantidade;
+	private String unidadeMedida;
 	private Date horarioInicio;
 	private Date horarioFim;
 	private String diaSemana;
@@ -29,10 +30,11 @@ public class RefeicaoDTO {
 
 	}
 
-	public RefeicaoDTO(String titulo, String listaAlimentos, String quantidade, Date horarioInicio, Date horarioFim,
-			String diaSemana, Float calorias) {
+	public RefeicaoDTO(String titulo, String listaAlimentos, String unidadeMedida, String quantidade,
+			Date horarioInicio, Date horarioFim, String diaSemana, Float calorias) {
 		this.titulo = titulo;
 		this.listaAlimento = listaAlimentos;
+		this.unidadeMedida = unidadeMedida;
 		this.quantidade = quantidade;
 		this.horarioInicio = horarioInicio;
 		this.horarioFim = horarioFim;
@@ -86,6 +88,14 @@ public class RefeicaoDTO {
 
 	public void setQuantidade(String quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
 	}
 
 	public String getDiaSemana() {

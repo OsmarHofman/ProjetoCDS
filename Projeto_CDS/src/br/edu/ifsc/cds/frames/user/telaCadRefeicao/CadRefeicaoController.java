@@ -37,6 +37,8 @@ import javafx.stage.Stage;
 
 public class CadRefeicaoController implements Initializable {
 
+	private String uniMed = "";
+
 	@FXML
 	private TextField txtQtd;
 
@@ -89,12 +91,19 @@ public class CadRefeicaoController implements Initializable {
 	 * @param event Clique do botão
 	 */
 	@FXML
-	void salvarRefeicao(ActionEvent event) throws ParseException {
+	void salvarRefeicao(ActionEvent event) {
 		// pega os dados da interface gráfica
 		String titulo = txtTitulo.getText();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-		Date horarioInicio = sdf.parse(txtInicio.getText());
-		Date horarioFim = sdf.parse(txtFim.getText());
+		Date horarioInicio = new Date();
+		Date horarioFim = new Date();
+		try {
+			horarioInicio = sdf.parse(txtInicio.getText());
+			horarioFim = sdf.parse(txtFim.getText());
+		} catch (ParseException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Data Inválida");
+		}
 		String diaSemana = boxDiaSemana.getValue();
 
 		// Gera os campos nome do alimento, caloria e quantidade de cada alimento
@@ -108,8 +117,8 @@ public class CadRefeicaoController implements Initializable {
 		}
 
 		// Cria uma refeicaoDTO
-		RefeicaoDTO dto = new RefeicaoDTO(titulo, nomesAlimentos, quantidades, horarioInicio, horarioFim, diaSemana,
-				caloria);
+		RefeicaoDTO dto = new RefeicaoDTO(titulo, nomesAlimentos, uniMed, quantidades, horarioInicio, horarioFim,
+				diaSemana, caloria);
 
 		// Verifica se o horário pretendido está disponível
 		Horario horario = new Horario();
@@ -136,6 +145,8 @@ public class CadRefeicaoController implements Initializable {
 		Float quantidade = Float.parseFloat(txtQtd.getText());
 		RadioButton botao = (RadioButton) opcoes.getSelectedToggle();
 		String unidadeMedida = botao.getText();
+		this.uniMed = uniMed + unidadeMedida + "\n";
+
 		// a partir dos dados, gera um AlimentoDTO que então adiciona na tabela
 		AlimentoDTO dto = new AlimentoDTO().geraAlimentoDTO(nomeAlimento, quantidade, unidadeMedida);
 		tbvAlimento.getItems().add(dto);
