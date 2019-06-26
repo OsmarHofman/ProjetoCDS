@@ -17,7 +17,6 @@ import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
-import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -157,16 +156,6 @@ public class TelaCadExercicioController implements Initializable {
 		ControleComponente controle = new ControleComponente();
 		// fecha a tela
 		controle.fechaBotao(btnVoltar);
-
-		// cria uma estrutura da tela
-		Stage stage = new Stage();
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.setResizable(false);
-		stage.setTitle("CDS - Cadastro Rotina");
-
-		// inicia uma nova tela de Cadastro
-		ExecutorCadRotina exeCadRotina = new ExecutorCadRotina();
-		exeCadRotina.start(stage);
 	}
 
 }

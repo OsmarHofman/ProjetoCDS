@@ -40,6 +40,11 @@ public abstract class Usuario implements Serializable {
 		this.email = email;
 		this.senha = senha;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public Integer getId() {
 		return id;

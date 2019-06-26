@@ -53,6 +53,11 @@ public class Exercicio implements Serializable {
 		this.gastoCaloria = gastoCaloria;
 		this.horarioEx = horario;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public Integer getId() {
 		return id;

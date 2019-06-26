@@ -41,7 +41,11 @@ public class Rotina implements Serializable {
 		this.id = id;
 		this.titulo = titulo;
 	}
-
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public Integer getId() {
 		return id;
 	}

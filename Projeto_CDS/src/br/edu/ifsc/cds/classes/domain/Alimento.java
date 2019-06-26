@@ -53,6 +53,10 @@ public class Alimento implements Serializable {
 		this.caloriaTotal = infoNutri.getCaloria();
 	}
 
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public Integer getId() {
 		return id;
 	}

@@ -34,7 +34,11 @@ public class Pessoa extends Usuario implements Serializable {
 		this.altura = altura;
 		this.rotina = rotina;
 	}
-
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public float getPeso_inicial() {
 		return pesoInicial;
 	}

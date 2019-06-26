@@ -30,6 +30,10 @@ public class Admin extends Usuario implements Serializable {
 		this.telefone = telefone;
 	}
 
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public String getCpf() {
 		return cpf;
 	}

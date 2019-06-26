@@ -6,7 +6,12 @@ import java.util.List;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+/**
+ * 
+ * Objeto de Transferência de Dados da classe {@link Exercicio} para incluir os
+ * elementos na interface gráfica
+ *
+ */
 public class ExercicioDTO {
 
 	private String tituloEx;
@@ -15,7 +20,6 @@ public class ExercicioDTO {
 	private Date fimEx;
 
 	public ExercicioDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public ExercicioDTO(String tituloEx, Float caloriasEx, Date inicioEx, Date fimEx) {
@@ -25,6 +29,11 @@ public class ExercicioDTO {
 		this.inicioEx = inicioEx;
 		this.fimEx = fimEx;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public String getTituloEx() {
 		return tituloEx;
@@ -57,6 +66,12 @@ public class ExercicioDTO {
 	public void setFimEx(Date fimEx) {
 		this.fimEx = fimEx;
 	}
+	
+	/**
+	 * Transforma um Exercicio, em um ExercicioDTO.
+	 * 
+	 * @return ExercicioDTO com ses atributos calculados
+	 */
 
 	public ObservableList<ExercicioDTO> geraExercicioDTO() {
 		List<ExercicioDTO> exercicio = RotinaController.getListaExercicio();

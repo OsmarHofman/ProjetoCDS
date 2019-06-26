@@ -42,6 +42,10 @@ public class RefeicaoDTO {
 		this.calorias = calorias;
 	}
 
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public String getTitulo() {
 		return titulo;
 	}

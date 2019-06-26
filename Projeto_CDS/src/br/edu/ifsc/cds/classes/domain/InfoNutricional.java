@@ -108,6 +108,11 @@ public class InfoNutricional implements Serializable {
 		this.fibras = builder.fibras;
 		this.sodio = builder.sodio;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public Integer getId() {
 		return id;

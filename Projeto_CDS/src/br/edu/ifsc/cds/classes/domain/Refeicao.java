@@ -48,6 +48,11 @@ public class Refeicao implements Serializable {
 		this.listaAlimento = listaAlimentos;
 		this.horarioRef = horario;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public Integer getId() {
 		return id;

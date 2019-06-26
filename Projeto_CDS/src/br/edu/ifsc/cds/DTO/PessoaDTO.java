@@ -30,6 +30,10 @@ public class PessoaDTO {
 		this.email = email;
 	}
 
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public Integer getId() {
 		return id;
 	}

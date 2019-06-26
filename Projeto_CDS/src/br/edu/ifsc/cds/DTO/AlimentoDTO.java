@@ -35,6 +35,11 @@ public class AlimentoDTO {
 		this.calorias = calorias;
 		this.quantidade = quantidade;
 	}
+	
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 
 	public Integer getId() {
 		return id;

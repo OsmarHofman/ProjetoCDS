@@ -44,6 +44,10 @@ public class Horario implements Serializable {
 		this.diaSemana = diaSemana;
 	}
 
+	/**
+	 * gets e sets padrão
+	 * 
+	 */
 	public Integer getId() {
 		return id;
 	}
