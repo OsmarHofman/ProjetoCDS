@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IExercicioDAO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 
 /**
  * 
@@ -80,5 +81,14 @@ public class ExercicioDAO implements IExercicioDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	@Override
+	public Exercicio retrieveDadosExer(String nome) {
+		em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+		Query consulta = em.createQuery(
+				"SELECT e FROM Exercicio e WHERE e.nome = ?1")
+				.setParameter(1, nome);
+		return (Exercicio) consulta.getSingleResult();
 	}
 }

@@ -43,4 +43,6 @@ public interface IExercicioDAO {
 	 * 
 	 */
 	public void delete(Integer id);
+	
+	public Exercicio retrieveDadosExer(String nome);
 }
