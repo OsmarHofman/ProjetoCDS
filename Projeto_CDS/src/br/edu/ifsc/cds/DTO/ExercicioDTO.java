@@ -1,68 +1,66 @@
 package br.edu.ifsc.cds.DTO;
 
 import java.util.Date;
+import java.util.List;
 
-import br.edu.ifsc.cds.DAO.ExercicioDAO;
-import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class ExercicioDTO {
-	
-	private Integer id;
-	private String nome;
-	private Float calorias;
-	private Date inicio;
-	private Date fim;
-	
+
+	private String tituloEx;
+	private Float caloriasEx;
+	private Date inicioEx;
+	private Date fimEx;
+
 	public ExercicioDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public ExercicioDTO(Integer id, String nome, Float calorias, Date inicio, Date fim) {
-		this.id = id;
-		this.nome = nome;
-		this.calorias = calorias;
-		this.inicio = inicio;
-		this.fim = fim;
+
+	public ExercicioDTO(String tituloEx, Float caloriasEx, Date inicioEx, Date fimEx) {
+		super();
+		this.tituloEx = tituloEx;
+		this.caloriasEx = caloriasEx;
+		this.inicioEx = inicioEx;
+		this.fimEx = fimEx;
 	}
 
+	public String getTituloEx() {
+		return tituloEx;
+	}
 
-	public Integer getId() {
-		return id;
+	public void setTituloEx(String tituloEx) {
+		this.tituloEx = tituloEx;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+
+	public Float getCaloriasEx() {
+		return caloriasEx;
 	}
-	public String getNome() {
-		return nome;
+
+	public void setCaloriasEx(Float caloriasEx) {
+		this.caloriasEx = caloriasEx;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public Date getInicioEx() {
+		return inicioEx;
 	}
-	public Float getCalorias() {
-		return calorias;
+
+	public void setInicioEx(Date inicioEx) {
+		this.inicioEx = inicioEx;
 	}
-	public void setCalorias(Float calorias) {
-		this.calorias = calorias;
+
+	public Date getFimEx() {
+		return fimEx;
 	}
-	public Date getInicio() {
-		return inicio;
+
+	public void setFimEx(Date fimEx) {
+		this.fimEx = fimEx;
 	}
-	public void setInicio(Date inicio) {
-		this.inicio = inicio;
-	}
-	public Date getFim() {
-		return fim;
-	}
-	public void setFim(Date fim) {
-		this.fim = fim;
-	}
-	
-	
-	public ExercicioDTO geraExercicioDTO(String nomeExercicio,Date inicio, Date fim) {
-		Exercicio exercicio = new ExercicioDAO().retrieveDadosExer(nomeExercicio);
-		ExercicioDTO exercicioDTO = new ExercicioDTO(exercicio.getId(),exercicio.getNome(),exercicio.getGastoCaloria(),inicio,fim);
-		return exercicioDTO;
+
+	public ObservableList<ExercicioDTO> geraExercicioDTO() {
+		List<ExercicioDTO> exercicio = RotinaController.getListaExercicio();
+		return FXCollections.observableArrayList(exercicio);
 	}
 
 }

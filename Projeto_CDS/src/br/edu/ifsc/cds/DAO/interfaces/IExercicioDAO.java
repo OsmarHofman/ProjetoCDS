@@ -43,6 +43,12 @@ public interface IExercicioDAO {
 	 * 
 	 */
 	public void delete(Integer id);
-	
+
+	/**
+	 * Recupera do banco o Exercicio pelo nome passado como parâmetro.
+	 * 
+	 * @param nome Nome do Exercicio que deseja ser buscado
+	 * @return o Objeto Exercicio com o nome como no requisitado
+	 */
 	public Exercicio retrieveDadosExer(String nome);
 }

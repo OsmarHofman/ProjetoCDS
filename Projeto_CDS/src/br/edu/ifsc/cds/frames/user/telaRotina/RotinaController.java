@@ -16,7 +16,8 @@ import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
-import br.edu.ifsc.cds.frames.user.telaCadRotina.ExecutorCadRotina;
+import br.edu.ifsc.cds.frames.user.telaCadExercicio.ExecutorTelaCadExercicio;
+import br.edu.ifsc.cds.frames.user.telaCadRefeicao.ExecutorCadRefeicao;
 import br.edu.ifsc.cds.frames.user.telaDados.ExecutorDados;
 import br.edu.ifsc.cds.frames.user.telaHistorico.ExecutorHistorico;
 import javafx.event.ActionEvent;
@@ -36,6 +37,7 @@ public class RotinaController implements Initializable {
 	private static Pessoa pessoa;
 
 	private static List<RefeicaoDTO> listaRefeicao;
+	private static List<ExercicioDTO> listaExercicio;
 
 	public static Pessoa getPessoa() {
 		return pessoa;
@@ -57,11 +59,26 @@ public class RotinaController implements Initializable {
 		RotinaController.listaRefeicao.add(refeicao);
 	}
 
+	public static List<ExercicioDTO> getListaExercicio() {
+		return listaExercicio;
+	}
+
+	public static void setListaExercicio(List<ExercicioDTO> listaExercicio) {
+		RotinaController.listaExercicio = listaExercicio;
+	}
+
+	public static void addListaExercicio(ExercicioDTO exercicio) {
+		RotinaController.listaExercicio.add(exercicio);
+	}
+
 	@FXML
 	private JFXButton btnAtualizar;
 
 	@FXML
 	private TableView<RefeicaoDTO> refeicaoSegunda;
+
+	@FXML
+	private TableView<ExercicioDTO> ativFisSegunda;
 
 	@FXML
 	private TableColumn<RefeicaoDTO, Float> calorSeg;
@@ -88,6 +105,15 @@ public class RotinaController implements Initializable {
 	private TableColumn<ExercicioDTO, String> titEx;
 
 	@FXML
+	private TableColumn<ExercicioDTO, Date> iniEx;
+
+	@FXML
+	private TableColumn<ExercicioDTO, Date> terEx;
+
+	@FXML
+	private TableColumn<ExercicioDTO, Float> calEx;
+
+	@FXML
 	private BorderPane paneTela;
 
 	@FXML
@@ -97,10 +123,22 @@ public class RotinaController implements Initializable {
 	private JFXButton btnDados;
 
 	@FXML
-	private JFXButton btnExcRotina;
+	private JFXButton btnCadExercicio;
 
 	@FXML
-	private JFXButton btnEditRotina;
+	private JFXButton btnEditExercicio;
+
+	@FXML
+	private JFXButton btnExcExercicio;
+
+	@FXML
+	private JFXButton btnCadRefeicao;
+
+	@FXML
+	private JFXButton btnEditRefeicao;
+
+	@FXML
+	private JFXButton btnExcRefeicao;
 
 	/**
 	 * Mostra a tela com os dados pessoais da {@link Pessoa}.
@@ -140,24 +178,41 @@ public class RotinaController implements Initializable {
 	 */
 	@FXML
 	void atualizar(ActionEvent event) {
-		RefeicaoDTO dto = new RefeicaoDTO();
-		refeicaoSegunda.setItems(dto.geraListaRefeicao());
+		RefeicaoDTO refDto = new RefeicaoDTO();
+		refeicaoSegunda.setItems(refDto.geraListaRefeicao());
+
+		ExercicioDTO exeDto = new ExercicioDTO();
+		ativFisSegunda.setItems(exeDto.geraExercicioDTO());
 	}
 
 	/**
-	 * Abre a tela para cadastrar um Exercicio ou Refeicao, que sera adicionada a
-	 * Rotina
+	 * Abre a tela para cadastrar um Exercicio, que sera adicionada a Tabela
 	 * 
 	 * @param event Clique do Botão
 	 */
 	@FXML
-	void novaRotina(ActionEvent event) {
+	void novoExercicio(ActionEvent event) {
 		Stage stage = new Stage();
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
-		stage.setTitle("CDS - Cadastro Rotina");
-		ExecutorCadRotina exeCadRotina = new ExecutorCadRotina();
-		exeCadRotina.start(stage);
+		stage.setTitle("CDS - Cadastro Exercício");
+		ExecutorTelaCadExercicio exeCadExercicio = new ExecutorTelaCadExercicio();
+		exeCadExercicio.start(stage);
+	}
+
+	/**
+	 * Abre a tela para cadastrar uma Refeicao, que sera adicionada a Tabela
+	 * 
+	 * @param event Clique do Botão
+	 */
+	@FXML
+	void novaRefeicao(ActionEvent event) {
+		Stage stage = new Stage();
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.setResizable(false);
+		stage.setTitle("CDS - Cadastro Exercício");
+		ExecutorCadRefeicao exeCadRefeicao = new ExecutorCadRefeicao();
+		exeCadRefeicao.start(stage);
 	}
 
 	/**
@@ -167,12 +222,30 @@ public class RotinaController implements Initializable {
 	 * @param event
 	 */
 	@FXML
-	void excluir(ActionEvent event) {
+	void excluirRefeicao(ActionEvent event) {
 		RefeicaoDTO dto = refeicaoSegunda.getSelectionModel().getSelectedItem();
 		int decisaoEx = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir essa Refeicão?");
 		if (decisaoEx == 0) {
 			RotinaController.getListaRefeicao().remove(dto);
-			btnExcRotina.setDisable(true);
+			btnExcRefeicao.setDisable(true);
+			this.atualizar(event);
+		}
+
+	}
+
+	/**
+	 * Exclui o Exercicio selecionado na tabela. Verifica antes de excluir o
+	 * Exercicio, e após a exclusão a tela é atualizada
+	 * 
+	 * @param event
+	 */
+	@FXML
+	void excluirExercicio(ActionEvent event) {
+		ExercicioDTO dto = ativFisSegunda.getSelectionModel().getSelectedItem();
+		int decisaoEx = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir esse Exercício?");
+		if (decisaoEx == 0) {
+			RotinaController.getListaExercicio().remove(dto);
+			btnExcExercicio.setDisable(true);
 			this.atualizar(event);
 		}
 
@@ -198,12 +271,15 @@ public class RotinaController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// instanciando a lista de refeicoes
+		// instanciando a lista de Refeicoes e Exercicios
 		listaRefeicao = new ArrayList<RefeicaoDTO>();
+		listaExercicio = new ArrayList<ExercicioDTO>();
 
 		// desabilitando os botoes
-		btnExcRotina.setDisable(true);
-		btnEditRotina.setDisable(true);
+		btnEditExercicio.setDisable(true);
+		btnEditRefeicao.setDisable(true);
+		btnExcExercicio.setDisable(true);
+		btnExcRefeicao.setDisable(true);
 
 		// formata as celulas da Tabela
 		titSeg.setCellValueFactory(new PropertyValueFactory<>("titulo"));
@@ -213,6 +289,10 @@ public class RotinaController implements Initializable {
 		inicioSeg.setCellValueFactory(new PropertyValueFactory<>("horarioInicio"));
 		terminoSeg.setCellValueFactory(new PropertyValueFactory<>("horarioFim"));
 		calorSeg.setCellValueFactory(new PropertyValueFactory<>("calorias"));
+		titEx.setCellValueFactory(new PropertyValueFactory<>("tituloEx"));
+		iniEx.setCellValueFactory(new PropertyValueFactory<>("inicioEx"));
+		terEx.setCellValueFactory(new PropertyValueFactory<>("fimEx"));
+		calEx.setCellValueFactory(new PropertyValueFactory<>("caloriasEx"));
 
 		// formata a coluna do Inicio, para a data ficar com o formato "HH:mm"
 		inicioSeg.setCellFactory((TableColumn<RefeicaoDTO, Date> column) -> {
@@ -244,10 +324,45 @@ public class RotinaController implements Initializable {
 			};
 		});
 
-		// Verifica se algum item da tabela foi selecionado
+		iniEx.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
+			return new TableCell<ExercicioDTO, Date>() {
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+					} else {
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+						setText(sdf.format((item)));
+					}
+				}
+			};
+		});
+
+		terEx.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
+			return new TableCell<ExercicioDTO, Date>() {
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+					} else {
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+						setText(sdf.format((item)));
+					}
+				}
+			};
+		});
+
+		// Verifica se algum item da tabela de Refeicao foi selecionado
 		refeicaoSegunda.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
 			if (newSelection != null) {
-				btnExcRotina.setDisable(false);
+				btnExcRefeicao.setDisable(false);
+			}
+		});
+
+		// Verifica se algum item da tabela foi selecionado
+		ativFisSegunda.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+			if (newSelection != null) {
+				btnExcExercicio.setDisable(false);
 			}
 		});
 

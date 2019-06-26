@@ -12,7 +12,7 @@ public class ExecutorTelaCadExercicio extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("TelaCadExercicio.fxml"));
-			Scene scene = new Scene(root, 680, 697);
+			Scene scene = new Scene(root, 680, 437);
 			scene.getStylesheets().add(getClass().getResource("TelaCadExercicio.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);

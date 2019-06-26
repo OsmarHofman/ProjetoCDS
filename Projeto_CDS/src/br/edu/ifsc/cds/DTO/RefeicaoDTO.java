@@ -106,6 +106,16 @@ public class RefeicaoDTO {
 		this.diaSemana = diaSemana;
 	}
 
+	/**
+	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
+	 * {@link TableView}
+	 * 
+	 */
+	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
+		List<RefeicaoDTO> refeicao = RotinaController.getListaRefeicao();
+		return FXCollections.observableArrayList(refeicao);
+	}
+
 //	/**
 //	 * Converte uma Refeicao em uma RefeicaoDTO
 //	 * 
@@ -123,15 +133,5 @@ public class RefeicaoDTO {
 //				refeicao.getHorarioRef().getPeriodoInicio(), refeicao.getHorarioRef().getPeriodoFim(),
 //				refeicao.getHorarioRef().getDiaSemana(), refeicao.totalGanhoCalorico(refeicao.getListaAlimento()));
 //	}
-
-	/**
-	 * A partir dos Alimento na base de dados, cria uma lista observável pelas
-	 * {@link TableView}
-	 * 
-	 */
-	public ObservableList<RefeicaoDTO> geraListaRefeicao() {
-		List<RefeicaoDTO> refeicao = RotinaController.getListaRefeicao();
-		return FXCollections.observableArrayList(refeicao);
-	}
 
 }
