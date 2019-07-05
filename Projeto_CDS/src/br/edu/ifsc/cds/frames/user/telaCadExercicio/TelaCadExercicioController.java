@@ -15,9 +15,8 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DAO.ExercicioDAO;
 import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
-import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
-import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
+import br.edu.ifsc.cds.services.ExercicioService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,8 +26,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 public class TelaCadExercicioController implements Initializable {
 
@@ -92,23 +89,19 @@ public class TelaCadExercicioController implements Initializable {
 			JOptionPane.showMessageDialog(null, "Data Inválida");
 		}
 
-		// consulta no banco a partir do nome do exercicio, para recuperar seu
-		// gastoCaloria
-		ExercicioDAO exeDao = new ExercicioDAO();
-		Exercicio exercicioBox = exeDao.retrieveDadosExer(titulo);
-		float gastocalorias = exercicioBox.getGastoCaloria();
+		ExercicioService service = new ExercicioService();
+		// tenta adicionar o exercicio a rotina
+		boolean insercao_rotina = service.addRotina(titulo, diaSemana, horarioInicio, horarioFim);
 
-		// constroi o objeto ExercicioDTO
-		ExercicioDTO dt = new ExercicioDTO(titulo, gastocalorias, horarioInicio, horarioFim);
-		Horario horario = new Horario();
-		// compara o horario para verificar se há alguma refeicao no mesmo horario
-		if (horario.verificaRefeicaoHorario(horarioInicio, horarioFim, diaSemana)) {
-			RotinaController.addListaExercicio(dt);
+		// se o exercicio foi inserido com sucesso na rotina
+		if (insercao_rotina) {
+
 			JOptionPane.showMessageDialog(null, "Exercicio Cadastrado com sucesso");
+
 			ControleComponente controle = new ControleComponente();
 			controle.fechaBotao(btnSalvarExercicio);
 		} else {
-			JOptionPane.showMessageDialog(null, "Data de Inicio/Fim inválido(s)");
+			JOptionPane.showMessageDialog(null, "Erro ao acessar o exercicio " + titulo);
 		}
 
 	}

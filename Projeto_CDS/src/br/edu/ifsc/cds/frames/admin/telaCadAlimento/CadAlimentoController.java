@@ -5,10 +5,10 @@ import javax.swing.JOptionPane;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.InfoNutricional;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.services.AlimentoService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -21,10 +21,13 @@ public class CadAlimentoController {
 	private JFXTextField txtGordTot;
 
 	@FXML
-	private JFXButton btnAdd;
+	private JFXTextField txtCarboidrato;
 
 	@FXML
-	private JFXButton btnVoltar;
+	private JFXTextField txtProteina;
+
+	@FXML
+	private JFXTextField txtFibras;
 
 	@FXML
 	private JFXTextField txtCaloria;
@@ -39,13 +42,12 @@ public class CadAlimentoController {
 	private JFXTextField txtSodio;
 
 	@FXML
-	private JFXTextField txtCarboidrato;
+	private JFXButton btnAdd;
 
 	@FXML
-	private JFXTextField txtProteina;
+	private JFXButton btnVoltar;
 
-	@FXML
-	private JFXTextField txtFibras;
+	ControleComponente ctrlComp = new ControleComponente();
 
 	/**
 	 * A partir dos campos na tela, cria um objeto {@link InfoNutricional} e um
@@ -71,9 +73,16 @@ public class CadAlimentoController {
 		alimento.setNome(nome);
 		alimento.setInfoNutri(info);
 		alimento.setCaloriaTotal(info.getCaloria());
-		AlimentoDAO dao = new AlimentoDAO();
-		dao.create(alimento);
-		JOptionPane.showMessageDialog(null, "Alimento cadastrado com Sucesso!");
+		AlimentoService service = new AlimentoService();
+		// tenta inserir o alimento no Banco
+		boolean insercao_alimento = service.criaAlimento(alimento);
+		// Caso o alimento seja inserido com sucesso
+		if (insercao_alimento) {
+			JOptionPane.showMessageDialog(null, "Alimento cadastrado com Sucesso!");
+			ctrlComp.fechaBotao(btnAdd);
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao cadastrar o Alimento");
+		}
 	}
 
 	/**

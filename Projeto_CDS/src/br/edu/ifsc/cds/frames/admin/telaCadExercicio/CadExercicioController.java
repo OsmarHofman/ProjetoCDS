@@ -9,10 +9,10 @@ import javax.swing.JOptionPane;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
-import br.edu.ifsc.cds.DAO.ExercicioDAO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.classes.security.Validacao;
+import br.edu.ifsc.cds.services.ExercicioService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -31,6 +31,8 @@ public class CadExercicioController implements Initializable {
 	@FXML
 	private JFXTextField txtMet;
 
+	ControleComponente ctrlComp = new ControleComponente();
+
 	/**
 	 * A partir dos campos na tela, cria um objeto {@link Exercicio} para inserir um
 	 * Exercicio no banco de dados
@@ -46,9 +48,18 @@ public class CadExercicioController implements Initializable {
 		exercicio.setNome(nome);
 		exercicio.setGastoCaloria(gasto);
 		exercicio.setMet(met);
-		ExercicioDAO dao = new ExercicioDAO();
-		dao.create(exercicio);
-		JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
+		ExercicioService service = new ExercicioService();
+
+		// tenta inserir o exercicio no Banco
+		boolean insercao_exercicio = service.criaExercicio(exercicio);
+
+		// Caso o exercicio seja inserido com sucesso
+		if (insercao_exercicio) {
+			JOptionPane.showMessageDialog(null, "Exercicio cadastrado com Sucesso!");
+			ctrlComp.fechaBotao(btnVoltar);
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao cadastrar o Exercicio");
+		}
 	}
 
 	/**

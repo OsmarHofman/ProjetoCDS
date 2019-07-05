@@ -3,8 +3,8 @@ package br.edu.ifsc.cds.DTO;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifsc.cds.DAO.PessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.services.PessoaService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
@@ -74,7 +74,8 @@ public class PessoaDTO {
 	 * 
 	 */
 	public ObservableList<PessoaDTO> geraListaPessoa() {
-		List<Pessoa> pessoas = new PessoaDAO().retrieveAll();
+		PessoaService service = new PessoaService();
+		List<Pessoa> pessoas = service.retornaTodos();
 		List<PessoaDTO> pessoasDTO = new ArrayList<>();
 		for (Pessoa pessoaLista : pessoas) {
 			PessoaDTO dto = new PessoaDTO();

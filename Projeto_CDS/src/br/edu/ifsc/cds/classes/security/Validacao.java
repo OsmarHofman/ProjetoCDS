@@ -2,6 +2,8 @@ package br.edu.ifsc.cds.classes.security;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
@@ -104,6 +106,7 @@ public class Validacao {
 	public static boolean verificaFloat(float... listaCampos) {
 		for (float campos : listaCampos) {
 			if (campos <= 0) {
+				JOptionPane.showMessageDialog(null, campos + " não é um valor válido!");
 				return false;
 			}
 		}
