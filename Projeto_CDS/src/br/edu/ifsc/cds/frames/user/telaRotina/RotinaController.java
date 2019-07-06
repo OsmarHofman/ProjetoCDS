@@ -1,7 +1,6 @@
 package br.edu.ifsc.cds.frames.user.telaRotina;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +22,6 @@ import br.edu.ifsc.cds.frames.user.telaHistorico.ExecutorHistorico;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -34,18 +32,9 @@ import javafx.stage.Stage;
 public class RotinaController implements Initializable {
 
 	// Pessoa que logou
-	private static Pessoa pessoa;
 
 	private static List<RefeicaoDTO> listaRefeicao;
 	private static List<ExercicioDTO> listaExercicio;
-
-	public static Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		RotinaController.pessoa = pessoa;
-	}
 
 	public static List<RefeicaoDTO> getListaRefeicao() {
 		return listaRefeicao;
@@ -295,76 +284,15 @@ public class RotinaController implements Initializable {
 		calEx.setCellValueFactory(new PropertyValueFactory<>("caloriasEx"));
 
 		// formata a coluna do Inicio, para a data ficar com o formato "HH:mm"
-		inicioSeg.setCellFactory((TableColumn<RefeicaoDTO, Date> column) -> {
-			return new TableCell<RefeicaoDTO, Date>() {
-				protected void updateItem(Date item, boolean empty) {
-					super.updateItem(item, empty);
-					if (item == null || empty) {
-						setText(null);
-					} else {
-						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-						setText(sdf.format((item)));
-					}
-				}
-			};
-		});
-
-		// formata a coluna do Fim, para a data ficar com o formato "HH:mm"
-		terminoSeg.setCellFactory((TableColumn<RefeicaoDTO, Date> column) -> {
-			return new TableCell<RefeicaoDTO, Date>() {
-				protected void updateItem(Date item, boolean empty) {
-					super.updateItem(item, empty);
-					if (item == null || empty) {
-						setText(null);
-					} else {
-						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-						setText(sdf.format((item)));
-					}
-				}
-			};
-		});
-
-		iniEx.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
-			return new TableCell<ExercicioDTO, Date>() {
-				protected void updateItem(Date item, boolean empty) {
-					super.updateItem(item, empty);
-					if (item == null || empty) {
-						setText(null);
-					} else {
-						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-						setText(sdf.format((item)));
-					}
-				}
-			};
-		});
-
-		terEx.setCellFactory((TableColumn<ExercicioDTO, Date> column) -> {
-			return new TableCell<ExercicioDTO, Date>() {
-				protected void updateItem(Date item, boolean empty) {
-					super.updateItem(item, empty);
-					if (item == null || empty) {
-						setText(null);
-					} else {
-						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-						setText(sdf.format((item)));
-					}
-				}
-			};
-		});
-
-		// Verifica se algum item da tabela de Refeicao foi selecionado
-		refeicaoSegunda.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-			if (newSelection != null) {
-				btnExcRefeicao.setDisable(false);
-			}
-		});
-
-		// Verifica se algum item da tabela foi selecionado
-		ativFisSegunda.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-			if (newSelection != null) {
-				btnExcExercicio.setDisable(false);
-			}
-		});
+		ControleComponente controle = new ControleComponente();
+		controle.setCellFactory(inicioSeg);
+		controle.setCellFactory(terminoSeg);
+        controle.setCellFactory(iniEx);
+        controle.setCellFactory(terEx);        
+        
+		// Verifica se algum item das tabelas de Refeicao e Exercicios foi selecionado
+        controle.isSelecionado(refeicaoSegunda, btnExcRefeicao);
+        controle.isSelecionado(ativFisSegunda, btnExcExercicio);
 
 		// adiciona as refeicoes a tabela
 		RefeicaoDTO dto = new RefeicaoDTO();

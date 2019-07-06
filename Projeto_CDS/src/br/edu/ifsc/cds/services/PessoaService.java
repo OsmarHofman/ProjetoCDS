@@ -9,7 +9,6 @@ import br.edu.ifsc.cds.DAO.interfaces.IPessoaDAO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.Validacao;
 import br.edu.ifsc.cds.frames.user.telaRotina.ExecutorRotina;
-import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -77,12 +76,11 @@ public class PessoaService {
 					FXMLLoader loader = new FXMLLoader(
 							getClass().getResource("../frames/user/telaRotina/TelaRotina.fxml"));
 					Parent root = (Parent) loader.load();
-
-					// Obtem o controller relacionado a tela, e passar o objeto Pessoa para a
-					// mesma
-					RotinaController ctrl_rotina = loader.getController();
-					ctrl_rotina.setPessoa(usuario);
-
+					
+					System.setProperty("id",String.valueOf(usuario.getId()));
+					System.setProperty("altura",String.valueOf(usuario.getAltura()));
+					System.setProperty("peso",String.valueOf(usuario.getPeso_inicial()));
+                    
 					// Contrói a nova tela
 					Stage stage = new Stage();
 					stage.setScene(new Scene(root));
@@ -109,4 +107,22 @@ public class PessoaService {
 	public List<Pessoa> retornaTodos() {
 		return dao.retrieveAll();
 	}
+	
+	/**
+	 * Retorna todas a pessoa com o id correspondente
+	 * 
+	 * @return {@link List} de todas as {@link Pessoa} na base de dados
+	 */
+	public Pessoa retornaPessoa(Integer id) {
+		return dao.retrieve(id);
+	}
+	
+	/**
+	 * Realiza a atualização do usuário logado no sistema
+	 * @param usuario dados atualizados do usuario
+	 */
+	public void editarUsuario(Pessoa usuario) {
+		dao.update(usuario);
+	}
+	
 }

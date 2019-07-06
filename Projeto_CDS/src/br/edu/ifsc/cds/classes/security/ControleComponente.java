@@ -1,8 +1,16 @@
 package br.edu.ifsc.cds.classes.security;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
+import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.domain.Refeicao;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -40,6 +48,46 @@ public class ControleComponente {
 	public void fechaBotao(JFXButton botao) {
 		Stage telaAtual = (Stage) botao.getScene().getWindow();
 		telaAtual.close();
+	}
+
+	/**
+	 * Realiza a formatação do campo inicio e termino da {@link Refeicao} e do {@link Exercicio}
+	 * da uma tabela que utilize esses dois campos.
+	 * 
+	 * @param <T> objeto do tipo generico para poder ser usado em diferentes casos
+	 * @param coluna local a ser editado do tipo RefeicaoDTO/ExercicioDTO na tabela
+	 */
+	public <T> void setCellFactory(TableColumn<T, Date> coluna) {
+
+		coluna.setCellFactory((TableColumn<T, Date> column) -> {
+			return new TableCell<T, Date>() {
+				protected void updateItem(Date item, boolean empty) {
+					super.updateItem(item, empty);
+					if (item == null || empty) {
+						setText(null);
+					} else {
+						SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+						setText(sdf.format((item)));
+					}
+				}
+			};
+		});
+	}
+
+	
+	/**
+	 * realiza a verificação da seleção de componentes na tabela
+	 * 
+	 * @param <T> paramentro do tipo generico para poder ser usado em diferentes casos
+	 * @param table tabela a ser verificada se está selecionada
+	 * @param botao componente que se tornará habilitado quando o item da tabela ser selecionado
+	 */
+	public <T> void isSelecionado(TableView<T> table, JFXButton botao) {
+		table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+			if (newSelection != null) {
+				botao.setDisable(false);
+			}
+		});
 	}
 
 }

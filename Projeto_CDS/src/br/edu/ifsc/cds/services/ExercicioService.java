@@ -1,6 +1,7 @@
 package br.edu.ifsc.cds.services;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -77,6 +78,19 @@ public class ExercicioService {
 			}
 		} else {
 			return false;
+		}
+	}
+
+	/**
+	 * Retorna todos os exercícios presentes no sistema
+	 * 
+	 * @return {@link List} de todas os {@link Exercicio} na base de dados
+	 */
+	public List<Exercicio> retriveAllExercicios() {
+		try {
+			return dao.retrieveAll();
+		} catch (Exception ex) {
+			return null;
 		}
 	}
 }

@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 
 import com.jfoenix.controls.JFXButton;
 
-import br.edu.ifsc.cds.DAO.ExercicioDAO;
 import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
@@ -128,8 +127,8 @@ public class TelaCadExercicioController implements Initializable {
 		boxDiaSemana.getItems().add("Sábado");
 		boxDiaSemana.getItems().add("Domingo");
 
-		ExercicioDAO dao = new ExercicioDAO();
-		List<Exercicio> exercicios = dao.retrieveAll();
+		ExercicioService service = new ExercicioService();
+		List<Exercicio> exercicios = service.retriveAllExercicios();
 		List<String> exerciciosNome = new ArrayList<>();
 		for (Exercicio alimentoLista : exercicios) {
 			exerciciosNome.add(alimentoLista.getNome());
