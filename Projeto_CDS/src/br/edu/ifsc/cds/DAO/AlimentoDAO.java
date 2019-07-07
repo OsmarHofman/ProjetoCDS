@@ -72,8 +72,9 @@ public class AlimentoDAO implements IAlimentoDAO {
 	public void delete(Integer id) {
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
+			Alimento alimento = em.find(Alimento.class, id);
 			em.getTransaction().begin();
-			em.remove(id);
+			em.remove(alimento);
 			em.getTransaction().commit();
 			em.close();
 		} catch (Exception ex) {

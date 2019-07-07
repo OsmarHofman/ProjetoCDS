@@ -48,6 +48,32 @@ public class ExercicioService {
 	}
 
 	/**
+	 * Retorna todos os exercícios presentes no sistema
+	 * 
+	 * @return {@link List} de todas os {@link Exercicio} na base de dados
+	 */
+	public List<Exercicio> retriveAllExercicios() {
+		try {
+			return dao.retrieveAll();
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+	public boolean atualizaExercicio(Exercicio exercicio) {
+		try {
+			dao.update(exercicio);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void excluirExercicio(Integer id) {
+		dao.delete(id);
+	}
+
+	/**
 	 * Verifica e insere o exercício na {@link Rotina} do Usuário
 	 * 
 	 * @param titulo        Título do Exercicio a ser inserido
@@ -78,19 +104,6 @@ public class ExercicioService {
 			}
 		} else {
 			return false;
-		}
-	}
-
-	/**
-	 * Retorna todos os exercícios presentes no sistema
-	 * 
-	 * @return {@link List} de todas os {@link Exercicio} na base de dados
-	 */
-	public List<Exercicio> retriveAllExercicios() {
-		try {
-			return dao.retrieveAll();
-		} catch (Exception ex) {
-			return null;
 		}
 	}
 }

@@ -40,6 +40,8 @@ public class CadAlimentoController implements Initializable {
 	@FXML
 	private JFXTextField txtGordTrans;
 
+	private Integer idAlimento;
+
 	@FXML
 	private JFXTextField txtNomeAli;
 
@@ -81,6 +83,7 @@ public class CadAlimentoController implements Initializable {
 				JOptionPane.showMessageDialog(null, "Erro ao cadastrar o Alimento");
 			}
 		} else {
+			alimento.setId(idAlimento);
 			// tenta atualizar o alimento no Banco
 			boolean atualizacao_alimento = service.atualizaAlimento(alimento);
 			// Caso o alimento seja atualizado com sucesso
@@ -133,6 +136,7 @@ public class CadAlimentoController implements Initializable {
 		txtGordSat.setText(String.valueOf(dto.getGordurasSaturadas()));
 		txtFibras.setText(String.valueOf(dto.getFibras()));
 		txtSodio.setText(String.valueOf(dto.getSodio()));
+		idAlimento = dto.getId();
 		btnAdd.setText("Salvar");
 	}
 
