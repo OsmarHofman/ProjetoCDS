@@ -8,7 +8,6 @@ import javax.persistence.Query;
 
 import br.edu.ifsc.cds.DAO.Singleton.EntityMagerFactorySingleton;
 import br.edu.ifsc.cds.DAO.interfaces.IAlimentoDAO;
-import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 
 /**
@@ -73,9 +72,8 @@ public class AlimentoDAO implements IAlimentoDAO {
 	public void delete(Integer id) {
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
-			Admin adm = em.find(Admin.class, id);
 			em.getTransaction().begin();
-			em.remove(adm);
+			em.remove(id);
 			em.getTransaction().commit();
 			em.close();
 		} catch (Exception ex) {

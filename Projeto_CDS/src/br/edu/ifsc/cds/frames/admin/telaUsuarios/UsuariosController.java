@@ -10,8 +10,8 @@ import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
-import br.edu.ifsc.cds.frames.admin.telaCadAlimento.ExecutorCadAlimento;
 import br.edu.ifsc.cds.frames.admin.telaCadExercicio.ExecutorCadExercicio;
+import br.edu.ifsc.cds.frames.admin.telaGeralAlimento.ExecutorGeralAlimento;
 import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,8 +79,8 @@ public class UsuariosController implements Initializable {
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.setResizable(false);
 		stage.setTitle("CDS - Cadastro de Alimentos");
-		ExecutorCadAlimento exeCadAlimento = new ExecutorCadAlimento();
-		exeCadAlimento.start(stage);
+		ExecutorGeralAlimento exeGeralAlimento = new ExecutorGeralAlimento();
+		exeGeralAlimento.start(stage);
 	}
 
 	/**

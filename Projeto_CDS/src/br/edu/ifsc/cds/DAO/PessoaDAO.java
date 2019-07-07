@@ -81,9 +81,9 @@ public class PessoaDAO implements IPessoaDAO {
 	public void delete(Integer id) {
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
-			Pessoa adm = em.find(Pessoa.class, id);
+			Pessoa pessoa = em.find(Pessoa.class, id);
 			em.getTransaction().begin();
-			em.remove(adm);
+			em.remove(pessoa);
 			em.getTransaction().commit();
 			em.close();
 		} catch (Exception ex) {

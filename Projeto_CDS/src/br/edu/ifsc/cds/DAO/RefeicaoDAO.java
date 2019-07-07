@@ -54,11 +54,11 @@ public class RefeicaoDAO implements IRefeicaoDAO {
 	}
 
 	@Override
-	public void update(Refeicao admin) {
+	public void update(Refeicao refeicao) {
 		try {
 			em = EntityMagerFactorySingleton.getFactory().createEntityManager();
 			em.getTransaction().begin();
-			em.merge(admin);
+			em.merge(refeicao);
 			em.getTransaction().commit();
 			em.close();
 

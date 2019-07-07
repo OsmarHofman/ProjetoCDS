@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="panelFundo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="905.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifsc.cds.frames.admin.telaGeralAlimento.GeralAlimentoController">
+	<children>
+		<StackPane layoutX="2.0" layoutY="111.0" prefHeight="438.0" prefWidth="914.0" style="-fx-background-color: transparent;">
+			<children>
+				<Pane prefHeight="368.0" prefWidth="865.0" style="-fx-background-color: transparent;">
+					<children>
+                  <Pane layoutX="14.0" layoutY="22.0" prefHeight="394.0" prefWidth="869.0" style="-fx-border-radius: 50px; -fx-border-color: blue; -fx-background-color: white;">
+                     <children>
+            						<Label layoutX="45.0" layoutY="22.0" prefHeight="38.0" prefWidth="258.0" text="Relação de  Alimentos" textFill="#3936ff">
+            							<font>
+            								<Font size="24.0" />
+            							</font>
+            						</Label>
+                        <TableView fx:id="tbvAlimento" layoutX="55.0" layoutY="87.0" prefHeight="272.0" prefWidth="769.0">
+                           <columns>
+                              <TableColumn fx:id="colId" prefWidth="39.0" text="ID" />
+                              <TableColumn fx:id="colNome" prefWidth="83.0" text="Nome" />
+                              <TableColumn fx:id="colCaloria" prefWidth="59.0" text="Caloria" />
+                              <TableColumn fx:id="colCarboidrato" prefWidth="74.0" text="Carboidrato" />
+                              <TableColumn fx:id="colProteina" prefWidth="71.0" text="Proteína" />
+                              <TableColumn fx:id="colFibra" prefWidth="44.0" text="Fibra" />
+                              <TableColumn fx:id="colSodio" prefWidth="56.0" text="Sódio" />
+                              <TableColumn prefWidth="340.0" text="Gorduras">
+                                 <columns>
+                                    <TableColumn fx:id="colGordSat" prefWidth="130.0" text="Gorduras Saturada" />
+                                    <TableColumn fx:id="colGordTot" prefWidth="116.0" text="Gordura Total" />
+                                    <TableColumn fx:id="colGordTrans" prefWidth="100.0" text="Gordura Trans" />
+                                 </columns>
+                              </TableColumn>
+                           </columns>
+                        </TableView>
+                        <Separator layoutX="18.0" layoutY="65.0" prefHeight="3.0" prefWidth="835.0" style="-fx-background-color: black;" />
+                     </children>
+                  </Pane>
+					</children>
+				</Pane>
+			</children>
+		</StackPane>
+      <AnchorPane fx:id="pnlOverview" prefHeight="107.0" prefWidth="914.0" style="-fx-background-color: #3936ff;">
+         <children>
+            <Label layoutX="32.0" layoutY="4.0" prefHeight="104.0" prefWidth="121.0" text="CDS" textFill="#f8f8f8">
+               <font>
+                  <Font size="62.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnCadastrar" layoutX="49.0" layoutY="543.0" onAction="#cadastrar" prefHeight="51.0" prefWidth="189.0" style="-fx-background-color: #3936ff;" text="Cadastrar" textFill="WHITE">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnEditar" layoutX="327.0" layoutY="543.0" onAction="#editar" prefHeight="51.0" prefWidth="189.0" style="-fx-background-color: #3936ff;" text="Editar" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXButton>
+      <JFXButton fx:id="btnExcluir" layoutX="607.0" layoutY="543.0" onAction="#excluir" prefHeight="51.0" prefWidth="189.0" style="-fx-background-color: #3936ff;" text="Excluir" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </JFXButton>
+	</children>
+	<effect>
+		<DropShadow color="#1b1eeb" />
+	</effect>
+</AnchorPane>
