@@ -69,6 +69,11 @@ public class GeralAlimentoController implements Initializable {
 	@FXML
 	private TableColumn<InfoNutricionalDTO, Float> colCarboidrato;
 
+	/**
+	 * Inicia uma tela de Cadastro de Alimento
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void cadastrar(ActionEvent event) {
 		Stage stage = new Stage();
@@ -80,6 +85,11 @@ public class GeralAlimentoController implements Initializable {
 		exeCadAlimento.start(stage);
 	}
 
+	/**
+	 * Inicia uma tela de Edição de Alimento
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void editar(ActionEvent event) {
 		InfoNutricionalDTO dto = tbvAlimento.getSelectionModel().getSelectedItem();
@@ -100,6 +110,11 @@ public class GeralAlimentoController implements Initializable {
 		}
 	}
 
+	/**
+	 * Exclui um Alimento selecionado na tabela
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void excluir(ActionEvent event) {
 		InfoNutricionalDTO dto = tbvAlimento.getSelectionModel().getSelectedItem();
@@ -113,6 +128,11 @@ public class GeralAlimentoController implements Initializable {
 		}
 	}
 
+	/**
+	 * Atualiza a tabela de Alimento
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void atualizar(ActionEvent event) {
 		tbvAlimento.setItems(new InfoNutricionalDTO().geraInfoDTO());
@@ -124,13 +144,16 @@ public class GeralAlimentoController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// desabilita os botoes de editar e excluir
 		btnEditar.setDisable(true);
 		btnExcluir.setDisable(true);
 
+		// adiciona um Listener para verificar se um elemento da tabela foi selecionado
 		ControleComponente ctrl = new ControleComponente();
 		ctrl.isSelecionado(tbvAlimento, btnEditar);
 		ctrl.isSelecionado(tbvAlimento, btnExcluir);
 
+		// formata as celulas da tabela
 		colId.setCellValueFactory(new PropertyValueFactory<>("id"));
 		colNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		colCaloria.setCellValueFactory(new PropertyValueFactory<>("caloria"));

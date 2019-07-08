@@ -72,6 +72,7 @@ public class CadAlimentoController implements Initializable {
 		alimento.setCaloriaTotal(info.getCaloria());
 		AlimentoService service = new AlimentoService();
 
+		// Caso esteja cadastrando um Alimento
 		if (btnAdd.getText().matches("Adicionar")) {
 			// tenta inserir o alimento no Banco
 			boolean insercao_alimento = service.criaAlimento(alimento);
@@ -82,6 +83,7 @@ public class CadAlimentoController implements Initializable {
 			} else {
 				JOptionPane.showMessageDialog(null, "Erro ao cadastrar o Alimento");
 			}
+			// Caso esteja atualizando um Alimento
 		} else {
 			alimento.setId(idAlimento);
 			// tenta atualizar o alimento no Banco
@@ -112,6 +114,12 @@ public class CadAlimentoController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 	}
 
+	/**
+	 * Recebe e converte os atributos na interface, para criar um
+	 * {@link InfoNutricional}
+	 * 
+	 * @return um {@link InfoNutricional} com os campos da tela
+	 */
 	private InfoNutricional getCampos() {
 		float caloria = Float.parseFloat(txtCaloria.getText());
 		float carboidrato = Float.parseFloat(txtCarboidrato.getText());
@@ -126,6 +134,13 @@ public class CadAlimentoController implements Initializable {
 				.sodio(sodio).build();
 	}
 
+	/**
+	 * Insere os valores nos campos da interface, de acordo com um objeto
+	 * {@link InfoNutricionalDTO}
+	 * 
+	 * @param dto Objeto {@link InfoNutricionalDTO} com os dados a serem inseridos
+	 *            nos campos
+	 */
 	public void setCampos(InfoNutricionalDTO dto) {
 		txtNomeAli.setText(dto.getNome());
 		txtCaloria.setText(String.valueOf(dto.getCaloria()));

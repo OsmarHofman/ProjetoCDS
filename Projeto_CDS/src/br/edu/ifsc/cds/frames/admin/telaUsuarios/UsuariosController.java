@@ -54,7 +54,7 @@ public class UsuariosController implements Initializable {
 	private JFXButton btnAlimentos;
 
 	/**
-	 * Mostra a tela de cadastro dos {@link Exercicio} do sistema.
+	 * Mostra a tela geral dos {@link Exercicio} do sistema.
 	 * 
 	 * @param Clique do botão
 	 */
@@ -69,7 +69,7 @@ public class UsuariosController implements Initializable {
 	}
 
 	/**
-	 * Mostra a tela de cadastro dos {@link Alimento} do sistema.
+	 * Mostra a tela geral dos {@link Alimento} do sistema.
 	 * 
 	 * @param Clique do botão
 	 */

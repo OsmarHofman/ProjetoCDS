@@ -15,19 +15,21 @@ public class AtividadeFisicaDTO {
 	private Float met;
 
 	/**
-	 * Cria um {@link AtividadeFisicaDTO} sem adicionar nenhum valor a seus atributos
+	 * Cria um {@link AtividadeFisicaDTO} sem adicionar nenhum valor a seus
+	 * atributos
 	 */
 	public AtividadeFisicaDTO() {
 
 	}
 
 	/**
-	 * Cria um {@link AtividadeFisicaDTO} adicionando valores a todos os seus atributos
+	 * Cria um {@link AtividadeFisicaDTO} adicionando valores a todos os seus
+	 * atributos
 	 * 
-	 * @param id Valor do id da {@link AtividadeFisicaDTO}
-	 * @param nome Nome da {@link AtividadeFisicaDTO}
+	 * @param id           Valor do id da {@link AtividadeFisicaDTO}
+	 * @param nome         Nome da {@link AtividadeFisicaDTO}
 	 * @param gastoCaloria Gasto calórico da {@link AtividadeFisicaDTO}
-	 * @param met Valor do MET da {@link AtividadeFisicaDTO}
+	 * @param met          Valor do MET da {@link AtividadeFisicaDTO}
 	 */
 	public AtividadeFisicaDTO(Integer id, String nome, Float gastoCaloria, Float met) {
 		super();
@@ -50,14 +52,14 @@ public class AtividadeFisicaDTO {
 	 * Altera o id da {@link AtividadeFisicaDTO} para o novo valor recebido como
 	 * parâmetro
 	 * 
-	 * @param Novo id da AtividadeFisicaDTO 
+	 * @param Novo id da AtividadeFisicaDTO
 	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
 	/**
-	 * Retorna o nome da {@link AtividadeFisicaDTO} 
+	 * Retorna o nome da {@link AtividadeFisicaDTO}
 	 * 
 	 * @return Valor atual do nome do AtividadeFisicaDTO
 	 */
@@ -66,8 +68,8 @@ public class AtividadeFisicaDTO {
 	}
 
 	/**
-	 * Altera o valor do nome da {@link AtividadeFisicaDTO} para o novo valor recebido como
-	 * parâmetro
+	 * Altera o valor do nome da {@link AtividadeFisicaDTO} para o novo valor
+	 * recebido como parâmetro
 	 * 
 	 * @param nome Novo nome do @link AtividadeFisicaDTO
 	 */
@@ -76,7 +78,7 @@ public class AtividadeFisicaDTO {
 	}
 
 	/**
-	 * Retorna o gasto calórico da {@link AtividadeFisicaDTO} 
+	 * Retorna o gasto calórico da {@link AtividadeFisicaDTO}
 	 * 
 	 * @return Valor do gasto calórico da AtividadeFisicaDTO
 	 */
@@ -85,8 +87,8 @@ public class AtividadeFisicaDTO {
 	}
 
 	/**
-	 * Altera o valor do gasto calórico da {@link AtividadeFisicaDTO} para o novo valor recebido como 
-	 * parâmetro
+	 * Altera o valor do gasto calórico da {@link AtividadeFisicaDTO} para o novo
+	 * valor recebido como parâmetro
 	 * 
 	 * @param gastoCaloria Novo valor do gasto calórico da AtividadeFisicaDTO
 	 */
@@ -104,10 +106,10 @@ public class AtividadeFisicaDTO {
 	}
 
 	/**
-	 * Altera o Met da {@link AtividadeFisicaDTO} para o novo valor recebido como 
+	 * Altera o Met da {@link AtividadeFisicaDTO} para o novo valor recebido como
 	 * parâmetro
 	 * 
-	 * @param met Nova Met da AtividadeFisicaDTO 
+	 * @param met Nova Met da AtividadeFisicaDTO
 	 */
 	public void setMet(Float met) {
 		this.met = met;
@@ -116,8 +118,8 @@ public class AtividadeFisicaDTO {
 	/**
 	 * Converte um Exercicio em um AtividadeFisicaDTO
 	 * 
-	 * @param exercicio Alimento a ser convertido
-	 * @return um AlimentoDTO baseado no Alimento dado
+	 * @param exercicio Exercicio a ser convertido
+	 * @return Um AtividadeFisicaDTO baseado no Exercicio dado
 	 */
 	private AtividadeFisicaDTO converteExercicio(Exercicio exercicio) {
 		return new AtividadeFisicaDTO(exercicio.getId(), exercicio.getNome(), exercicio.getGastoCaloria(),

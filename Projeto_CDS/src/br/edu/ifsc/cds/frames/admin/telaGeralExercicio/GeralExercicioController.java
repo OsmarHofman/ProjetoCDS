@@ -52,6 +52,11 @@ public class GeralExercicioController implements Initializable {
 	@FXML
 	private JFXButton btnExcluir;
 
+	/**
+	 * Inicia uma tela de Cadastro de Exercicio
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void cadastrar(ActionEvent event) {
 		Stage stage = new Stage();
@@ -63,6 +68,11 @@ public class GeralExercicioController implements Initializable {
 		exeCadExercicio.start(stage);
 	}
 
+	/**
+	 * Inicia uma tela de Edição de Exercicio
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void editar(ActionEvent event) {
 		AtividadeFisicaDTO dto = tbvExercicio.getSelectionModel().getSelectedItem();
@@ -83,6 +93,11 @@ public class GeralExercicioController implements Initializable {
 		}
 	}
 
+	/**
+	 * Exclui um Exercicio selecionado na tabela
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void excluir(ActionEvent event) {
 		AtividadeFisicaDTO dto = tbvExercicio.getSelectionModel().getSelectedItem();
@@ -96,6 +111,11 @@ public class GeralExercicioController implements Initializable {
 		}
 	}
 
+	/**
+	 * Atualiza a tabela de Exercicio
+	 * 
+	 * @param event Evento do clique
+	 */
 	@FXML
 	void atualizar(ActionEvent event) {
 		tbvExercicio.setItems(new AtividadeFisicaDTO().geraExercDTO());
@@ -107,9 +127,11 @@ public class GeralExercicioController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// desabilita os botoes de editar e excluir
 		btnEditar.setDisable(true);
 		btnExcluir.setDisable(true);
 
+		// adiciona um Listener para verificar se um elemento da tabela foi selecionado
 		ControleComponente ctrl = new ControleComponente();
 		ctrl.isSelecionado(tbvExercicio, btnEditar);
 		ctrl.isSelecionado(tbvExercicio, btnExcluir);

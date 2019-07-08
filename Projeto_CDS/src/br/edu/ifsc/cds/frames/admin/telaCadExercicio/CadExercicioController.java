@@ -56,6 +56,7 @@ public class CadExercicioController implements Initializable {
 		exercicio.setMet(met);
 		ExercicioService service = new ExercicioService();
 
+		// Caso esteja cadastrando um Exercicio
 		if (btnAdicionar.getText().matches("Adicionar")) {
 			// tenta inserir o exercicio no Banco
 			boolean insercao_exercicio = service.criaExercicio(exercicio);
@@ -67,6 +68,7 @@ public class CadExercicioController implements Initializable {
 			} else {
 				JOptionPane.showMessageDialog(null, "Erro ao cadastrar o Exercicio");
 			}
+			// Caso esteja atualizando um Exercicio
 		} else {
 			exercicio.setId(idExercicio);
 			// tenta atualizar o exercicio no Banco
@@ -101,6 +103,13 @@ public class CadExercicioController implements Initializable {
 
 	}
 
+	/**
+	 * Insere os valores nos campos da interface, de acordo com um objeto
+	 * {@link AtividadeFisicaDTO}
+	 * 
+	 * @param dto Objeto {@link AtividadeFisicaDTO} com os dados a serem inseridos
+	 *            nos campos
+	 */
 	public void setCampos(AtividadeFisicaDTO dto) {
 		txtNomeExer.setText(dto.getNome());
 		txtGasto.setText(String.valueOf(dto.getGastoCaloria()));

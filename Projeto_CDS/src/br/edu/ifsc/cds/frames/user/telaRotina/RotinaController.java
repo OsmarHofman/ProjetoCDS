@@ -31,31 +31,59 @@ import javafx.stage.Stage;
 
 public class RotinaController implements Initializable {
 
-	// Pessoa que logou
-
 	private static List<RefeicaoDTO> listaRefeicao;
 	private static List<ExercicioDTO> listaExercicio;
 
+	/**
+	 * Retorna a lista de Refeicoes da Pessoa
+	 * 
+	 * @return a lista de Refeicao atual
+	 */
 	public static List<RefeicaoDTO> getListaRefeicao() {
 		return listaRefeicao;
 	}
 
+	/**
+	 * Atribui uma {@link List} de {@link RefeicaoDTO} para a existente
+	 * 
+	 * @param listaRefeicao A nova lista de Refeicao a ser atribuida
+	 */
 	public static void setListaRefeicao(List<RefeicaoDTO> listaRefeicao) {
 		RotinaController.listaRefeicao = listaRefeicao;
 	}
 
+	/**
+	 * Adiciona um item a lista de Refeicao
+	 * 
+	 * @param refeicao Refeicao a ser adicionado a lista
+	 */
 	public static void addListaRefeicao(RefeicaoDTO refeicao) {
 		RotinaController.listaRefeicao.add(refeicao);
 	}
 
+	/**
+	 * Retorna a lista de Exercicio da Pessoa
+	 * 
+	 * @return a lista de Exercicio atual
+	 */
 	public static List<ExercicioDTO> getListaExercicio() {
 		return listaExercicio;
 	}
 
+	/**
+	 * Atribui uma {@link List} de {@link ExercicioDTO} para a existente
+	 * 
+	 * @param listaExercicio A nova lista de Exercicio a ser atribuida
+	 */
 	public static void setListaExercicio(List<ExercicioDTO> listaExercicio) {
 		RotinaController.listaExercicio = listaExercicio;
 	}
 
+	/**
+	 * Adiciona um item a lista de Exercicio
+	 * 
+	 * @param exercicio Exercicio a ser adicionado a lista
+	 */
 	public static void addListaExercicio(ExercicioDTO exercicio) {
 		RotinaController.listaExercicio.add(exercicio);
 	}
@@ -287,12 +315,12 @@ public class RotinaController implements Initializable {
 		ControleComponente controle = new ControleComponente();
 		controle.setCellFactory(inicioSeg);
 		controle.setCellFactory(terminoSeg);
-        controle.setCellFactory(iniEx);
-        controle.setCellFactory(terEx);        
-        
+		controle.setCellFactory(iniEx);
+		controle.setCellFactory(terEx);
+
 		// Verifica se algum item das tabelas de Refeicao e Exercicios foi selecionado
-        controle.isSelecionado(refeicaoSegunda, btnExcRefeicao);
-        controle.isSelecionado(ativFisSegunda, btnExcExercicio);
+		controle.isSelecionado(refeicaoSegunda, btnExcRefeicao);
+		controle.isSelecionado(ativFisSegunda, btnExcExercicio);
 
 		// adiciona as refeicoes a tabela
 		RefeicaoDTO dto = new RefeicaoDTO();
