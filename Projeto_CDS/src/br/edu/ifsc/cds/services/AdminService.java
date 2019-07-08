@@ -11,6 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Classe responsável pela Camada de Serviço da classe {@link Admin}
+ *
+ */
 public class AdminService {
 	IAdminDAO dao = new AdminDAO();
 

@@ -6,6 +6,11 @@ import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.DAO.interfaces.IAlimentoDAO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 
+/**
+ * 
+ * Classe responsável pela Camada de Serviço da classe {@link Alimento}
+ *
+ */
 public class AlimentoService {
 
 	IAlimentoDAO dao = new AlimentoDAO();
@@ -42,7 +47,8 @@ public class AlimentoService {
 	 * Método que irá atualizar um determinado {@link Alimento}
 	 * 
 	 * @param alimento Alimento com as novas informações a serem atualizadas
-	 * @return Booleno que indicará true se o update foi bem sucedido ou caso contrário uma exceção.
+	 * @return Booleno que indicará true se o update foi bem sucedido ou caso
+	 *         contrário uma exceção.
 	 */
 	public boolean atualizaAlimento(Alimento alimento) {
 		try {
@@ -54,7 +60,8 @@ public class AlimentoService {
 	}
 
 	/**
-	 * Método para chamar o DAO do alimento para então realizar a exclusão do {@link Alimento}.
+	 * Método para chamar o DAO do alimento para então realizar a exclusão do
+	 * {@link Alimento}.
 	 * 
 	 * @param id Número do id do alimento a ser excluído.
 	 */

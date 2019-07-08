@@ -14,6 +14,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * Classe responsável pela Camada de Serviço da classe {@link Pessoa}
+ *
+ */
 public class PessoaService {
 
 	private IPessoaDAO dao = new PessoaDAO();
@@ -76,11 +81,11 @@ public class PessoaService {
 					FXMLLoader loader = new FXMLLoader(
 							getClass().getResource("../frames/user/telaRotina/TelaRotina.fxml"));
 					Parent root = (Parent) loader.load();
-					
-					System.setProperty("id",String.valueOf(usuario.getId()));
-					System.setProperty("altura",String.valueOf(usuario.getAltura()));
-					System.setProperty("peso",String.valueOf(usuario.getPeso_inicial()));
-                    
+
+					System.setProperty("id", String.valueOf(usuario.getId()));
+					System.setProperty("altura", String.valueOf(usuario.getAltura()));
+					System.setProperty("peso", String.valueOf(usuario.getPeso_inicial()));
+
 					// Contrói a nova tela
 					Stage stage = new Stage();
 					stage.setScene(new Scene(root));
@@ -107,7 +112,7 @@ public class PessoaService {
 	public List<Pessoa> retornaTodos() {
 		return dao.retrieveAll();
 	}
-	
+
 	/**
 	 * Retorna todas a pessoa com o id correspondente
 	 * 
@@ -116,13 +121,14 @@ public class PessoaService {
 	public Pessoa retornaPessoa(Integer id) {
 		return dao.retrieve(id);
 	}
-	
+
 	/**
 	 * Realiza a atualização do usuário logado no sistema
+	 * 
 	 * @param usuario dados atualizados do usuario
 	 */
 	public void editarUsuario(Pessoa usuario) {
 		dao.update(usuario);
 	}
-	
+
 }

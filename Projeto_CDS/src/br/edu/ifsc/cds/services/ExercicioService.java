@@ -13,6 +13,11 @@ import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.domain.Rotina;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
 
+/**
+ * 
+ * Classe responsável pela Camada de Serviço da classe {@link Exercicio}
+ *
+ */
 public class ExercicioService {
 	IExercicioDAO dao = new ExercicioDAO();
 
@@ -60,6 +65,12 @@ public class ExercicioService {
 		}
 	}
 
+	/**
+	 * Atualiza o Exercicio do Banco com o passado por paramtro
+	 * 
+	 * @param exercicio Exercicio Atualizado
+	 * @return true se conseguir atualizar com sucesso, false caso contrário
+	 */
 	public boolean atualizaExercicio(Exercicio exercicio) {
 		try {
 			dao.update(exercicio);
@@ -69,6 +80,11 @@ public class ExercicioService {
 		}
 	}
 
+	/**
+	 * Exclui um Exercicio pelo seu id
+	 * 
+	 * @param id Id do Exercicio a ser excluido
+	 */
 	public void excluirExercicio(Integer id) {
 		dao.delete(id);
 	}

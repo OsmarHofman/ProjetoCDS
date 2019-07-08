@@ -8,8 +8,8 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DTO.PessoaDTO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
-import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.admin.telaGeralAlimento.ExecutorGeralAlimento;
 import br.edu.ifsc.cds.frames.admin.telaGeralExercicio.ExecutorGeralExercicio;
@@ -31,10 +31,20 @@ public class UsuariosController implements Initializable {
 	// Administrador que logou
 	public static Admin admin;
 
+	/**
+	 * Retorna o usuário administrador atual
+	 * 
+	 * @return Admin atual logado
+	 */
 	public Admin getAdmin() {
 		return admin;
 	}
 
+	/**
+	 * Atribui um novo Admin ao atual
+	 * 
+	 * @param admin Novo Admin a ser atribuido
+	 */
 	public void setAdmin(Admin admin) {
 		UsuariosController.admin = admin;
 	}
