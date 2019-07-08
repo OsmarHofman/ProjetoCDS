@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.abstracts.Usuario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.classes.security.Validacao;
 import br.edu.ifsc.cds.frames.user.telaRotina.ExecutorRotina;
@@ -22,6 +23,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Controller da tela de Login do {@link Usuario}.
+ */
 public class LoginController implements Initializable {
 
 	@FXML

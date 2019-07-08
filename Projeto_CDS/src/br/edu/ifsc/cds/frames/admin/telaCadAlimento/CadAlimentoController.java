@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DTO.InfoNutricionalDTO;
+import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
 import br.edu.ifsc.cds.classes.domain.InfoNutricional;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
@@ -17,6 +18,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+/**
+ * Controller que irá gerênciar o cadastro de alimentos por parte do {@link Admin}.
+ *
+ */
 public class CadAlimentoController implements Initializable {
 
 	@FXML

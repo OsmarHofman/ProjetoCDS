@@ -1,11 +1,15 @@
 package br.edu.ifsc.cds.frames.user.telaCadExercicio;
 
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Executor da tela de cadstro de exercicios pelo {@link Pessoa}.
+ */
 public class ExecutorTelaCadExercicio extends Application {
 
 	@Override

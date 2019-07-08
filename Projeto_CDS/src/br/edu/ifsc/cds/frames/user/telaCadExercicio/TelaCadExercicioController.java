@@ -14,6 +14,7 @@ import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.services.ExercicioService;
 import javafx.collections.FXCollections;
@@ -26,6 +27,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller da tela de cadastro de exercicios na rotina da {@link Pessoa}.
+ * @author luana
+ *
+ */
 public class TelaCadExercicioController implements Initializable {
 
 	@FXML

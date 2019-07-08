@@ -38,6 +38,12 @@ public class AlimentoService {
 		return dao.retrieveAll();
 	}
 
+	/**
+	 * Método que irá atualizar um determinado {@link Alimento}
+	 * 
+	 * @param alimento Alimento com as novas informações a serem atualizadas
+	 * @return Booleno que indicará true se o update foi bem sucedido ou caso contrário uma exceção.
+	 */
 	public boolean atualizaAlimento(Alimento alimento) {
 		try {
 			dao.update(alimento);
@@ -47,6 +53,11 @@ public class AlimentoService {
 		}
 	}
 
+	/**
+	 * Método para chamar o DAO do alimento para então realizar a exclusão do {@link Alimento}.
+	 * 
+	 * @param id Número do id do alimento a ser excluído.
+	 */
 	public void excluirAlimento(Integer id) {
 		dao.delete(id);
 	}

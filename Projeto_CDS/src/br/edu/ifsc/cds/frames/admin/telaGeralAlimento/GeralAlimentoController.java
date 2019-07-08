@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.DTO.InfoNutricionalDTO;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.admin.telaCadAlimento.CadAlimentoController;
@@ -26,6 +27,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controller da tela Geral de Alimentos vizualizada pelo {@link Admin}.
+ */
 public class GeralAlimentoController implements Initializable {
 	@FXML
 	private TableColumn<InfoNutricionalDTO, Float> colGordSat;

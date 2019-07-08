@@ -5,7 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import br.edu.ifsc.cds.classes.domain.Admin;
+import br.edu.ifsc.cds.classes.domain.Exercicio;
 
+/**
+ * Executora da tela geral de {@link Exercicio} vizualizada pelo {@link Admin}.
+ */
 public class ExecutorGeralExercicio extends Application {
 	@Override
 	public void start(Stage primaryStage) {

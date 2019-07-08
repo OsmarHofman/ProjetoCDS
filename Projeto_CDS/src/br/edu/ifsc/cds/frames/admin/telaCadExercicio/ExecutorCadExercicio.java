@@ -1,11 +1,16 @@
 package br.edu.ifsc.cds.frames.admin.telaCadExercicio;
 
+import br.edu.ifsc.cds.classes.domain.Admin;
+import br.edu.ifsc.cds.classes.domain.Exercicio;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ *Executor da tela Cadastro de {@link Exercicio} do {@link Admin}
+ */
 public class ExecutorCadExercicio extends Application {
 	@Override
 	public void start(Stage primaryStage) {

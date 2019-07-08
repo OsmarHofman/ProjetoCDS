@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -49,16 +48,10 @@ public class SplashScreenController extends StackPane {
 		window.show();
 	}
 
+	/**
+	 * Esconde a janela posteriormente
+	 */
 	public void hideWindow() {
 		window.hide();
 	}
-
-	public static double getScreenWidth() {
-		return Screen.getPrimary().getBounds().getWidth();
-	}
-
-	public static double getVisualScreenHeight() {
-		return Screen.getPrimary().getVisualBounds().getHeight();
-	}
-
 }

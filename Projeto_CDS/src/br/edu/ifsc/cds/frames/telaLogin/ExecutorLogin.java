@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Executora da tela de Login
+ */
 public class ExecutorLogin extends Application {
 	@Override
 	public void start(Stage primaryStage) {

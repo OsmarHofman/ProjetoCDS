@@ -16,6 +16,11 @@ public class EntityMagerFactorySingleton {
 
 	}
 
+	/**
+	 * Método para verificar se um EntityManagerFactory já está criado, pois sua criação é muito custosa
+	 * 
+	 * @return Retorna um Entity Manager Factory para a criação de um Entity Manager nos DAO's
+	 */
 	public static EntityManagerFactory getFactory() {
 		if (emf == null) {
 			synchronized (EntityMagerFactorySingleton.class) {
@@ -27,6 +32,10 @@ public class EntityMagerFactorySingleton {
 		return emf;
 	}
 
+	/**
+	 * Método responsável por fecgar um EntityManagerFactory para não ficar em execução
+	 * no momento em que fecharmos o programa.
+	 */
 	public static void closeFactory() {
 		if (emf != null) {
 			emf.close();

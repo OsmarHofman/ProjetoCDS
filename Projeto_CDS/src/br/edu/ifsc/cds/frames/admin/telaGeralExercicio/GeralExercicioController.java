@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.DTO.AtividadeFisicaDTO;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.classes.domain.Admin;
+import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.frames.admin.telaCadExercicio.CadExercicioController;
 import br.edu.ifsc.cds.frames.admin.telaCadExercicio.ExecutorCadExercicio;
 import br.edu.ifsc.cds.services.ExercicioService;
@@ -26,6 +28,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controller da tela geral de {@link Exercicio} vizualidada pelo {@link Admin}.
+ */
 public class GeralExercicioController implements Initializable {
 
 	@FXML

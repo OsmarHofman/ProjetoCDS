@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DTO.PessoaDTO;
 import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Alimento;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.admin.telaGeralAlimento.ExecutorGeralAlimento;
@@ -22,6 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controller da tela geral de {@link Pessoa} vizualida pelo {@link Admin}.
+ */
 public class UsuariosController implements Initializable {
 
 	// Administrador que logou

@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import br.edu.ifsc.cds.DTO.AtividadeFisicaDTO;
+import br.edu.ifsc.cds.classes.domain.Admin;
 import br.edu.ifsc.cds.classes.domain.Exercicio;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.classes.security.Validacao;
@@ -18,6 +19,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+/**
+ * Controller responsável por controlar a tela de Cadsatro de Exercícios do {@link Admin}
+ *
+ */
 public class CadExercicioController implements Initializable {
 
 	@FXML
