@@ -16,6 +16,7 @@ import br.edu.ifsc.cds.DAO.AlimentoDAO;
 import br.edu.ifsc.cds.DTO.AlimentoDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Alimento;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import br.edu.ifsc.cds.classes.domain.Horario;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.user.telaRotina.RotinaController;
@@ -32,6 +33,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+/**
+ * Controller da tela de cadastro de refeições do {@link Pessoa}.
+ */
 public class CadRefeicaoController implements Initializable {
 
 	private String uniMed = "";

@@ -3,6 +3,8 @@ package br.edu.ifsc.cds.frames.user.telaRotina;
 import javax.swing.JOptionPane;
 
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.classes.domain.Rotina;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * Executora da tela de {@link Rotina} da {@link Pessoa}.
+ */
 public class ExecutorRotina extends Application {
 	@Override
 	public void start(Stage primaryStage) {

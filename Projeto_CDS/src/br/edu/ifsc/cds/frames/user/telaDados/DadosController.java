@@ -15,6 +15,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+/**
+ * Controller da tela de dados pessoais do {@link Pessoa}
+ * @author luana
+ *
+ */
 public class DadosController implements Initializable {
 
 	@FXML

@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import br.edu.ifsc.cds.classes.security.ControleComponente;
+import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.domain.Rotina;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,6 +15,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
+/**
+ * Controller da tela de histórico de {@link Rotina} do {@link Pessoa}.
+ * @author luana
+ *
+ */
 public class HistoricoController implements Initializable {
 
 	@FXML

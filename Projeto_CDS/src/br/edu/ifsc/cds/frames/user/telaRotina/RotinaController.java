@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXButton;
 import br.edu.ifsc.cds.DTO.ExercicioDTO;
 import br.edu.ifsc.cds.DTO.RefeicaoDTO;
 import br.edu.ifsc.cds.classes.domain.Pessoa;
+import br.edu.ifsc.cds.classes.domain.Rotina;
 import br.edu.ifsc.cds.classes.security.ControleComponente;
 import br.edu.ifsc.cds.frames.telaLogin.ExecutorLogin;
 import br.edu.ifsc.cds.frames.user.telaCadExercicio.ExecutorTelaCadExercicio;
@@ -29,6 +30,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * Controller da tela de {@link Rotina} da {@link Pessoa}.
+ * @author luana
+ *
+ */
 public class RotinaController implements Initializable {
 
 	private static List<RefeicaoDTO> listaRefeicao;

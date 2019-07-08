@@ -1,11 +1,17 @@
 package br.edu.ifsc.cds.frames.user.telaCadRefeicao;
 
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Executor da tela de cadastro de refeições da {@link Pessoa}.
+ * @author luana
+ *
+ */
 public class ExecutorCadRefeicao extends Application {
 
 	@Override

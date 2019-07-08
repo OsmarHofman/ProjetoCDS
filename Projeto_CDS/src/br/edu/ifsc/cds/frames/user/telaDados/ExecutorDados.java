@@ -1,11 +1,15 @@
 package br.edu.ifsc.cds.frames.user.telaDados;
 
+import br.edu.ifsc.cds.classes.domain.Pessoa;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * Executora da tela de dados pessoais do {@link Pessoa}
+ */
 public class ExecutorDados extends Application {
 	@Override
 	public void start(Stage primaryStage) {
