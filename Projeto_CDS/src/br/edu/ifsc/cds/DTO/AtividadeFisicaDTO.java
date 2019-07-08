@@ -14,10 +14,21 @@ public class AtividadeFisicaDTO {
 	private Float gastoCaloria;
 	private Float met;
 
+	/**
+	 * Cria um {@link AtividadeFisicaDTO} sem adicionar nenhum valor a seus atributos
+	 */
 	public AtividadeFisicaDTO() {
 
 	}
 
+	/**
+	 * Cria um {@link AtividadeFisicaDTO} adicionando valores a todos os seus atributos
+	 * 
+	 * @param id Valor do id da {@link AtividadeFisicaDTO}
+	 * @param nome Nome da {@link AtividadeFisicaDTO}
+	 * @param gastoCaloria Gasto calórico da {@link AtividadeFisicaDTO}
+	 * @param met Valor do MET da {@link AtividadeFisicaDTO}
+	 */
 	public AtividadeFisicaDTO(Integer id, String nome, Float gastoCaloria, Float met) {
 		super();
 		this.id = id;
@@ -26,34 +37,78 @@ public class AtividadeFisicaDTO {
 		this.met = met;
 	}
 
+	/**
+	 * Retorna o id da {@link AtividadeFisicaDTO}
+	 * 
+	 * @return Valor do id da AtividadeFisicaDTO
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * Altera o id da {@link AtividadeFisicaDTO} para o novo valor recebido como
+	 * parâmetro
+	 * 
+	 * @param Novo id da AtividadeFisicaDTO 
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/**
+	 * Retorna o nome da {@link AtividadeFisicaDTO} 
+	 * 
+	 * @return Valor atual do nome do AtividadeFisicaDTO
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Altera o valor do nome da {@link AtividadeFisicaDTO} para o novo valor recebido como
+	 * parâmetro
+	 * 
+	 * @param nome Novo nome do @link AtividadeFisicaDTO
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Retorna o gasto calórico da {@link AtividadeFisicaDTO} 
+	 * 
+	 * @return Valor do gasto calórico da AtividadeFisicaDTO
+	 */
 	public Float getGastoCaloria() {
 		return gastoCaloria;
 	}
 
+	/**
+	 * Altera o valor do gasto calórico da {@link AtividadeFisicaDTO} para o novo valor recebido como 
+	 * parâmetro
+	 * 
+	 * @param gastoCaloria Novo valor do gasto calórico da AtividadeFisicaDTO
+	 */
 	public void setGastoCaloria(Float gastoCaloria) {
 		this.gastoCaloria = gastoCaloria;
 	}
 
+	/**
+	 * Retorna o valor do Met da {@link AtividadeFisicaDTO}
+	 * 
+	 * @return Valor atual do Met da @link AtividadeFisicaDTO
+	 */
 	public Float getMet() {
 		return met;
 	}
 
+	/**
+	 * Altera o Met da {@link AtividadeFisicaDTO} para o novo valor recebido como 
+	 * parâmetro
+	 * 
+	 * @param met Nova Met da AtividadeFisicaDTO 
+	 */
 	public void setMet(Float met) {
 		this.met = met;
 	}

@@ -25,50 +25,100 @@ public class AlimentoDTO {
 	private Float calorias;
 	private Float quantidade;
 
+	/**
+	 * Cria um {@link AlimentoDTO } sem adicionar nenhum valor a seus atributos
+	 */
 	public AlimentoDTO() {
 
 	}
 
+	/**
+	 * Cria um {@link AlimentoDTO } adicionando cada um de seus atributos oriundos do {@link Alimento}
+	 * 
+	 * @param id Número de id do {@link Alimento} que virá do programa
+	 * @param nome Nome do {@link Alimento} 
+	 * @param calorias Calorias do {@link Alimento}
+	 * @param quantidade Quantidade existente do {@link Alimento}
+	 */
 	public AlimentoDTO(Integer id, String nome, Float calorias, Float quantidade) {
 		this.id = id;
 		this.nome = nome;
 		this.calorias = calorias;
 		this.quantidade = quantidade;
 	}
-	
-	/**
-	 * gets e sets padrão
-	 * 
-	 */
 
+	/**
+	 * Retorna o id do {@link AlimentoDTO}
+	 * 
+	 * @return Valor do id do {@link AlimentoDTO}
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * Altera o valor do id do {@link AlimentoDTO} para o novo valor recebido como
+	 * parâmetro.
+	 * 
+	 * @param id Novo id do AlimentoDTO
+	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
+	/**
+	 * Retorna o nome do {@link AlimentoDTO}
+	 * 
+	 * @return Valor atual do nome do AlimentoDTO
+	 */
 	public String getNome() {
 		return nome;
 	}
 
+	/**
+	 * Altera o valor do nome do {@link AlimentoDTO} para o novo valor recebido como
+	 * parâmetro
+	 * 
+	 * @param nome Novo nome do AlimentoDTO
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Retorna  as calorias do {@link AlimentoDTO} 
+	 * 
+	 * @return Valor atual de calorias do AlimentoDTO
+	 */
 	public Float getCalorias() {
 		return calorias;
 	}
 
+	/**
+	 * Altera o valor das calorias do {@link AlimentoDTO} para o novo valor recebido como
+	 * parâmetro
+	 * 
+	 * @param calorias Novo valor de calorias do AlimentoDTO
+	 */
 	public void setCalorias(Float calorias) {
 		this.calorias = calorias;
 	}
 
+	/**
+	 * Retorna a quantidade de alimentos do {@link AlimentoDTO}
+	 * 
+	 * @return Valor da quantidade de alimentos do AlimentoDTO específico
+	 */
 	public Float getQuantidade() {
 		return quantidade;
 	}
 
+	/**
+	 * Altera o valor da quantidade do {@link AlimentoDTO} para o novo valor recebido como 
+	 * parâmetro
+	 * 
+	 * @param quantidade Nova quantidade de alimentos
+	 */
 	public void setQuantidade(Float quantidade) {
 		this.quantidade = quantidade;
 	}

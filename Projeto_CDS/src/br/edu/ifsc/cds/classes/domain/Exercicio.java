@@ -128,7 +128,7 @@ public class Exercicio implements Serializable {
 	 * Altera o valor da met do {@link Exercicio} para o novo valor recebido como
 	 * parâmetro.
 	 * 
-	 * @param met Nova met do Alimento.
+	 * @param met Nova met do Exercicio.
 	 */
 	public void setMet(float met) {
 		this.met = met;
